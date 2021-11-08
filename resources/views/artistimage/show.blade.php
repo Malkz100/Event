@@ -36,7 +36,7 @@
 
 {{--                                @foreach ($images as $image)--}}
                                 <tr>
-                                    <td><img src="{{ asset('storage/images/artists/'.$artistimage->file_path) }}" alt="Artist Image" height="200px"></td>
+                                    <td><img src="{{ asset('storage/images/artists/'.$artistimage->file_path) }}" alt="Artist Image" height="500px"></td>
 
                                 </tr>
 {{--                                @endforeach--}}
