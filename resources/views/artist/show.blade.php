@@ -36,12 +36,14 @@
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Genre: </strong>
+                                <strong>Genres: </strong>
+
                                 @foreach($artist->genres as $genre)
 
-                                    <br/> {{ $genre->name }}
+                                    {{ $genre->name }}
 
                                 @endforeach
+
                             </div>
                         </div>
 

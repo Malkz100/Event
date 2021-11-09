@@ -6,6 +6,7 @@ use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\ArtistImageController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +18,9 @@ use App\Http\Controllers\ArtistImageController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -28,7 +29,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //Route::get('/dashboard', function () {
 //    return view('dashboard');
 //})->middleware(['auth'])->name('dashboard');
-
+Route::resource('/',HomeController::class)->name('index', 'home');
 Route::resource('venue',VenueController::class)->middleware(['auth']);
 Route::resource('artist',ArtistController::class)->middleware(['auth']);
 Route::resource('event',EventController::class)->middleware(['auth']);

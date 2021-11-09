@@ -40,7 +40,9 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
+                                    <div class="row">
                                     <strong>Genre Name:</strong>
+                                    </div>
                                     <input type="text" name="name" value="{{ $genre->name }}" class="form-control" placeholder="genre Name">
                                 </div>
                             </div>

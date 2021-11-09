@@ -4,8 +4,12 @@
     </div>
 
     <div class="mt-8 text-2xl">
-        Welcome to your Jetstream application
+        Welcome to your Jetstream applicationX!!X
     </div>
+
+{{--    <div>--}}
+{{--        @livewire('search-artists')--}}
+{{--    </div>--}}
 
     <div class="mt-6 text-gray-500">
         Laravel Jetstream provides a beautiful, robust starting point for your next Laravel application. Laravel is designed

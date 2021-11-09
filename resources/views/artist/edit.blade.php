@@ -50,15 +50,20 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
+                                    <div class="row">
                                     <strong>Genres: </strong>
+                                    </div>
+                                    <ul class="checkbox-grid">
                                     @foreach($genres as $genre)
 
-                                        <br/><input type="checkbox" name="genres[]" value="{{ $genre->id }}"
+
+                                            <li><input type="checkbox" name="genres[]" value="{{ $genre->id }}"
                                                     {{ $genre->artists->contains($artist->id) ? 'checked' : '' }}
                                                     @if(in_array($genre->id,old('genre',[]))) checked  @endif>
-                                        <label for="{{ $genre->name }}">{{ $genre->name }}</label>
-
+                                        <label for="{{ $genre->name }}">{{ $genre->name }}</label></li>
+                                        
                                     @endforeach
+                                    </ul>
                                 </div>
                             </div>
 

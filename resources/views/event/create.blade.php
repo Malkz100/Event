@@ -78,6 +78,14 @@
                                 </div>
                             </div>
 
+
+{{--                            <div class="col-xs-12 col-sm-12 col-md-12">--}}
+{{--                                <div class="form-group">--}}
+{{--                                    <label><strong>Date-Time:</strong></label>--}}
+{{--                                    <livewire:datepicker />--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label><strong>Date-Time:</strong></label>

@@ -1,0 +1,7 @@
+/*css for event forms*/
+
+.checkbox-grid li {
+    display: block;
+    float: left;
+    width: 25%;
+}

@@ -59,13 +59,14 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label><strong>Genres: </strong></label>
-
+                                    <ul class="checkbox-grid">
                                     @foreach($genres as $genre)
 
-                                        <br/><input type="checkbox" name="artists[]" value="{{ $genre->id }}">
-                                        <label for="{{ $genre->name }}">{{ $genre->name }}</label>
+                                        <li><input type="checkbox" name="artists[]" value="{{ $genre->id }}">
+                                        <label for="{{ $genre->name }}">{{ $genre->name }}</label></li>
 
                                     @endforeach
+                                    </ul>
                                 </div>
                             </div>
 
@@ -108,7 +109,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Artist Phone:</strong>
-                                    <input type="text" name="artist_phone" class="form-control" placeholder="Artist Phone">
+                                    <input type="text" name="phone" class="form-control" placeholder="Artist Phone">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
