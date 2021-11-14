@@ -53,31 +53,35 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <label for="venue_id" class="inline-flex items-center">
-                                        <strong>Venue:</strong>
+{{--                                    <label for="venue_id" class="inline-flex items-center">--}}
+                                        <label><strong>Venue:</strong></label>
                                         <select name="venue_id" class="form-control">
                                             <option value="{{ $event->venue->id }}">{{ $event->venue->name }}</option>
                                             @foreach($venues as $venue)
-
                                                 <option value="{{ $venue->id }}">{{ $venue->name }}</option>
-
                                             @endforeach
                                         </select>
-                                    </label>
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Date-Time:</strong>
-                                    <div class='input-group date' id='datetimepicker'>
-                                        <input type='text' name="datetime" value="{{ $event->datetime }}"placeholder="{{ Carbon\Carbon::parse($event->datetime)->format('l jS \of F Y') }}" class="form-control" />
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar"></span>
-                                            </span>
-                                    </div>
+                                <div class="form-group" >
+                                    <label ><strong>Date-Time:</strong></label>
+                                    <x-datepicker wire:model="datetime" name="datetime" placeholder="{{ Carbon\Carbon::parse($event->datetime)->format('l jS \of F Y') }}" class="form-control bg-white" />
                                 </div>
                             </div>
+
+{{--                            <div class="col-xs-12 col-sm-12 col-md-12">--}}
+{{--                                <div class="form-group">--}}
+{{--                                    <strong>Date-Time:</strong>--}}
+{{--                                    <div class='input-group date' id='datetimepicker'>--}}
+{{--                                        <input type='text' name="datetime" value="{{ $event->datetime }}"placeholder="{{ Carbon\Carbon::parse($event->datetime)->format('l jS \of F Y') }}" class="form-control" />--}}
+{{--                                        <span class="input-group-addon">--}}
+{{--                                            <span class="glyphicon glyphicon-calendar"></span>--}}
+{{--                                            </span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">

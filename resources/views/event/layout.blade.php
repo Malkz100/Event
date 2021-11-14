@@ -6,19 +6,17 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
     <!-- The "defer" attribute is important to make sure Alpine waits for Livewire to load first. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+{{--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">--}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/event.css') }}">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     @livewireStyles
 
 </head>
 <body style="background: #e2e2e2;">
 {{--<body class="font-sans antialiased">--}}
-{{--<x-jet-banner />--}}
+<x-jet-banner />
 @livewire('navigation-menu')
 
 <div class="container">
@@ -42,25 +40,28 @@
 
 @livewireScripts
 <script src="{{ asset('js/app.js') }}" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
 
-
-{{--<script src="pikaday.js"></script>--}}
 {{--<script>--}}
-{{--    var picker = new Pikaday({ field: document.getElementById('datetime') });--}}
+{{--    function app() {--}}
+{{--        return {--}}
+{{--            initFlatpickr() {--}}
+{{--                const fp = flatpickr(this.$refs.datetime, {--}}
+{{--                    locale: "en",--}}
+{{--                    minDate: "1930-01",--}}
+{{--                    maxDate: "2050-01",--}}
+{{--                    enableTime: true,--}}
+{{--                    time_24hr: true,--}}
+{{--                    // minTime: "07:00",--}}
+{{--                    // maxTime: "20:00",--}}
+{{--                    dateFormat: "Y-m-d H:i",--}}
+{{--                    disableMobile: "true",--}}
+{{--                    static: false,--}}
+{{--                });--}}
+{{--            }--}}
+{{--        }--}}
+{{--    }--}}
 {{--</script>--}}
-
-
-<script type="text/javascript">
-    $(function() {
-        $('#datetimepicker').datetimepicker({format:'YYYY/MM/DD HH:mm'});
-    });
-</script>
-{{--<script src="{{ asset('js/app.js') }}" defer></script>--}}
 
 </html>

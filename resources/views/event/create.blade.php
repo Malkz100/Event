@@ -53,10 +53,9 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="venue_id" class="inline-flex items-center">
-                                    <strong>Venue:</strong></label>
-                                    <label>
+                                        <strong>Venue:</strong></label>
                                     <select name="venue_id" class="form-control">
-                                        <option value="" disabled selected> -- Select Venue -- </option>
+                                        <option value="" disabled selected>  Select Venue  </option>
                                         @foreach($venues as $venue)
                                             <option value="{{ $venue->id }}">{{ $venue->name }}</option>
                                         @endforeach
@@ -67,36 +66,37 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <label><strong>Artists: </strong></label>
-
+                                    <label><strong>Select Artists: </strong></label>
+                                    <ul class="checkbox-grid">
                                     @foreach($artists as $artist)
 
-                                        <br/><input type="checkbox" name="artists[]" value="{{ $artist->id }}">
-                                        <label for="{{ $artist->name }}">{{ $artist->name }}</label>
+                                        <li><input type="checkbox" name="artists[]" value="{{ $artist->id }}">
+                                            <label for="{{ $artist->name }}">{{ $artist->name }}</label></li>
 
                                     @endforeach
+                                    </ul>
                                 </div>
                             </div>
 
-
-{{--                            <div class="col-xs-12 col-sm-12 col-md-12">--}}
-{{--                                <div class="form-group">--}}
-{{--                                    <label><strong>Date-Time:</strong></label>--}}
-{{--                                    <livewire:datepicker />--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label><strong>Date-Time:</strong></label>
-                                    <div class='input-group date' id='datetimepicker'>
-                                        <input type='text' name="datetime" class="form-control" />
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar"></span>
-                                            </span>
-                                    </div>
+                                    <x-datepicker wire:model="datetime" name="datetime" class="form-control bg-white" />
                                 </div>
                             </div>
+
+{{--                            <div class="col-xs-12 col-sm-12 col-md-12">--}}
+{{--                                <div class="form-group">--}}
+{{--                                    <label><strong>Date-Time:</strong></label>--}}
+{{--                                    <div class='input-group date' id='datetimepicker'>--}}
+{{--                                        <input type='text' name="datetime" class="form-control" />--}}
+{{--                                        <span class="input-group-addon">--}}
+{{--                                            <span class="glyphicon glyphicon-calendar"></span>--}}
+{{--                                            </span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">

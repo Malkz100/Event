@@ -29,9 +29,20 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //Route::get('/dashboard', function () {
 //    return view('dashboard');
 //})->middleware(['auth'])->name('dashboard');
+
+//Frontend
 Route::resource('/',HomeController::class)->name('index', 'home');
+Route::resource('home',HomeController::class);
+
+
+//Backend
+Route::get('event/showevent/{id}', [EventController::class, 'showevent'])->name('event.showevent');
+Route::get('artist/showartist/{id}', [ArtistController::class, 'showartist'])->name('artist.showartist');
+
 Route::resource('venue',VenueController::class)->middleware(['auth']);
 Route::resource('artist',ArtistController::class)->middleware(['auth']);
 Route::resource('event',EventController::class)->middleware(['auth']);
 Route::resource('genre',GenreController::class)->middleware(['auth']);
 Route::resource('artistimage', ArtistImageController::class)->middleware(['auth']);
+
+

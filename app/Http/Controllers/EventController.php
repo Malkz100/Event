@@ -73,6 +73,18 @@ class EventController extends Controller
        return view('event.show',compact('event'));
     }
 
+    public function showevent($id)
+    {
+        return view('frontend.show-event', [
+            'event' => Event::findOrFail($id)
+        ]);
+    }
+
+//    public function showevent(Event $event)
+//    {
+//        return view('event.show',compact('event'));
+//    }
+
 
     /**
      * Show the form for editing the specified resource.
