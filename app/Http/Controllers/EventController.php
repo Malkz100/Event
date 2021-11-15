@@ -73,17 +73,13 @@ class EventController extends Controller
        return view('event.show',compact('event'));
     }
 
-    public function showevent($id)
-    {
-        return view('frontend.show-event', [
-            'event' => Event::findOrFail($id)
-        ]);
-    }
-
-//    public function showevent(Event $event)
+//    public function showevent($id)
 //    {
-//        return view('event.show',compact('event'));
+//        return view('frontend.show-event', [
+//            'event' => Event::findOrFail($id)
+//        ]);
 //    }
+
 
 
     /**

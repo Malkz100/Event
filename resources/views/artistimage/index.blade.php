@@ -40,7 +40,7 @@
                         <td>{{ $image->name }}</td>
 
 {{--                        <td><img src="{{ $image->file_path }}" alt="Artist Image" height="40px"></td>--}}
-                        <td><img src="{{ asset('storage/images/artists/'.$image->file_path) }}" alt="Artist Image" height="70px"></td>
+                        <td><img src="{{ asset('storage/images/artists/'.$image->file_path) }}" alt="Artist Image" height="40px"></td>
 {{--                        <td><img src="/public/image/.'{{Storage::url($image->file_path)}}'" alt="Artist Image" height="40px"></td>--}}
 
 {{--                        {{Storage::url($dato->icono)}}--}}

@@ -1,4 +1,4 @@
-@extends('artist.layout')
+@extends('layouts.guest')
 
 @section('content')
     <div class="card mt-5">
@@ -8,7 +8,8 @@
 {{--            </div>--}}
             <div class="col-lg-12 mt-1 mr-1">
                 <div class="float-right">
-                    <a class="btn btn-primary" href="{{ route('home.index') }}"> Back</a>
+{{--                    <a class="btn btn-primary" href="{{ route('home.index') }}"> Back</a>--}}
+                    <a href="{{ url()->previous() }}">Back</a>
                 </div>
             </div>
             <h2>{{ $artist->name }} -Artist Details</h2>
@@ -17,7 +18,7 @@
         <div class="card-body">
             @foreach ($artist->artistimages as $artistimage)
                 <div class="float-right">
-                    <img src="{{ asset('storage/images/artists/'.$artistimage->file_path) }}" alt="Artist Image" height="400px">
+                    <img src="{{ asset('storage/images/artists/'.$artistimage->file_path) }}" alt="Artist Image" height="150px">
                 </div>
             @endforeach
             <div class="row mt-2">
