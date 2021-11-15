@@ -13,3 +13,8 @@
         padding-right: 1.5rem;
     }
 }
+
+img, video {
+    max-width: 100%;
+    height: 350px;
+}

@@ -60,6 +60,20 @@ class HomeController extends Controller
  //           ->with('venues', Venue::all());
     }
 
+    public function showevent($id)
+    {
+        return view('frontend.show-event', [
+            'event' => Event::findOrFail($id)
+        ]);
+    }
+
+    public function showartist($id)
+    {
+        return view('frontend.show-artist', [
+            'artist' => Artist::findOrFail($id)
+        ]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

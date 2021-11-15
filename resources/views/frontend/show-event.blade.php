@@ -1,6 +1,8 @@
-@extends('event.layout')
+{{--<x-guest-layout>--}}
+@extends('layouts.guest')
 
 @section('content')
+    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
     <div class="card mt-5">
         <div class="card-header">
             <div class="float-left">
@@ -43,11 +45,13 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Artists: </strong>
+                                <ul>
                                 @foreach($event->artists as $artist)
 
-                                    <br/> {{ $artist->name }}
+                                    <li><a href="{{ route('home.showartist',$artist->id) }}">{{ $artist->name }}</a></li>
 
                                 @endforeach
+                                </ul>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -103,6 +107,7 @@
             </div>
         </div>
     </div>
-
-
+    </div>
 @endsection
+{{--</x-guest-layout>--}}
+

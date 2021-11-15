@@ -33,11 +33,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //Frontend
 Route::resource('/',HomeController::class)->name('index', 'home');
 Route::resource('home',HomeController::class);
-
+Route::get('home/showevent/{id}', [HomeController::class, 'showevent'])->name('home.showevent');
+Route::get('home/showartist/{id}', [HomeController::class, 'showartist'])->name('home.showartist');
 
 //Backend
-Route::get('event/showevent/{id}', [EventController::class, 'showevent'])->name('event.showevent');
-Route::get('artist/showartist/{id}', [ArtistController::class, 'showartist'])->name('artist.showartist');
+//Route::get('event/showevent/{id}', [EventController::class, 'showevent'])->name('event.showevent');
+//Route::get('artist/showartist/{id}', [ArtistController::class, 'showartist'])->name('artist.showartist');
 
 Route::resource('venue',VenueController::class)->middleware(['auth']);
 Route::resource('artist',ArtistController::class)->middleware(['auth']);
