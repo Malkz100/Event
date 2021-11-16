@@ -54,7 +54,8 @@ return [
     |
     */
 
-    'asset_url' => 'http://localhost/event/public/',
+ //   'asset_url' => null,
+    'asset_url' => 'http://localhost/event/public',
 
     /*
     |--------------------------------------------------------------------------
@@ -68,7 +69,7 @@ return [
     |
     */
 
-    'app_url' => '/event',
+    'app_url' => null,
 
     /*
     |--------------------------------------------------------------------------
