@@ -40,16 +40,14 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <div class="row">
-                                    <strong>Genre Name:</strong>
-                                    </div>
-                                    <input type="text" name="name" value="{{ $genre->name }}" class="form-control" placeholder="genre Name">
+                                        <label for="name"><strong> Name:</strong></label>
+                                    <input type="text" name="name" value="{{ $genre->name }}" class="form-control" placeholder="Name">
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Description:</strong>
+                                    <label for="description"><strong>Description:</strong></label>
                                     <textarea class="form-control" style="height:70px" name="description" placeholder="Description">{{ $genre->description }}</textarea>
                                 </div>
                             </div>

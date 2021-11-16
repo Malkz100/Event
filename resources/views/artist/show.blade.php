@@ -15,6 +15,9 @@
             @foreach ($artist->artistimages as $artistimage)
             <div class="float-right">
                 <img src="{{ asset('storage/images/artists/'.$artistimage->file_path) }}" alt="Artist Image" height="150px">
+                <div class="caption">
+                    <p>{{ $artistimage->name }}</p>
+                </div>
             </div>
             @endforeach
             <div class="row mt-2">
