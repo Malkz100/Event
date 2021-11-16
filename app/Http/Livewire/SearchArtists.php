@@ -3,16 +3,21 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 use App\Models\Artist;
 
 
 
 class SearchArtists extends Component
 {
+    use WithPagination;
+    public $searchTerm;
+
     public function render()
     {
-        return view('livewire.search-artists', [
-            'artists' => Artist::where('name', $this->search)->get(),
+        $searchTerm = '%'.$this->searchTerm.'%';
+        return view('livewire.search-artists',[
+            'artists' => Artist::where('name','like', $searchTerm)->paginate(5)
         ]);
     }
 }
