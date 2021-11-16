@@ -42,7 +42,7 @@
                                     <strong>Artist:</strong></label>
                                 <label>
                                     <select name="artist_id" class="form-control">
-                                        <option value="" disabled selected> -- Select Artist -- </option>
+                                        <option value="" disabled selected>  Select Artist  </option>
                                         @foreach($artists as $artist)
                                             <option value="{{ $artist->id }}">{{ $artist->name }}</option>
                                         @endforeach

@@ -19,8 +19,8 @@
         @livewireStyles
     </head>
     <body>
-{{--        <div class="container">--}}
-        <div class="font-sans text-gray-900 antialiased">
+        <div class="container">
+{{--        <div class="font-sans text-gray-900 antialiased">--}}
 
             <!-- Page Content -->
             <main>

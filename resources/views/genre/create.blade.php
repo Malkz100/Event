@@ -39,13 +39,13 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Genre Name:</strong>
+                                    <label for="name"><strong>Genre Name:</strong></label>
                                     <input type="text" name="name" class="form-control" placeholder="Genre Name">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Description:</strong>
+                                    <label for="description"><strong>Description:</strong></label>
                                     <textarea class="form-control" rows="3" name="description" placeholder="Description"></textarea>
                                 </div>
                             </div>

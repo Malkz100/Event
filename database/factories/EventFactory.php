@@ -24,11 +24,11 @@ class EventFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->name,
+            'title' => $this->faker->unique()->word,
             'description' =>$this->faker->paragraph,
             'venue_id' =>Venue::all()->random()->id,
             'datetime' =>$this->faker->dateTime,
-            'price' =>$this->faker->numberBetween($min = 5, $max = 50),
+            'price' =>$this->faker->numberBetween($min = 5, $max = 120),
             'reduced_price' =>$this->faker->numberBetween($min = 5, $max = 50)
         ];
     }
