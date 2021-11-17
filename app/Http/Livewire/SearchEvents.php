@@ -4,9 +4,9 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\Artist;
+use App\Models\Event;
 
-class SearchArtists extends Component
+class SearchEvents extends Component
 {
     use WithPagination;
     public $searchTerm;
@@ -14,8 +14,8 @@ class SearchArtists extends Component
     public function render()
     {
         $searchTerm = '%'.$this->searchTerm.'%';
-        return view('livewire.search-artists',[
-            'artists' => Artist::where('name','like', $searchTerm)->paginate(5)
+        return view('livewire.search-events',[
+            'events' => Event::where('title','like', $searchTerm)->paginate(5)
         ]);
     }
 }

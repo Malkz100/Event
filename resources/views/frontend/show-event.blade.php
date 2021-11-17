@@ -20,7 +20,9 @@
         <div class="card-header">
             <div class="col-lg-12 mt-1 mr-1">
                 <div class="float-right">
+{{--                    <a href="{{ url()->previous() }}">Back</a>--}}
                     <a href="{{ route('home.index') }}">Back</a>
+
                 </div>
             </div>
 
