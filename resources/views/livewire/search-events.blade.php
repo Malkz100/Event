@@ -6,21 +6,22 @@
 
             <table class="table table-bordered" style="margin: 10px 0 10px 0;">
                 <tr>
-                    <th>Name</th>
-                    <th>Email</th>
+                    <th>Title</th>
+                    <th>Venue</th>
                 </tr>
-                @foreach($artists as $artist)
+                @foreach($events as $event)
                     <tr>
                         <td>
-                            <a href="{{ route('home.showartist',$artist->id) }}">{{ $artist->name }}</a>
+                            <a href="{{ route('home.showevent',$event->id) }}">{{ $event->title }}</a>
                         </td>
                         <td>
-                            {{ $artist->email }}
+                            {{ $event->venue->name }}
                         </td>
                     </tr>
                 @endforeach
             </table>
-            {{ $artists->links() }}
+            {{ $events->links() }}
         </div>
     </div>
 </div>
+

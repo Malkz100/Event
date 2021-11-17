@@ -39,10 +39,8 @@ Route::resource('/',HomeController::class)->name('index', 'home');
 Route::resource('home',HomeController::class);
 Route::get('home/showevent/{id}', [HomeController::class, 'showevent'])->name('home.showevent');
 Route::get('home/showartist/{id}', [HomeController::class, 'showartist'])->name('home.showartist');
-
-Route::get('/search-artists', function () {
-    return view('frontend.search-artists');
-});
+Route::view('/search-events', 'frontend.search-events');
+Route::view('/search-artists', 'frontend.search-artists');
 
 
 //Backend

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Search Events</title>
     @livewireStyles
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous" />
@@ -15,10 +15,10 @@
                     <div class="float-right">
                         <a href="{{ route('home.index') }}">Home</a>
                     </div>
-                    <p><strong>Search Artists</strong></p>
+                    <p><strong>Search events</strong></p>
                 </div>
                 <div class="card-body">
-                    @livewire('search-artists')
+                    @livewire('search-events')
                 </div>
             </div>
         </div>

@@ -74,6 +74,13 @@ class HomeController extends Controller
         ]);
     }
 
+
+    public function searchevents()
+    {
+        return view('frontend.search-events');
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      *
