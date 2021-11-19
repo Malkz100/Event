@@ -26,7 +26,8 @@
                 </div>
             </div>
 
-            <h2 class="card-title">{{ $event->title }} -Public Event Details</h2>
+            <h2 class="card-title">{{ $event->title }}</h2>
+            <h6 class="card-subtitle mb-2 text-muted">Event Details</h6>
         </div>
 
         <div class="card-body">
@@ -60,7 +61,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div>
-                                <strong>Artists: </strong>
+                                <strong>Artists Appearing: </strong>
                                 <ul>
                                 @foreach($event->artists as $artist)
 
