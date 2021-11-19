@@ -24,7 +24,8 @@
                     <a href="{{ url()->previous() }}">Back</a>
                 </div>
             </div>
-            <h2>{{ $artist->name }} -Artist Details</h2>
+            <h2 class ="card-title">{{ $artist->name }}</h2>
+            <h6 class="card-subtitle mb-2 text-muted">Artist Details</h6>
         </div>
 
         <div class="card-body">
@@ -70,61 +71,26 @@
 
                             </div>
                         </div>
-{{--                        <div class="col-xs-12 col-sm-12 col-md-12">--}}
-{{--                            <div class="form-group">--}}
-{{--                                <strong>Address Line 1:</strong>--}}
-{{--                                {{ $artist->address1 }}--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-xs-12 col-sm-12 col-md-12">--}}
-{{--                            <div class="form-group">--}}
-{{--                                <strong>Address Line 2:</strong>--}}
-{{--                                {{ $artist->address2 }}--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-xs-12 col-sm-12 col-md-12">--}}
-{{--                            <div class="form-group">--}}
-{{--                                <strong>City / Town:</strong>--}}
-{{--                                {{ $artist->city }}--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-xs-12 col-sm-12 col-md-12">--}}
-{{--                            <div class="form-group">--}}
-{{--                                <strong>County:</strong>--}}
-{{--                                {{ $artist->county }}--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
 
-{{--                        <div class="col-xs-12 col-sm-12 col-md-12">--}}
-{{--                            <div class="form-group">--}}
-{{--                                <strong>Postcode:</strong>--}}
-{{--                                {{ $artist->postcode }}--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-xs-12 col-sm-12 col-md-12">--}}
-{{--                            <div class="form-group">--}}
-{{--                                <strong>Artist Phone:</strong>--}}
-{{--                                {{ $artist->phone }}--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-xs-12 col-sm-12 col-md-12">--}}
-{{--                            <div class="form-group">--}}
-{{--                                <strong>Email:</strong>--}}
-{{--                                {{ $artist->email }}--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Website:</strong>
                                 <a href="http://{{ $artist->website }}">{{ $artist->website }}</a>
                             </div>
                         </div>
-{{--                        <div class="col-xs-12 col-sm-12 col-md-12">--}}
-{{--                            <div class="form-group">--}}
-{{--                                <strong>Contact Name:</strong>--}}
-{{--                                {{ $artist->contact_name }}--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div>
+                                <strong>Events {{$artist->name}} is performing at: </strong>
+                                <ul>
+                                    @foreach($artist->events as $event)
+
+                                        <li><a href="{{ route('home.showevent',$event->id) }}">{{ $event->title }}</a></li>
+
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

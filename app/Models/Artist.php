@@ -18,9 +18,6 @@ class Artist extends Model
         'name', 'bio', 'address1', 'address2', 'city', 'county', 'postcode', 'phone', 'email', 'website', 'contact_name'
     ];
 
-//    public function search(){
-//        return $this->Artist::where('name', $this->search)->get();
-//    }
 
     public function events()
     {
