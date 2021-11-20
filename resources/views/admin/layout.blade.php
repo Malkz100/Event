@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Event Admin</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous" />
+
+      <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+    <!-- Bootstrap core CSS -->
+{{--      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">--}}
+
+    <!-- Custom styles for this template -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+{{--      <link rel="stylesheet" href="{{ asset('css/app.css') }}">--}}
+      <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+      <link rel="stylesheet" href="{{ asset('css/event.css') }}">
+
+      @livewireStyles
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Event Admin</a>
+      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="#">Sign out</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="home"></span>
+Dashboard           {{--<span class="sr-only">(current)</span>--}}
+                </a>
+              </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('event.index') }}" >
+                    <span data-feather="star"></span>
+Events
+                </a>
+            </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('venue.index') }}">
+                        <span data-feather="home"></span>
+                        Venues
+                    </a>
+                </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('artist.index') }}">
+                  <span data-feather="users"></span>
+Artists
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('genre.index') }}">
+                  <span data-feather="music"></span>
+Genres
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('artistimage.index') }}">
+                  <span data-feather="camera"></span>
+Artist Pic
+                </a>
+              </li>
+            </ul>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Saved reports</span>
+              <a class="d-flex align-items-center text-muted" href="#">
+                <span data-feather="plus-circle"></span>
+              </a>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+Current month
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+Last quarter
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+Social engagement
+</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+Year-end sale
+</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Dashboard</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group mr-2">
+                <button class="btn btn-sm btn-outline-secondary">Share</button>
+                <button class="btn btn-sm btn-outline-secondary">Export</button>
+              </div>
+              <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                <span data-feather="calendar"></span>
+This week
+</button>
+            </div>
+          </div>
+            <!-- Page Content -->
+            <main>
+                @yield('content')
+
+                @if( isset($slot) )
+                    {{ $slot }}
+                @endif
+                @livewireScripts
+            </main>
+
+        </main>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    {{--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>--}}
+
+
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../js/jquery-slim.min.js"><\/script>')</script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+
+    <script>
+        feather.replace()
+    </script>
+
+    @stack('modals')
+    @livewireScripts
+{{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}
+{{--    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>--}}
+{{--    <script>--}}
+{{--        $(document).ready(function() {--}}
+{{--        $('li.active').removeClass('active');--}}
+{{--        $('a[href="' + location.pathname + location.search +'"]').closest('li').addClass('active');--}}
+{{--        });--}}
+{{--    </script>--}}
+
+  <script>
+      $(".nav .nav-link").on("click", function(){
+          $(".nav").find(".active").removeClass("active");
+          $(this).addClass("active");
+      });
+  </script>
+
+
+{{--    <script>--}}
+{{--    $(function($) {--}}
+{{--    let url = window.location.href;--}}
+{{--    $('li a').each(function() {--}}
+{{--    if (this.href === url) {--}}
+{{--    $(this).closest('li').addClass('active');--}}
+{{--    }--}}
+{{--    });--}}
+{{--    });--}}
+{{--    </script>--}}
+
+{{--    <script>--}}
+{{--        $("#header").load("./header.html", function(){--}}
+{{--            $('a[href="' + location.pathname.split("/")[2] + '"]').addClass("active-nav");             });--}}
+{{--    </script>--}}
+
+{{--    <script>--}}
+{{--        $(document).ready(function() {--}}
+{{--        $(document).on('click', '.nav-item a', function (e) {--}}
+{{--        $(this).parent().addClass('active').siblings().removeClass('active');--}}
+{{--        });--}}
+{{--        });--}}
+{{--    </script>--}}
+
+{{--  <script>--}}
+{{--      $( document ).on( 'click', '.nav-list li', function ( e ) {--}}
+{{--          $( this ).addClass( 'active' ).siblings().removeClass( 'active' );--}}
+{{--      } );--}}
+{{--  </script>--}}
+  </body>
+</html>
+

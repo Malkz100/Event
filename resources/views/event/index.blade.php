@@ -1,4 +1,4 @@
-@extends('event.layout')
+@extends('admin.layout')
 
 @section('content')
 <div class="card mt-5">
@@ -64,4 +64,9 @@
         </div>
     </div>
 </div>
+    <script>
+        $(function() {
+            $('nav a[href^="http://localhost/event/public/' + location.pathname.split("/")[1] + '"]').addClass('active');
+        });
+    </script>
 @endsection

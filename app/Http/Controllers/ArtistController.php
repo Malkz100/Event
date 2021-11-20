@@ -39,7 +39,7 @@ class ArtistController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return Mixed
      */
-    public function store(Request $request)
+    public function store(Request $request, Artist $artist)
     {
         $request->validate([
             'name' => 'required',
@@ -54,7 +54,14 @@ class ArtistController extends Controller
             'contact_name' => 'required'
         ]);
 
-        Artist::create($request->all());
+        //Create artist from blade form
+        $artist = Artist::create($request->all());
+
+        //Insert 'genre' checkbox array into pivot table
+        $genres = $request->get('genres');
+        $artist->genres()->sync($genres);
+
+
 
         return redirect()->route('artist.index')
                          ->with('success','Artist  created successfully.');

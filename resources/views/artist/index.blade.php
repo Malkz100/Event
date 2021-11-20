@@ -1,4 +1,4 @@
-@extends('artist.layout')
+@extends('admin.layout')
 
 @section('content')
 <div class="card mt-5">
