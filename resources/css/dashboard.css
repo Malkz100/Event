@@ -43,13 +43,19 @@ body {
 }
 
 .sidebar .nav-link.active {
-  color: #007bff;
+    color: #007bff !important;
 }
+
 
 .sidebar .nav-link:hover .feather,
 .sidebar .nav-link.active .feather {
-  color: inherit;
+    color: inherit;
 }
+
+
+
+
+
 
 .sidebar-heading {
   font-size: .75rem;

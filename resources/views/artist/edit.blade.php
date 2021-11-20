@@ -1,4 +1,4 @@
-@extends('artist.layout')
+@extends('admin.layout')
 
 @section('content')
     <div class="card mt-5">
@@ -61,7 +61,7 @@
                                                     {{ $genre->artists->contains($artist->id) ? 'checked' : '' }}
                                                     @if(in_array($genre->id,old('genre',[]))) checked  @endif>
                                         <label for="{{ $genre->name }}">{{ $genre->name }}</label></li>
-                                        
+
                                     @endforeach
                                     </ul>
                                 </div>

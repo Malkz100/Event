@@ -1,4 +1,4 @@
-@extends('artist.layout')
+@extends('admin.layout')
 
 @section('content')
     <div class="card mt-5">
@@ -62,7 +62,7 @@
                                     <ul class="checkbox-grid">
                                     @foreach($genres as $genre)
 
-                                        <li><input type="checkbox" name="artists[]" value="{{ $genre->id }}">
+                                        <li><input type="checkbox" name="genres[]" value="{{ $genre->id }}">
                                         <label for="{{ $genre->name }}">{{ $genre->name }}</label></li>
 
                                     @endforeach

@@ -1,192 +1,100 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+@extends('admin.layout')
+{{--<x-admin-layout>--}}
+{{--<x-app-layout>--}}
+{{--    <x-slot name="header">--}}
+{{--        <h2 class="font-semibold text-xl text-gray-800 leading-tight">--}}
+{{--            {{ __('Dashboard') }}--}}
+{{--        </h2>--}}
+{{--    </x-slot>--}}
+@section('content')
+{{--    <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">--}}
+<div class="container">
+        <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
+            <div class="grid grid-cols-1 md:grid-cols-2">
 
-    <title>Event Admin</title>
+{{--                <div>--}}
+{{--                     Close your eyes. Count to one. That is how long forever feels.--}}
+{{--                    <div>--}}
+{{--                        <input wire:model="search" type="text" placeholder="Search users..."/>--}}
 
-    <!-- Bootstrap core CSS -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+{{--                        <ul>--}}
+{{--                            @foreach($artists as $artist)--}}
+{{--                                <li>{{ $artist->name }}</li>--}}
+{{--                            @endforeach--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
-    <!-- Custom styles for this template -->
-      <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
-      <link rel="stylesheet" href="{{ asset('css/event.css') }}">
+                <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+                    <div class="flex items-center">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" height="20" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ route('event.index') }}" class="underline text-gray-900 dark:text-white">Event Admin Panel</a></div>
+                    </div>
+                    <div class="ml-12">
+                        <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                            Event Admin Panel: Create, Update Details and Delete Artists Here
+                        </div>
+                    </div>
+                </div>
 
-      @livewireStyles
+                <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+                    <div class="flex items-center">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" height="20" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ route('artist.index') }}" class="underline text-gray-900 dark:text-white">Artist Admin Panel</a></div>
+                    </div>
 
-  </head>
+                    <div class="ml-12">
+                        <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                            Artist Admin Panel: Create, Update Details and Delete Artists Here
+                        </div>
+                    </div>
+                </div>
 
-  <body>
-    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Event Admin</a>
-      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-      <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#">Sign out</a>
-        </li>
-      </ul>
-    </nav>
+                <div class="p-6">
+                    <div class="flex items-center">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" height="20" width="20" height="20" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
 
-    <div class="container-fluid">
-      <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-          <div class="sidebar-sticky">
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link active" href="#">
-                  <span data-feather="home"></span>
-Dashboard <span class="sr-only">(current)</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file"></span>
-Orders
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="shopping-cart"></span>
-Products
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="users"></span>
-Customers
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="bar-chart-2"></span>
-Reports
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="layers"></span>
-Integrations
-                </a>
-              </li>
-            </ul>
+                        <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ route('venue.index') }}" class="underline text-gray-900 dark:text-white">Venue Admin Panel</a></div>
+                    </div>
 
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Saved reports</span>
-              <a class="d-flex align-items-center text-muted" href="#">
-                <span data-feather="plus-circle"></span>
-              </a>
-            </h6>
-            <ul class="nav flex-column mb-2">
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-Current month
-</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-Last quarter
-</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-Social engagement
-</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-Year-end sale
-</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+                    <div class="ml-12">
+                        <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                            Venue Admin Panel: Create, Update Details and Delete Venues Here
+                        </div>
+                    </div>
+                </div>
 
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Dashboard</h1>
-            <div class="btn-toolbar mb-2 mb-md-0">
-              <div class="btn-group mr-2">
-                <button class="btn btn-sm btn-outline-secondary">Share</button>
-                <button class="btn btn-sm btn-outline-secondary">Export</button>
-              </div>
-              <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                <span data-feather="calendar"></span>
-This week
-</button>
+
+
+
+
+                <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+                    <div class="flex items-center">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" height="20" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{ route('genre.index') }}" class="underline text-gray-900 dark:text-white">Genre Admin Panel</a></div>
+                    </div>
+
+                    <div class="ml-12">
+                        <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                            Genre Admin Panel: Create, Update Details and Delete Genres Here
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
+                    <div class="flex items-center">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" height="20" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white"><a href="{{ route('artistimage.index') }}" class="underline text-gray-900 dark:text-white">Artist Image Admin Panel</a></div>
+                    </div>
+                    <div class="ml-12">
+                        <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                            Artist Image Admin Panel: Create, Update Details and Delete Artists Images Here
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-            <!-- Page Content -->
-            <main>
-                @yield('content')
-
-                @if( isset($slot) )
-                    {{ $slot }}
-                @endif
-                @livewireScripts
-            </main>
-
-        </main>
-      </div>
+        </div>
     </div>
-
-    <!-- Bootstrap core JavaScript
-================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-{{--    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>--}}
-{{--    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>--}}
-{{--    <script src="../../assets/js/vendor/popper.min.js"></script>--}}
-{{--    <script src="../../dist/js/bootstrap.min.js"></script>--}}
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../js/jquery-slim.min.js"><\/script>')</script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-    <!-- Icons -->
-    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
-
-    <script>
-feather.replace()
-    </script>
-
-    <!-- Graphs -->
-{{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>--}}
-{{--    <script>--}}
-{{--      var ctx = document.getElementById("myChart");--}}
-{{--      var myChart = new Chart(ctx, {--}}
-{{--    type: 'line',--}}
-{{--        data: {--}}
-{{--        labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],--}}
-{{--          datasets: [{--}}
-{{--            data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],--}}
-{{--            lineTension: 0,--}}
-{{--            backgroundColor: 'transparent',--}}
-{{--            borderColor: '#007bff',--}}
-{{--            borderWidth: 4,--}}
-{{--            pointBackgroundColor: '#007bff'--}}
-{{--          }]--}}
-{{--        },--}}
-{{--        options: {--}}
-{{--        scales: {--}}
-{{--            yAxes: [{--}}
-{{--                ticks: {--}}
-{{--                    beginAtZero: false--}}
-{{--              }--}}
-{{--            }]--}}
-{{--          },--}}
-{{--        legend: {--}}
-{{--            display: false,--}}
-{{--          }--}}
-{{--    }--}}
-{{--      });--}}
-{{--    </script>--}}
-  </body>
-</html>
-
+{{--</x-app-layout>--}}
+{{--</x-admin-layout>--}}
+@endsection
