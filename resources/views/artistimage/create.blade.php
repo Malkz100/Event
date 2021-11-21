@@ -54,7 +54,7 @@
                        <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <label><strong>Image Name:</strong></label>
+                                    <label for="name" class="form-control"><strong>Image Name:</strong></label>
                                     <input type="text" name="name" class="form-control" placeholder="Image Name">
                                 </div>
                             </div>

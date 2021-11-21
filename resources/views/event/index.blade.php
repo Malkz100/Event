@@ -6,9 +6,9 @@
         <div class="float-left">
             <h2>Event Admin Panel</h2>
         </div>
-        <div class="float-right">
-            <a class="btn btn-primary" href="{{ route('dashboard') }}"> Back</a>
-        </div>
+{{--        <div class="float-right">--}}
+{{--            <a class="btn btn-primary" href="{{ route('dashboard') }}"> Back</a>--}}
+{{--        </div>--}}
     </div>
     <div class="card-body">
         <div class="row">
@@ -64,9 +64,4 @@
         </div>
     </div>
 </div>
-    <script>
-        $(function() {
-            $('nav a[href^="http://localhost/event/public/' + location.pathname.split("/")[1] + '"]').addClass('active');
-        });
-    </script>
 @endsection

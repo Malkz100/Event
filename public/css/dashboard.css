@@ -51,6 +51,10 @@ body {
   color: inherit;
 }
 
+.sidebar .nav-item.active>a{
+    color: #007bff;
+}
+
 .sidebar-heading {
   font-size: .75rem;
   text-transform: uppercase;

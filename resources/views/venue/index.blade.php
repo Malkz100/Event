@@ -6,9 +6,9 @@
         <div class="float-left">
             <h2>Venue Admin Panel</h2>
         </div>
-        <div class="float-right">
-            <a class="btn btn-primary" href="{{ route('dashboard') }}"> Back</a>
-        </div>
+{{--        <div class="float-right">--}}
+{{--            <a class="btn btn-primary" href="{{ route('dashboard') }}"> Back</a>--}}
+{{--        </div>--}}
     </div>
     <div class="card-body">
         <div class="row">

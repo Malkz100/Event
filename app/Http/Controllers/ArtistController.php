@@ -79,12 +79,6 @@ class ArtistController extends Controller
             //->with('artist', ArtistImage::all());
     }
 
-//    public function showartist($id)
-//    {
-//        return view('frontend.show-artist', [
-//            'artist' => Artist::findOrFail($id)
-//        ]);
-//    }
 
     /**
      * Show the form for editing the specified resource.
