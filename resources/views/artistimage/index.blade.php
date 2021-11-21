@@ -4,11 +4,11 @@
 <div class="card mt-5">
     <div class="card-header">
         <div class="float-left">
-            <h2>Artist Image Admin Panel</h2>
+            <h2>Artist Image</h2>
         </div>
-        <div class="float-right">
-            <a class="btn btn-primary" href="{{ route('dashboard') }}"> Back</a>
-        </div>
+{{--        <div class="float-right">--}}
+{{--            <a class="btn btn-primary" href="{{ route('dashboard') }}"> Back</a>--}}
+{{--        </div>--}}
     </div>
     <div class="card-body">
         <div class="row">

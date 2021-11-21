@@ -41,9 +41,9 @@
             <ul class="nav flex-column">
 
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('home.index') }}">
                   <span data-feather="home"></span>
-Dashboard           {{--<span class="sr-only">(current)</span>--}}
+Front End           {{--<span class="sr-only">(current)</span>--}}
                 </a>
               </li>
 
@@ -57,7 +57,7 @@ Events
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('venue.index') }}">
                         <span data-feather="home"></span>
-                        Venues
+Venues
                     </a>
                 </li>
 
@@ -149,18 +149,12 @@ This week
     <!-- Bootstrap core JavaScript
 ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    {{--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>--}}
-
-
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../js/jquery-slim.min.js"><\/script>')</script>
+{{--    <script>window.jQuery || document.write('<script src="../../js/jquery-slim.min.js"><\/script>')</script>--}}
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-
-
+{{--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>--}}
+        <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Icons -->
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
 
@@ -170,52 +164,19 @@ This week
 
     @stack('modals')
     @livewireScripts
-{{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}
-{{--    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>--}}
-{{--    <script>--}}
-{{--        $(document).ready(function() {--}}
-{{--        $('li.active').removeClass('active');--}}
-{{--        $('a[href="' + location.pathname + location.search +'"]').closest('li').addClass('active');--}}
-{{--        });--}}
-{{--    </script>--}}
 
   <script>
-      $(".nav .nav-link").on("click", function(){
-          $(".nav").find(".active").removeClass("active");
-          $(this).addClass("active");
+      //Script to set current nav-item to 'active'
+      $(document).ready(function() {
+
+          var url = [location.protocol, '//', location.host, location.pathname].join('');
+
+          $('.nav-item.active').removeClass('active');
+          $('.nav-item a[href="' + url  + '"]').parent().addClass('active');
+          $(this).parent().addClass('active').siblings().removeClass('active');
       });
   </script>
 
-
-{{--    <script>--}}
-{{--    $(function($) {--}}
-{{--    let url = window.location.href;--}}
-{{--    $('li a').each(function() {--}}
-{{--    if (this.href === url) {--}}
-{{--    $(this).closest('li').addClass('active');--}}
-{{--    }--}}
-{{--    });--}}
-{{--    });--}}
-{{--    </script>--}}
-
-{{--    <script>--}}
-{{--        $("#header").load("./header.html", function(){--}}
-{{--            $('a[href="' + location.pathname.split("/")[2] + '"]').addClass("active-nav");             });--}}
-{{--    </script>--}}
-
-{{--    <script>--}}
-{{--        $(document).ready(function() {--}}
-{{--        $(document).on('click', '.nav-item a', function (e) {--}}
-{{--        $(this).parent().addClass('active').siblings().removeClass('active');--}}
-{{--        });--}}
-{{--        });--}}
-{{--    </script>--}}
-
-{{--  <script>--}}
-{{--      $( document ).on( 'click', '.nav-list li', function ( e ) {--}}
-{{--          $( this ).addClass( 'active' ).siblings().removeClass( 'active' );--}}
-{{--      } );--}}
-{{--  </script>--}}
   </body>
 </html>
 

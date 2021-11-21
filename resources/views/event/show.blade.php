@@ -43,11 +43,14 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Artists: </strong>
+                                <ul>
                                 @foreach($event->artists as $artist)
 
-                                    <br/> {{ $artist->name }}
+{{--                                    <br/> {{ $artist->name }}--}}
+                                    <li><a href="{{ route('artist.show',$artist->id) }}">{{ $artist->name }}</a></li>
 
                                 @endforeach
+                                </ul>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -103,6 +106,5 @@
             </div>
         </div>
     </div>
-
 
 @endsection

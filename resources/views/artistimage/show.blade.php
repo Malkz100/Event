@@ -34,25 +34,19 @@
                                 <table>
                                     <label><th>Image</th></label>
 
-{{--                                @foreach ($images as $image)--}}
+                                @foreach ($artistimage as $image)
                                 <tr>
                                     <td><img src="{{ asset('storage/images/artists/'.$artistimage->file_path) }}" alt="Artist Image" height="200px"></td>
 
                                 </tr>
-{{--                                @endforeach--}}
+                                @endforeach
                                 </table>
                             </div>
                         </div>
-
-
-
-
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 
 @endsection
