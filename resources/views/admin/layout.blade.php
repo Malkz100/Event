@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Event Admin</title>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous" />
@@ -24,12 +25,48 @@
   </head>
 
   <body>
+{{--  @livewire('navigation-menu')--}}
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Event Admin</a>
-      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <div class="d-flex">
+            <!-- Logo -->
+            <div class="flex-shrink-0 flex items-center">
+                <a href="{{ route('home.index') }}">
+                    <x-jet-application-mark class="block h-9 w-auto" />
+                </a>
+            </div>
+
+            <!-- Navigation Links -->
+{{--            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">--}}
+{{--                <x-jet-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">--}}
+{{--                    {{ __('Admin') }}--}}
+{{--                </x-jet-nav-link>--}}
+{{--            </div>--}}
+
+            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <x-jet-nav-link href="{{ route('home.index') }}" >
+                    {{--                    <x-jet-nav-link href="home" >--}}
+                    {{ __('Home') }}
+                </x-jet-nav-link>
+            </div>
+
+        </div>
+{{--      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Event Admin</a>--}}
+{{--      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">--}}
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#">Sign out</a>
+{{--          <a class="nav-link" href="#">Sign out</a>--}}
+
+            <!-- Authentication -->
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+
+                <x-jet-dropdown-link href="{{ route('logout') }}"
+                                     onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                    {{ __('Log Out') }}
+                </x-jet-dropdown-link>
+            </form>
+
         </li>
       </ul>
     </nav>
@@ -83,38 +120,38 @@ Artist Pic
               </li>
             </ul>
 
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Saved reports</span>
-              <a class="d-flex align-items-center text-muted" href="#">
-                <span data-feather="plus-circle"></span>
-              </a>
-            </h6>
-            <ul class="nav flex-column mb-2">
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-Current month
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-Last quarter
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-Social engagement
-</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-Year-end sale
-</a>
-              </li>
-            </ul>
+{{--            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">--}}
+{{--              <span>Saved reports</span>--}}
+{{--              <a class="d-flex align-items-center text-muted" href="#">--}}
+{{--                <span data-feather="plus-circle"></span>--}}
+{{--              </a>--}}
+{{--            </h6>--}}
+{{--            <ul class="nav flex-column mb-2">--}}
+{{--              <li class="nav-item">--}}
+{{--                <a class="nav-link" href="#">--}}
+{{--                  <span data-feather="file-text"></span>--}}
+{{--Current month--}}
+{{--                </a>--}}
+{{--              </li>--}}
+{{--              <li class="nav-item">--}}
+{{--                <a class="nav-link" href="#">--}}
+{{--                  <span data-feather="file-text"></span>--}}
+{{--Last quarter--}}
+{{--                </a>--}}
+{{--              </li>--}}
+{{--              <li class="nav-item">--}}
+{{--                <a class="nav-link" href="#">--}}
+{{--                  <span data-feather="file-text"></span>--}}
+{{--Social engagement--}}
+{{--</a>--}}
+{{--              </li>--}}
+{{--              <li class="nav-item">--}}
+{{--                <a class="nav-link" href="#">--}}
+{{--                  <span data-feather="file-text"></span>--}}
+{{--Year-end sale--}}
+{{--</a>--}}
+{{--              </li>--}}
+{{--            </ul>--}}
           </div>
         </nav>
 

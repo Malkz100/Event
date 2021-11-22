@@ -22,13 +22,13 @@ use App\Http\Controllers\HomeController;
 //    return view('welcome');
 //});
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-
 Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
     return view('admin.index');
 })->name('admin');
+
+//Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
+//    return view('admin.index');
+//})->name('admin');
 
 //Route::get('/dashboard', function () {
 //    return view('dashboard');
@@ -53,5 +53,7 @@ Route::resource('artist',ArtistController::class)->middleware(['auth']);
 Route::resource('event',EventController::class)->middleware(['auth']);
 Route::resource('genre',GenreController::class)->middleware(['auth']);
 Route::resource('artistimage', ArtistImageController::class)->middleware(['auth']);
+Route::view('/event-search', 'event.event-search')->middleware(['auth']);
+Route::view('/artist-search', 'artist.artist-search')->middleware(['auth']);
 
 

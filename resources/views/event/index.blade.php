@@ -6,6 +6,10 @@
         <div class="float-left">
             <h2>Event Admin Panel</h2>
         </div>
+
+        <div class="float-right ml-4 text-lg leading-7 font-semibold">
+            <a  href="{{ url('event-search') }}">Search for Event</a>
+        </div>
 {{--        <div class="float-right">--}}
 {{--            <a class="btn btn-primary" href="{{ route('dashboard') }}"> Back</a>--}}
 {{--        </div>--}}
