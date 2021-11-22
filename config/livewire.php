@@ -54,8 +54,8 @@ return [
     |
     */
 
- //   'asset_url' => null,
     'asset_url' => 'http://localhost/event/public',
+   // 'asset_url'  =>  env('APP_URL', 'http://localhost'),
 
     /*
     |--------------------------------------------------------------------------

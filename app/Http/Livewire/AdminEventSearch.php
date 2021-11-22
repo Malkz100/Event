@@ -2,11 +2,11 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Event;
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\Event;
 
-class SearchEvents extends Component
+class AdminEventSearch extends Component
 {
     //use WithPagination;
     protected $paginationTheme = 'bootstrap';
@@ -15,7 +15,7 @@ class SearchEvents extends Component
     public function render()
     {
         $searchTerm = '%'.$this->searchTerm.'%';
-        return view('livewire.search-events',[
+        return view('livewire.admin-event-search',[
             'events' => Event::where('title','like', $searchTerm)->paginate(5)
         ]);
     }

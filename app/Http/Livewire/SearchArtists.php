@@ -8,7 +8,8 @@ use App\Models\Artist;
 
 class SearchArtists extends Component
 {
-    use WithPagination;
+   // use WithPagination;
+    protected $paginationTheme = 'bootstrap';
     public $searchTerm;
 
     public function render()

@@ -25,21 +25,29 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
+                                <label><strong>Artist:</strong></label>
+                                {{ $artistimage->artist->name }}
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
                                 <label><strong>Image Name:</strong></label>
                                 {{ $artistimage->name }}
                             </div>
                         </div>
+
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <table>
                                     <label><th>Image</th></label>
 
-                                @foreach ($artistimage as $image)
+{{--                                @foreach ($artistimage as $image)--}}
                                 <tr>
                                     <td><img src="{{ asset('storage/images/artists/'.$artistimage->file_path) }}" alt="Artist Image" height="200px"></td>
 
                                 </tr>
-                                @endforeach
+{{--                                @endforeach--}}
                                 </table>
                             </div>
                         </div>
