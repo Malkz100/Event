@@ -26,20 +26,19 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
     return view('admin.index');
 })->name('admin');
 
-//Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
-//    return view('admin.index');
-//})->name('admin');
-
 //Route::get('/dashboard', function () {
 //    return view('dashboard');
 //})->middleware(['auth'])->name('dashboard');
 
-//Route::get('/', function() {
-//    return view('livewire.search-artists');
-//});
 
 //Frontend
-Route::resource('/',HomeController::class)->name('index', 'home');
+//Route::get('/', function () {
+//    return redirect('/home');
+//});
+//Route::get('/', 'HomeController@index')->name('home');
+//Route::get('/', 'HomeController@index');
+//Route::get('/', [HomeController::class, 'index']);
+Route::resource('/',HomeController::class);
 Route::resource('home',HomeController::class);
 Route::get('home/showevent/{id}', [HomeController::class, 'showevent'])->name('home.showevent');
 Route::get('home/showartist/{id}', [HomeController::class, 'showartist'])->name('home.showartist');
@@ -47,7 +46,12 @@ Route::view('/search-events', 'frontend.search-events');
 Route::view('/search-artists', 'frontend.search-artists');
 
 
+
 //Backend
+Route::get('/admin', function () {
+    return ('/admin.index');
+});
+
 Route::resource('venue',VenueController::class)->middleware(['auth']);
 Route::resource('artist',ArtistController::class)->middleware(['auth']);
 Route::resource('event',EventController::class)->middleware(['auth']);
