@@ -18,6 +18,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+       // $this->middleware('auth')->except('index');
         return view('frontend.index')
             ->with('events', Event::all());
     }
