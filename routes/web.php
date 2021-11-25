@@ -26,9 +26,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
     return view('admin.index');
 })->name('admin');
 
-//Route::get('/dashboard', function () {
-//    return view('dashboard');
-//})->middleware(['auth'])->name('dashboard');
+//Route::get('/admin', function () {
+//    return view('admin.index');
+//})->middleware(['auth'])->name('admin');
 
 
 //Frontend
@@ -48,9 +48,9 @@ Route::view('/search-artists', 'frontend.search-artists');
 
 
 //Backend
-Route::get('/admin', function () {
-    return ('/admin.index');
-});
+//Route::get('/admin', function () {
+//    return ('admin');
+//});
 
 Route::resource('venue',VenueController::class)->middleware(['auth']);
 Route::resource('artist',ArtistController::class)->middleware(['auth']);

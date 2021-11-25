@@ -3,8 +3,6 @@
 
 @section('content')
 {{--    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">--}}
-
-
 {{--    <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">--}}
         <div class="nav-bar flex justify-center pt-8 sm:justify-start">
             <svg viewBox="-50 0 2000 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
@@ -17,25 +15,15 @@
 
         </div>
 
-
-{{--    </div>--}}
-        <div class="card mt-5">
+    <div class="card mt-5">
         <div class="card-header">
-{{--            --}}
-
-{{--            --}}
             <div class="float-left">
                 <h2 class="card-title display-4">{{ $event->title }}</h2>
             </div>
-{{--            <h6 class="card-subtitle mb-2 text-muted">Event Details</h6>--}}
-            {{--            <div class="float-right pt-3">--}}
-            {{--                    <a href="{{ url()->previous() }}">Back</a>--}}
-{{--            <ul class="nav justify-content-end pt-3">--}}
+
             <div class="float-right pt-3 mt-1 mr-1">
                 <h4><a href="{{ route('home.index') }}">Back</a></h4>
             </div>
-{{--            </ul>--}}
-            {{--            </div>--}}
         </div>
 
         <div class="card-body">
@@ -49,15 +37,9 @@
                 </div>
                 <div class="col-lg-12">
                     <div class="row">
-{{--                        <div class="col-xs-12 col-sm-12 col-md-12">--}}
-{{--                            <div>--}}
-{{--                                <strong>Event:</strong>--}}
-{{--                                {{ $event->title }}--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div>
-{{--                                <strong>Description:</strong>--}}
                                 <p class="lead">{{ $event->description }}</p>
                             </div>
                         </div>
