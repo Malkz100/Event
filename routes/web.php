@@ -7,6 +7,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\ArtistImageController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CustomerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,9 +46,8 @@ Route::get('home/showartist/{id}', [HomeController::class, 'showartist'])->name(
 Route::view('/search-events', 'frontend.search-events');
 Route::view('/search-artists', 'frontend.search-artists');
 
-
-
 //Backend
+
 //Route::get('/admin', function () {
 //    return ('admin');
 //});
@@ -59,5 +59,7 @@ Route::resource('genre',GenreController::class)->middleware(['auth']);
 Route::resource('artistimage', ArtistImageController::class)->middleware(['auth']);
 Route::view('/event-search', 'event.event-search')->middleware(['auth']);
 Route::view('/artist-search', 'artist.artist-search')->middleware(['auth']);
+
+Route::resource('customer',CustomerController::class)->middleware(['auth']);
 
 

@@ -26,6 +26,6 @@ class ArtistList extends Component
      */
     public function render()
     {
-        return view('components.artist-list')->with('artists', Artist::all());
+        return view(  'components.artist-list')->with('artists', Artist::all());
     }
 }
