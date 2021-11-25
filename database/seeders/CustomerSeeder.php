@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Artist;
+use App\Models\Customer;
 use Illuminate\Database\Seeder;
 
-class ArtistSeeder extends Seeder
+class CustomerSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class ArtistSeeder extends Seeder
      */
     public function run()
     {
-        Artist::factory()->count(20)->create();
+        Customer::factory()->count(20)->create();
     }
 }

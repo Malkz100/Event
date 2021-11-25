@@ -21,5 +21,8 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\ArtistEvent::factory(50)->create();
         \App\Models\ArtistGenre::factory(5)->create();
+
+        \App\Models\Customer::factory(50)->create();
+
     }
 }
