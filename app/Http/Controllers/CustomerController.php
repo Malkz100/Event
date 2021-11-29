@@ -46,14 +46,14 @@ class CustomerController extends Controller
             'address1' => 'required',
             'address2',
             'county' => 'required',
-            'town-city' => 'required',
+            'towncity' => 'required',
             'postcode' => 'required',
             'phone' => 'required',
             'email' => 'required',
         ]);
 
         //Create customer from blade form
-        $customer = Customer::create($request->all());
+        $customer->update($request->all());
 
         return redirect()->route('customer.index')
             ->with('success','Customer created successfully.');
@@ -99,7 +99,7 @@ class CustomerController extends Controller
             'address1' => 'required',
             'address2',
             'county' => 'required',
-            'town-city' => 'required',
+            'towncity' => 'required',
             'postcode' => 'required',
             'phone' => 'required',
             'email' => 'required',

@@ -41,6 +41,16 @@ class VenueController extends Controller
         $request->validate([
             'name' => 'required',
             'description' => 'required',
+            'address1' => 'required',
+            'address2',
+            'county' =>'required',
+            'city'=>'required',
+            'postcode'=>'required',
+            'venue_phone'=>'required',
+            'email'=>'required',
+            'website',
+            'contact_name'=>'required',
+            'capacity'=>'required'
         ]);
 
         Venue::create($request->all());
@@ -83,6 +93,16 @@ class VenueController extends Controller
         $request->validate([
             'name' => 'required',
             'description' => 'required',
+            'address1' => 'required',
+            'address2',
+            'county' =>'required',
+            'city'=>'required',
+            'postcode'=>'required',
+            'venue_phone'=>'required',
+            'email'=>'required',
+            'website',
+            'contact_name'=>'required',
+            'capacity'=>'required'
         ]);
 
         $venue->update($request->all());

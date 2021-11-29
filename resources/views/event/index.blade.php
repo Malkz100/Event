@@ -4,11 +4,11 @@
 <div class="card mt-5">
     <div class="card-header">
         <div class="float-left">
-            <h2>Event Admin Panel</h2>
+            <h3>Event Admin Panel</h3>
         </div>
 
         <div class="float-right ml-4 text-lg leading-7 font-semibold">
-            <a  href="{{ url('event-search') }}">Search for Event</a>
+            <a class="h4"  href="{{ url('event-search') }}">Search for Event</a>
         </div>
 {{--        <div class="float-right">--}}
 {{--            <a class="btn btn-primary" href="{{ route('dashboard') }}"> Back</a>--}}

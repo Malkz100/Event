@@ -4,7 +4,10 @@
 <div class="card mt-5">
     <div class="card-header">
         <div class="float-left">
-        <h2>Customer Admin Panel</h2>
+        <h3>Customer Admin Panel</h3>
+        </div>
+        <div class="float-right ml-4 text-xl leading-7 font-semibold ">
+            <a class="h4" href="{{ url('customer-lastname-search') }}">Search for Customer</a>
         </div>
 
 {{--        <div class="float-right ml-4 text-lg leading-7 font-semibold">--}}

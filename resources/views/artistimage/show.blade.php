@@ -32,7 +32,7 @@
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <label><strong>Image Name:</strong></label>
+                                <label><strong>Caption:</strong></label>
                                 {{ $artistimage->name }}
                             </div>
                         </div>

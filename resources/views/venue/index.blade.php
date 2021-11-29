@@ -4,7 +4,7 @@
 <div class="card mt-5">
     <div class="card-header">
         <div class="float-left">
-            <h2>Venue Admin Panel</h2>
+            <h3>Venue Admin Panel</h3>
         </div>
 {{--        <div class="float-right">--}}
 {{--            <a class="btn btn-primary" href="{{ route('dashboard') }}"> Back</a>--}}

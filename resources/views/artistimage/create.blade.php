@@ -38,11 +38,12 @@
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <label for="venue_id" class="inline-flex items-center">
+                                <label for="artist_id" class="inline-flex items-center">
                                     <strong>Artist:</strong></label>
                                 <label>
                                     <select name="artist_id" class="form-control">
-                                        <option value="" disabled selected>  Select Artist  </option>
+                                        <option value="{{ $artistimage->artist->id }}">{{ $artistimage->artist->name }}</option>
+{{--                                        <option value="" disabled selected>  Select Artist  </option>--}}
                                         @foreach($artists as $artist)
                                             <option value="{{ $artist->id }}">{{ $artist->name }}</option>
                                         @endforeach
@@ -54,8 +55,8 @@
                        <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <label for="name" class="form-control"><strong>Image Name:</strong></label>
-                                    <input type="text" name="name" class="form-control" placeholder="Image Name">
+                                    <label for="caption" class="form-control"><strong>Image Caption:</strong></label>
+                                    <input type="text" name="name" class="form-control" id='caption' placeholder="Image Caption">
                                 </div>
                             </div>
                             <div class="form-group">

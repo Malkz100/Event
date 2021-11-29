@@ -4,7 +4,7 @@
 <div class="card mt-5">
     <div class="card-header">
         <div class="float-left">
-            <h2>Artist Image</h2>
+            <h3>Artist Image</h3>
         </div>
 {{--        <div class="float-right">--}}
 {{--            <a class="btn btn-primary" href="{{ route('dashboard') }}"> Back</a>--}}
@@ -37,7 +37,7 @@
                     @foreach ($images as $image)
                     <tr>
                         <td>{{ ++$i }}</td>
-                        <td><p>{{ $image->artist->name }}</p><p>{{ $image->name }}</p></td>
+                        <td><p><strong>{{ $image->artist->name }}</strong></p><p>{{ $image->name }}</p></td>
 
 {{--                        <td><img src="{{ $image->file_path }}" alt="Artist Image" height="40px"></td>--}}
                         <td><img src="{{ asset('storage/images/artists/'.$image->file_path) }}" alt="Artist Image" height="40px"></td>

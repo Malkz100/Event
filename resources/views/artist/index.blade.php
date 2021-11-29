@@ -4,11 +4,11 @@
 <div class="card mt-5">
     <div class="card-header">
         <div class="float-left">
-        <h2>Artist Admin Panel</h2>
+        <h3>Artist Admin Panel</h3>
         </div>
 
-        <div class="float-right ml-4 text-lg leading-7 font-semibold">
-            <a  href="{{ url('artist-search') }}">Search for Artist</a>
+        <div class="float-right ml-4 text-xl leading-7 font-semibold ">
+            <a class="h4" href="{{ url('artist-search') }}">Search for Artist</a>
         </div>
 {{--        <div class="float-right">--}}
 {{--            <a class="btn btn-primary" href="{{ route('dashboard') }}"> Back</a>--}}
