@@ -34,7 +34,7 @@
                 <form action="{{ route('customer.store') }}" method="POST">
                     @csrf
                 <div class="form-row">
-                    <div class="col">
+                    <div class="form-group col-md-6">
                         <label for="userName">UserName</label>
                         <input type="text" name="username" class="form-control" id="userName" placeholder="User Name">
                     </div>
@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="col">
+                    <div class="form-group col-md-6">
                         <label for="firstName">First Name</label>
                         <input type="text" class="form-control" name="firstname" id="firstName" placeholder="First name">
                     </div>

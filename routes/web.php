@@ -34,7 +34,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
 
 //Frontend
 //Route::get('/', function () {
-//    return redirect('/home');
+//    return view('frontend.index');
 //});
 //Route::get('/', 'HomeController@index')->name('home');
 //Route::get('/', 'HomeController@index');
@@ -59,6 +59,7 @@ Route::resource('genre',GenreController::class)->middleware(['auth']);
 Route::resource('artistimage', ArtistImageController::class)->middleware(['auth']);
 Route::view('/event-search', 'event.event-search')->middleware(['auth']);
 Route::view('/artist-search', 'artist.artist-search')->middleware(['auth']);
+Route::view('/customer-lastname-search', 'customer.customer-lastname-search')->middleware(['auth']);
 
 Route::resource('customer',CustomerController::class)->middleware(['auth']);
 

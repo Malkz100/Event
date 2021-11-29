@@ -103,6 +103,12 @@
                                     <input type="text" name="contact_name" class="form-control" placeholder="Contact Name">
                                 </div>
                             </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>Venue Capacity:</strong>
+                                    <input type="text" name="capacity" class="form-control" placeholder="Venue Capacity">
+                                </div>
+                            </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                 <button type="submit" class="btn btn-success">Submit</button>
                             </div>

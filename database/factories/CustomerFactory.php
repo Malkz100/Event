@@ -20,7 +20,7 @@ class CustomerFactory extends Factory
             'lastname' => $this->faker->lastName,
             'address1' =>$this->faker->streetAddress,
             'address2' =>$this->faker->secondaryAddress,
-            'town-city'=>$this->faker->city,
+            'towncity'=>$this->faker->city,
             'county'   =>$this->faker->county,
             'postcode' =>$this->faker->postcode,
             'phone'=>$this->faker->phoneNumber,

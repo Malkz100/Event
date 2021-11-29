@@ -5,21 +5,14 @@
         <div class="card-header">
             <div class="col-lg-12 mt-1 mr-1">
                 <div class="float-right">
-                    <a class="btn btn-primary" href="{{ route('artist.index') }}"> Back</a>
+                    <a class="btn btn-primary" href="{{ route('customer.index') }}"> Back</a>
                 </div>
             </div>
-            <h2>{{ $artist->name }} -Artist Details</h2>
+            <h2>Customer Details</h2>
         </div>
 
         <div class="card-body">
-            @foreach ($artist->artistimages as $artistimage)
-            <div class="float-right">
-                <img src="{{ asset('storage/images/artists/'.$artistimage->file_path) }}" alt="Artist Image" height="150px">
-                <div class="caption">
-                    <p>{{ $artistimage->name }}</p>
-                </div>
-            </div>
-            @endforeach
+
             <div class="row mt-2">
                 <div class="col-lg-12">
                     @if ($message = Session::get('success'))
@@ -32,85 +25,67 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Artist:</strong>
-                                {{ $artist->name }}
+                                <strong>Username:</strong>
+                                {{ $customer->username }}
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Genres: </strong>
-
-                                @foreach($artist->genres as $genre)
-
-                                    {{ $genre->name }}
-
-                                @endforeach
-
+                                <strong>First Name:</strong>
+                                {{ $customer->firstname }}
                             </div>
                         </div>
-
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Description:</strong>
-                                {{ $artist->bio }}
+                                <strong>Last Name:</strong>
+                                {{ $customer->lastname }}
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Address Line 1:</strong>
-                                {{ $artist->address1 }}
+                                {{ $customer->address1 }}
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Address Line 2:</strong>
-                                {{ $artist->address2 }}
+                                {{ $customer->address2 }}
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>City / Town:</strong>
-                                {{ $artist->city }}
+                                {{ $customer->towncity }}
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>County:</strong>
-                                {{ $artist->county }}
+                                {{ $customer->county }}
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Postcode:</strong>
-                                {{ $artist->postcode }}
+                                {{ $customer->postcode }}
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Artist Phone:</strong>
-                                {{ $artist->phone }}
+                                <strong>Phone:</strong>
+                                {{ $customer->phone }}
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Email:</strong>
-                                {{ $artist->email }}
+                                {{ $customer->email }}
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>Website:</strong>
-                                <a href="http://{{ $artist->website }}">{{ $artist->website }}</a>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>Contact Name:</strong>
-                                {{ $artist->contact_name }}
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>

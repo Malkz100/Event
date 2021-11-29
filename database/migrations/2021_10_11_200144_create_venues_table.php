@@ -26,6 +26,7 @@ class CreateVenuesTable extends Migration
             $table->string('email')->unique()->nullable();
             $table->string('website')->nullable();;
             $table->string('contact_name');
+            $table->integer('capacity');
             $table->timestamps();
         });
     }

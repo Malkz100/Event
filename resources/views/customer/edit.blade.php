@@ -4,19 +4,16 @@
     <div class="card mt-5">
         <div class="card-header">
             <div class="float-left">
-            <h2>{{ $artist->name }} -Update Details</h2>
+                <h2>{{ $customer->title }} {{ $customer->firstname }} {{ $customer->lastname }}</h2>
             </div>
+
             <div class="float-right">
-                <a class="btn btn-primary" href="{{ route('artist.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('customer.index') }}"> Back</a>
             </div>
+            <h3> - Edit Customer</h3>
         </div>
         <div class="card-body">
-{{--            <div class="row">--}}
-{{--                <div class="col-lg-12 mt-1 mr-1">--}}
-{{--                    --}}
-{{--                </div>--}}
-{{--            </div>--}}
-            <div class="row mt-2">
+            <div class="class=row mt-2">
                 <div class="col-lg-12">
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">
@@ -24,6 +21,7 @@
                         </div>
                     @endif
                 </div>
+
                 <div class="col-lg-12">
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -36,106 +34,90 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('artist.update',$artist->id) }}" method="POST">
+                    <form action="{{ route('customer.update',$customer->id) }}" method="POST">
                         @csrf
                         @method('PUT')
-
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Artist Name:</strong>
-                                    <input type="text" name="name" value="{{ $artist->name }}" class="form-control" placeholder="Artist Name">
-                                </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="userName">UserName</label>
+                                <input type="text" name="username" class="form-control" value="{{ $customer->username }}" id="userName" placeholder="User Name">
                             </div>
-
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <div class="row">
-                                    <strong>Genres: </strong>
-                                    </div>
-                                    <ul class="checkbox-grid">
-                                    @foreach($genres as $genre)
-
-
-                                            <li><input type="checkbox" name="genres[]" value="{{ $genre->id }}"
-                                                    {{ $genre->artists->contains($artist->id) ? 'checked' : '' }}
-                                                    @if(in_array($genre->id,old('genre',[]))) checked  @endif>
-                                        <label for="{{ $genre->name }}">{{ $genre->name }}</label></li>
-
-                                    @endforeach
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Description:</strong>
-                                    <textarea class="form-control" style="height:70px" name="bio" placeholder="Biography">{{ $artist->bio }}</textarea>
-                                </div>
-                            </div>
-
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Address Line 1:</strong>
-                                    <input type="text" name="address1" value="{{ $artist->address1 }}" class="form-control" placeholder="Address Line 1">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Address Line 2:</strong>
-                                    <input type="text" name="address2" value="{{ $artist->address2 }}" class="form-control" placeholder="Address Line 2">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>City / Town:</strong>
-                                    <input type="text" name="city" value="{{ $artist->city }}" class="form-control" placeholder="City / Town">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>County:</strong>
-                                    <input type="text" name="county" value="{{ $artist->county }}" class="form-control" placeholder="County">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Postcode:</strong>
-                                    <input type="text" name="postcode" value="{{ $artist->postcode }}" class="form-control" placeholder="Postcode">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Artist Phone:</strong>
-                                    <input type="text" name="phone" value="{{ $artist->phone }}" class="form-control" placeholder="Artist Phone">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Email:</strong>
-                                    <input type="text" name="email" value="{{ $artist->email }}" class="form-control" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Website:</strong>
-                                    <input type="text" name="website" value="{{ $artist->website }}" class="form-control" placeholder="Website">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Contact Name:</strong>
-                                    <input type="text" name="contact_name" value="{{ $artist->contact_name }}" class="form-control" placeholder="Contact Name">
-                                </div>
-                            </div>
-
-                            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                <button type="submit" class="btn btn-success">Update</button>
+                            <div class="col">
+                                <label for="title">Title</label>
+                                <select class="form-control" name="title" id="title" placeholder="Title">
+                                    <option value="{{ $customer->id }}">{{ $customer->title }}</option>
+{{--                                    <option selected>Choose...</option>--}}
+                                    <option>Mr</option>
+                                    <option>Mrs</option>
+                                    <option>Ms</option>
+                                    <option>Mx</option>
+                                    <option>Other</option>
+                                </select>
                             </div>
                         </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="firstName">First Name</label>
+                                <input type="text" class="form-control" value="{{ $customer->firstname }}" name="firstname" id="firstName" placeholder="First name">
+                            </div>
+                            <div class="col">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" class="form-control" value="{{ $customer->lastname }}" name="lastname" id="lastName" placeholder="Last name">
+                            </div>
+                        </div>
+                        {{--    </form>--}}
+                        {{--    --}}
+                        {{--    --}}
+                        {{--    <form>--}}
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4">Email</label>
+                                <input type="email" class="form-control" value="{{ $customer->email }}" name="email" id="inputEmail4" placeholder="Email">
+                            </div>
+{{--                            <div class="form-group col-md-6">--}}
+{{--                                <label for="inputPassword4">Password</label>--}}
+{{--                                <input type="password" class="form-control" value="{{ $customer->password }}" name="password" id="inputPassword4" placeholder="Password">--}}
+{{--                            </div>--}}
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress">Address</label>
+                            <input type="text" class="form-control" value="{{ $customer->address1 }}" name="address1" id="inputAddress" placeholder="Address 1">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress2">Address 2</label>
+                            <input type="text" class="form-control" value="{{ $customer->address2 }}" name="address2" id="inputAddress2" placeholder="Address 2">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="towncity">Town/City</label>
+                                <input type="text" value="{{ $customer->towncity }}" name="towncity" class="form-control" id="towncity">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputCounty">County</label>
+                                <input type="text" class="form-control" value="{{ $customer->county }}" name="county" id="inputCounty" >
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="postCode">Post Code</label>
+                                <input type="text" class="form-control" value="{{ $customer->postcode }}" name="postcode" id="postCode">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="phone">Phone</label>
+                                <input type="text" class="form-control" value="{{ $customer->phone }}" name="phone" id="phone">
+                            </div>
+                        </div>
+                        {{--                <div class="form-group">--}}
+                        {{--                    <div class="form-check">--}}
+                        {{--                        <input class="form-check-input" type="checkbox" id="gridCheck">--}}
+                        {{--                        <label class="form-check-label" for="gridCheck">--}}
+                        {{--                            Check me out--}}
+                        {{--                        </label>--}}
+                        {{--                    </div>--}}
+                        {{--                </div>--}}
+                        <button type="submit" class="btn btn-primary">Update Details</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
 @endsection

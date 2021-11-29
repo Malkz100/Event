@@ -3,9 +3,11 @@
 @section('content')
     <div class="card mt-5">
         <div class="card-header">
-            <div class="col-lg-12 mt-1 mr-1">
-                <div class="float-right">
-                    <a class="btn btn-primary" href="{{ route('artist.index') }}"> Back</a>
+            <div class="row">
+                <div class="col-lg-12 mt-1 mr-1">
+                    <div class="float-right">
+                        <a class="btn btn-primary" href="{{ route('artist.index') }}"> Back</a>
+                    </div>
                 </div>
             </div>
             <h2>{{ $artist->name }} -Artist Details</h2>
