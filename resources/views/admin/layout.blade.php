@@ -27,15 +27,11 @@
   <body>
 {{--  @livewire('navigation-menu')--}}
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-{{--        <nav class="navbar-dark relative flex justify-between items-center sticky-top">--}}
+{{--        <nav class="navbar navbar-brand bg-dark relative flex justify-between items-center sticky-top">--}}
 {{--        <div class="d-flex">--}}
             <!-- Logo -->
 {{--            <div class="flex-shrink-0 flex items-center">--}}
-            <div class="hidden sm:-my-px sm:flex">
-                <a class="navbar-brand" href="{{ route('home.index') }}">
-                    <x-jet-application-mark class="block h-2 w-auto" />
-                </a>
-            </div>
+
 
             <!-- Navigation Links -->
 {{--            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">--}}
@@ -44,12 +40,20 @@
 {{--                </x-jet-nav-link>--}}
 {{--            </div>--}}
 
-            <div class="hidden  sm:-my-px sm:ml-10 sm:flex">
+            <div class="hidden  px-3 sm:-my-px sm:ml-10 sm:flex">
                 <x-jet-nav-link href="{{ route('home.index') }}" >
                     {{--                    <x-jet-nav-link href="home" >--}}
                     {{ __('Home') }}
                 </x-jet-nav-link>
             </div>
+
+            <ul class="navbar-nav px-3">
+                <li class="sm:-my-px sm:flex">
+                    <a class="navbar-brand nav-item" href="{{ route('home.index') }}">
+                        <x-jet-application-mark class="block h-2 w-auto" />
+                    </a>
+                </li>
+            </ul>
 
 {{--        </div>--}}
 {{--      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Event Admin</a>--}}
@@ -130,6 +134,13 @@ Artist Pic
                   <a class="nav-link" href="{{ route('customer.index') }}">
                       <span data-feather="users"></span>
 Customers
+                  </a>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('booking.index') }}">
+                      <span data-feather="tag"></span>
+Bookings
                   </a>
               </li>
             </ul>

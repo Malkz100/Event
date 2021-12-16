@@ -29,4 +29,14 @@ class Event extends Model
     {
         return $this->belongsToMany(Artist::class)->withTimestamps();
     }
+
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class)->withTimestamps();
+    }
+
+    public function booking()
+    {
+        return $this->belongsToMany(Booking::class)->withTimestamps();
+    }
 }

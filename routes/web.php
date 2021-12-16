@@ -8,6 +8,7 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\ArtistImageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\BookingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,10 +49,10 @@ Route::view('/search-artists', 'frontend.search-artists');
 
 //Backend
 
-//Route::get('/admin', function () {
-//    return ('admin');
+//Route::get('/', function () {
+//    return ('admin')->middleware(['auth']);
 //});
-
+Route::resource('booking',BookingController::class)->middleware(['auth']);
 Route::resource('venue',VenueController::class)->middleware(['auth']);
 Route::resource('artist',ArtistController::class)->middleware(['auth']);
 Route::resource('event',EventController::class)->middleware(['auth']);

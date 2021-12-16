@@ -25,7 +25,7 @@ class ArtistGenreFactory extends Factory
     {
         return [
             'artist_id'  =>Artist::all()->random()->id,
-            'genre_id'  =>Genre::all()->random()->id,
+            'genre_id'  =>Genre::all()->unique()->random()->id,
         ];
     }
 }

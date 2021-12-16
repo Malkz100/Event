@@ -18,9 +18,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-       // $this->middleware('auth')->except('index');
-        return view('frontend.index')
-            ->with('events', Event::all());
+        return view('frontend.index');
+//            ->with('events', Event::all());
     }
 
     /**
@@ -50,9 +49,9 @@ class HomeController extends Controller
      * @param  \App\Models\Home  $home
      * @return mixed
      */
-    public function show(Home $home)
+    public function show()
     {
-        return view('frontend.show-event',compact('home'));
+        return view('frontend.show-event');
 //        return view('frontend.show-event', [
  //           'event' => Event::findOrFail($id)
 //        ]);
