@@ -39,7 +39,7 @@
                 <table class="table table-bordered">
                     <tr>
                         <th>Booking ID</th>
-                        <th>Booked At</th>
+                        <th>Booked on</th>
                         <th>Name</th>
                         <th>Post Code</th>
                         <th>Event</th>
@@ -48,7 +48,7 @@
                     @foreach ($bookings as $booking)
                     <tr>
                         <td>{{ $booking->id }}</td>
-                        <td>{{ Carbon\Carbon::parse($booking->booked_at)->format('l jS \of F Y') }}</td>
+                        <td>{{ Carbon\Carbon::parse($booking->booked_at)->format('D jS \of M Y') }}</td>
                         <td>{{$booking->customer->title}} {{ $booking->customer->firstname }} {{ $booking->customer->lastname }}</td>
                         <td>{{ $booking->customer->postcode }}</td>
                         <td>{{$booking->event->title}}</td>

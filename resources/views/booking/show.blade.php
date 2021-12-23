@@ -75,40 +75,16 @@
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Tickets Full Price: </strong>£
-                                {{ $booking->event->price }}
+                                <strong>Tickets Full Price: </strong>
+                                {{ $booking->events()->where('event_id', $booking->event->id)->first()->pivot->tickets_full_price }} @ £{{ $booking->event->price }}
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Tickets Discount Price: </strong>£
-                                {{ $booking->event->reduced_price }}
+                                <strong>Tickets Discount Price: </strong>
+                                {{ $booking->events()->where('event_id', $booking->event->id)->first()->pivot->tickets_reduced_price }} @ £{{ $booking->event->reduced_price }}
                             </div>
                         </div>
-{{--                        <div class="col-xs-12 col-sm-12 col-md-12">--}}
-{{--                            <div class="form-group">--}}
-{{--                                <strong>event Phone:</strong>--}}
-{{--                                {{ $event->event_phone }}--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-xs-12 col-sm-12 col-md-12">--}}
-{{--                            <div class="form-group">--}}
-{{--                                <strong>Email:</strong>--}}
-{{--                                {{ $event->email }}--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-xs-12 col-sm-12 col-md-12">--}}
-{{--                            <div class="form-group">--}}
-{{--                                <strong>Website:</strong>--}}
-{{--                                <a href="{{ $event->website }}">{{ $event->website }}</a>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-xs-12 col-sm-12 col-md-12">--}}
-{{--                            <div class="form-group">--}}
-{{--                                <strong>Contact Name:</strong>--}}
-{{--                                {{ $event->contact_name }}--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
                     </div>
                 </div>
             </div>

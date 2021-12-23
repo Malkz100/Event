@@ -15,12 +15,16 @@ class CreateTicketsTable extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('booking_id')->constrained()
+            $table->foreignId('booking_id')->references('id')->on('bookings')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->foreignId('event_id')->constrained()
+            $table->foreignId('event_id')->references('id')->on('events')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+
+            $table->integer('tickets_full_price')->nullable();
+            $table->integer('tickets_reduced_price')->nullable();
+
             $table->timestamps();
         });
     }

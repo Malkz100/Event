@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use App\Models\Customer;
 use App\Models\Event;
-use App\Http\Requests\StoreBookingRequest;
-use App\Http\Requests\UpdateBookingRequest;
+use App\Models\Ticket;
+use Illuminate\Http\Request;
+//use App\Http\Requests\StoreBookingRequest;
+//use App\Http\Requests\UpdateBookingRequest;
 
 class BookingController extends Controller
 {
@@ -40,26 +42,32 @@ class BookingController extends Controller
      * @param  \App\Http\Requests\Request  $request
      * @return mixed
      */
-    public function store(StoreBookingRequest $request)
+    public function store(Request $request, Booking $booking)
     {
         $request->validate([
             'event_id' => 'required',
             'customer_id' => 'required',
             'booked_at' => 'required',
-            'tickets_full_price' => 'required',
+            'tickets_full_price',
             'tickets_reduced_price'
         ]);
 
         //Create booking from booking.create.blade form
         $booking = Booking::create($request->all());
+//ddd($booking);
 
-        //Insert 'tickets' into tickets pivot table
-//        $tickets = $request->get('tickets');
-//        $booking->ticket()->sync($tickets);
+        //Insert 'tickets_full/reduced_price' into tickets pivot table
+        $tickets_full_price = $request->get('tickets_full_price');
+        $tickets_reduced_price = $request->get('tickets_reduced_price');
+        $booking->events()->attach($booking->event->id,
+            ['tickets_full_price' =>$tickets_full_price, 'tickets_reduced_price' =>$tickets_reduced_price]);
 
-        return redirect()->route('booking.index')
+//ddd($booking);
+
+        return redirect()->route('booking.index', compact('booking'))
             ->with('success','Booking created successfully.');
     }
+
 
     /**
      * Display the specified resource.
@@ -69,7 +77,12 @@ class BookingController extends Controller
      */
     public function show(Booking $booking)
     {
-        return view('booking.show',compact('booking'));
+      //  $booking = Booking::all();
+      //  ->with('events')->get()
+     //   ddd($tickets);
+        return view('booking.show',compact('booking'))
+            ->with('tickets', Ticket::all())
+            ->with('events', Event::all());
     }
 
     /**
@@ -90,7 +103,7 @@ class BookingController extends Controller
      * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBookingRequest $request, Booking $booking)
+    public function update(Request $request, Booking $booking)
     {
         //
     }

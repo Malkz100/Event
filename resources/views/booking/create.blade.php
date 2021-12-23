@@ -55,7 +55,7 @@
                                 <div class="form-group">
                                     <label for="event_id" class="inline-flex items-center">
                                         <strong>Event:</strong></label>
-                                    <select name="event_id" class="form-control">
+                                    <select id="event_id" name="event_id" class="form-control">
                                         <option value="" disabled selected>  Select Event  </option>
                                         @foreach($events as $event)
                                             <option value="{{ $event->id }}">{{ $event->title }}</option>
@@ -85,7 +85,7 @@
                                 <div class="form-group">
                                     <label for="booked_at"><strong>Booking Date-Time:</strong></label>
 {{--                                    <x-datepicker wire:model="datetime" name="datetime" class="form-control bg-white" />--}}
-                                    <input type="text" value="{{Carbon\Carbon::now()}}"  name="booked_at" class="form-control" placeholder="{{Carbon\Carbon::parse()->format('l jS \of F Y')}}">
+                                    <input type="text" value="{{Carbon\Carbon::now()}}"  name="booked_at" class="form-control" placeholder="{{Carbon\Carbon::now()->format('D jS \of M Y')}}">
                                 </div>
                             </div>
 
@@ -104,13 +104,37 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="tickets_full_price"><strong>No of Tickets Full Price:</strong></label>
-                                    <input type="text" size="4" name="tickets_full_price" class="form-control" placeholder="Type No of Tickets Required ">
+                                    <select id="tickets_full_price"  name="tickets_full_price" class="form-control">
+                                        <option value="" disabled selected>  Select no of tickets  </option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                    </select>
+
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="tickets_reduced_price"><strong>No of Tickets Discount Price:</strong></label>
-                                    <input type="text" size="4" name="tickets_reduced_price" class="form-control" placeholder="Type No of Tickets Required">
+{{--                                    <input type="text" size="4" name="tickets_reduced_price" class="form-control" placeholder="Type No of Tickets Required">--}}
+                                    <select name="tickets_reduced_price" id="tickets_reduced_price" class="form-control">
+                                        <option value="" disabled selected>  Select no of tickets  </option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                    </select>
                                 </div>
                             </div>
 

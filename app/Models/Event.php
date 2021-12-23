@@ -10,6 +10,9 @@ class Event extends Model
 {
     use HasFactory;
 
+    //Table Name
+    protected $table = 'events';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -30,13 +33,22 @@ class Event extends Model
         return $this->belongsToMany(Artist::class)->withTimestamps();
     }
 
-    public function tickets()
+//    public function ticket()
+//    {
+//        return $this->hasMany(Ticket::class);
+//    }
+
+    public function bookings()
     {
-        return $this->hasMany(Ticket::class)->withTimestamps();
+        return $this->belongsToMany(Booking::class, 'booking_event', 'event_id', 'booking_id')
+           // ->using(Ticket::class)
+           // ->as('tickets')
+            ->withPivot('tickets_full_price', 'tickets_reduced_price')
+            ->withTimestamps();
     }
 
-    public function booking()
+    public function getTicketsFull()
     {
-        return $this->belongsToMany(Booking::class)->withTimestamps();
+        return $this->pivot->tickets_full_price;
     }
 }
