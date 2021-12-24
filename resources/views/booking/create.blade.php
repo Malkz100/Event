@@ -52,8 +52,8 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <label for="artist_id"><strong>Select Customer: </strong></label>
-                                    <select name="customer_id" class="form-control">
+                                    <label for="customer_id"><strong>Select Customer: </strong></label>
+                                    <select name="customer_id" id="customer_id" class="form-control">
                                         <option value="" disabled selected>  Select Customer  </option>
                                     @foreach($customers as $customer)
                                             <option value="{{ $customer->id }}">{{ $customer->title }} {{ $customer->firstname }} {{ $customer->lastname }}</option>
@@ -67,7 +67,7 @@
                                 <div class="form-group">
                                     <label for="booked_at"><strong>Booking Date-Time:</strong></label>
 {{--                                    <x-datepicker wire:model="datetime" name="datetime" class="form-control bg-white" />--}}
-                                    <input type="text" value="{{Carbon\Carbon::now()}}"  name="booked_at" class="form-control" placeholder="{{Carbon\Carbon::now()->format('D jS \of M Y')}}">
+                                    <input type="text" id="booked_at" value="{{Carbon\Carbon::now()}}"  name="booked_at" class="form-control" placeholder="{{Carbon\Carbon::now()->format('D jS \of M Y')}}">
                                 </div>
                             </div>
 

@@ -71,7 +71,7 @@ class BookingController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Booking  $booking
+     * @param  \App\Models\Booking
      * @return mixed
      */
     public function show(Booking $booking)
@@ -83,7 +83,7 @@ class BookingController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Booking  $booking
+     * @param  \App\Models\Booking
      * @return mixed
      */
     public function edit(Booking $booking)
