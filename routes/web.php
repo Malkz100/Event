@@ -33,25 +33,30 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
 //})->middleware(['auth'])->name('admin');
 
 
-//Frontend
+
 //Route::get('/', function () {
 //    return view('frontend.index');
 //});
 //Route::get('/', 'HomeController@index')->name('home');
 //Route::get('/', 'HomeController@index');
 //Route::get('/', [HomeController::class, 'index']);
+
+//Frontend
 Route::resource('/',HomeController::class);
 Route::resource('home',HomeController::class);
 Route::get('home/showevent/{id}', [HomeController::class, 'showevent'])->name('home.showevent');
 Route::get('home/showartist/{id}', [HomeController::class, 'showartist'])->name('home.showartist');
+Route::get('home/booktickets/{id}', [HomeController::class, 'booktickets'])->name('home.booktickets');
 Route::view('/search-events', 'frontend.search-events');
 Route::view('/search-artists', 'frontend.search-artists');
 
-//Backend
+
 
 //Route::get('/', function () {
 //    return ('admin')->middleware(['auth']);
 //});
+
+//Backend
 Route::resource('booking',BookingController::class)->middleware(['auth']);
 Route::resource('venue',VenueController::class)->middleware(['auth']);
 Route::resource('artist',ArtistController::class)->middleware(['auth']);

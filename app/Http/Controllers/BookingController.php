@@ -116,7 +116,7 @@ class BookingController extends Controller
         //Update 'tickets_full/reduced_price' into tickets pivot table
         $tickets_full_price = $request->get('tickets_full_price');
         $tickets_reduced_price = $request->get('tickets_reduced_price');
-        $booking->events()->attach($booking->event->id,
+        $booking->events()->update(
             ['tickets_full_price' =>$tickets_full_price, 'tickets_reduced_price' =>$tickets_reduced_price]);
 
 //ddd($booking);

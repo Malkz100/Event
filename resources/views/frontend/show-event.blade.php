@@ -86,7 +86,7 @@
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
-                            <a href="#" class="btn btn-primary">Book Tickets</a>
+                            <a href="{{ route('home.booktickets', $event->id) }}" class="btn btn-primary">Book Tickets</a>
                         </div>
                     </div>
                 </div>

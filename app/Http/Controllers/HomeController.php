@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use App\Models\Home;
 use Illuminate\Foundation\Mix;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\Artist;
-use App\Models\Venue;
+use App\Models\Booking;
 
 class HomeController extends Controller
 {
@@ -60,25 +61,7 @@ class HomeController extends Controller
  //           ->with('venues', Venue::all());
     }
 
-    public function showevent($id)
-    {
-        return view('frontend.show-event', [
-            'event' => Event::findOrFail($id)
-        ]);
-    }
 
-    public function showartist($id)
-    {
-        return view('frontend.show-artist', [
-            'artist' => Artist::findOrFail($id)
-        ]);
-    }
-
-
-    public function searchevents()
-    {
-        return view('frontend.search-events');
-    }
 
 
     /**
@@ -113,5 +96,35 @@ class HomeController extends Controller
     public function destroy(Home $home)
     {
         //
+    }
+
+    public function showevent($id)
+    {
+        return view('frontend.show-event', [
+            'event' => Event::findOrFail($id)
+        ]);
+    }
+
+    public function showartist($id)
+    {
+        return view('frontend.show-artist', [
+            'artist' => Artist::findOrFail($id)
+        ]);
+    }
+
+
+    public function searchevents()
+    {
+        return view('frontend.search-events');
+    }
+
+    public function booktickets($id)
+    {
+       // return 'foo';
+        return view('frontend.booktickets', [
+            'event' => Event::findOrFail($id)
+        ])
+            ->with('events', Event::all())
+            ->with('customers', Customer::all());
     }
 }

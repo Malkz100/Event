@@ -75,22 +75,22 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Tickets Full Price: </strong>
-                                {{ $booking->events()->where('event_id', $booking->event->id)->first()->pivot->tickets_full_price }} @ £{{ $booking->event->price }}
+                                {{ $booking->events()->where('booking_id', $booking->id)->first()->pivot->tickets_full_price }} @ £{{ $booking->event->price }}
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Tickets Discount Price: </strong>
-                                {{ $booking->events()->where('event_id', $booking->event->id)->first()->pivot->tickets_reduced_price }} @ £{{ $booking->event->reduced_price }}
+                                {{ $booking->events()->where('booking_id', $booking->id)->first()->pivot->tickets_reduced_price }} @ £{{ $booking->event->reduced_price }}
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Total Price: </strong>
-                                <?php
-                                (($booking->events()->where('event_id', $booking->event->id)->first()->pivot->tickets_full_price) * ($booking->event->price)
-                                +( $booking->events()->where('event_id', $booking->event->id)->first()->pivot->tickets_reduced_price ) * ( $booking->event->reduced_price ))
-                                ?>
+<!--                                --><?php
+//                                (($booking->events()->where('event_id', $booking->event->id)->first()->pivot->tickets_full_price) * ($booking->event->price)
+//                                +( $booking->events()->where('event_id', $booking->event->id)->first()->pivot->tickets_reduced_price ) * ( $booking->event->reduced_price ))
+//                                ?>
                             </div>
                         </div>
                     </div>

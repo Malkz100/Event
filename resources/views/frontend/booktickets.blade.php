@@ -1,15 +1,15 @@
-@extends('admin.layout')
+@extends('layouts.guest')
 
 @section('content')
     <div class="card mt-5">
         <div class="card-header">
-            <h2>Edit Booking</h2>
+            <h2>Book Tickets for {{ $event->title }}</h2>
         </div>
         <div class="card-body">
             <div class="row">
                 <div class="col-lg-12 mt-1 mr-1">
                     <div class="float-right">
-                        <a class="btn btn-primary" href="{{ route('booking.index') }}"> Back</a>
+                        <a class="btn btn-primary" href="{{ url()->previous() }}"> Back</a>
                     </div>
                 </div>
             </div>
@@ -33,21 +33,21 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('booking.update', $booking->id) }}" method="POST">
+                    <form action="{{ route('booking.store') }}" method="POST">
                         @csrf
-                        @method('PUT')
 
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="event_id" class="inline-flex items-center">
-                                        <strong>Event:</strong></label>
-                                    <select id="event_id" name="event_id" class="form-control">
-                                        <option value="{{ $booking->event->id }}" >{{ $booking->event->title }}</option>
-                                        @foreach($events as $event)
-                                            <option value="{{ $event->id }}">{{ $event->title }}</option>
-                                        @endforeach
-                                    </select>
+                                        <strong>Event:<h2>{{ $event->title }}</h2></strong></label>
+                                    <input type="hidden" id="event_id" name="event_id" value="{{ $event->id }}">
+{{--                                    <select id="event_id" name="event_id" class="form-control">--}}
+{{--                                        <option value="{{ $event->id }}" disabled selected>{{ $event->title }}</option>--}}
+{{--                                        @foreach($events as $event)--}}
+{{--                                            <option value="{{ $event->id }}">{{ $event->title }}</option>--}}
+{{--                                        @endforeach--}}
+{{--                                    </select>--}}
                                 </div>
                             </div>
 
@@ -55,7 +55,7 @@
                                 <div class="form-group">
                                     <label for="customer_id"><strong>Select Customer: </strong></label>
                                     <select name="customer_id" id="customer_id" class="form-control">
-                                        <option value="{{ $booking->customer->id }}">{{ $booking->customer->title }} {{ $booking->customer->firstname }} {{ $booking->customer->lastname }}</option>
+                                        <option value="" disabled selected>  Select Customer  </option>
                                     @foreach($customers as $customer)
                                             <option value="{{ $customer->id }}">{{ $customer->title }} {{ $customer->firstname }} {{ $customer->lastname }}</option>
                                     @endforeach
@@ -66,9 +66,10 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <label for="booked_at"><strong>Booking Date-Time:</strong></label>
+                                    <input type="hidden" id="booked_at" name="booked_at" value="{{Carbon\Carbon::now()}}">
+{{--                                    <label for="booked_at"><strong>Booking Date-Time:</strong></label>--}}
 {{--                                    <x-datepicker wire:model="datetime" name="datetime" class="form-control bg-white" />--}}
-                                    <input type="text" id="booked_at" value="{{Carbon\Carbon::now()}}"  name="booked_at" class="form-control" placeholder="{{Carbon\Carbon::now()->format('D jS \of M Y')}}">
+{{--                                    <input type="text" id="booked_at" value="{{Carbon\Carbon::now()}}"  name="booked_at" class="form-control" placeholder="{{Carbon\Carbon::now()->format('D jS \of M Y')}}">--}}
                                 </div>
                             </div>
 
@@ -76,7 +77,7 @@
                                 <div class="form-group">
                                     <label for="tickets_full_price"><strong>No of Tickets Full Price:</strong></label>
                                     <select id="tickets_full_price"  name="tickets_full_price" class="form-control">
-                                        <option value="{{ $booking->events()->where('booking_id', $booking->id)->first()->pivot->tickets_full_price }}">{{ $booking->events()->where('booking_id', $booking->id)->first()->pivot->tickets_full_price }}</option>
+                                        <option value="" disabled selected>  Select no of tickets  </option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -96,7 +97,7 @@
                                     <label for="tickets_reduced_price"><strong>No of Tickets Discount Price:</strong></label>
 {{--                                    <input type="text" size="4" name="tickets_reduced_price" class="form-control" placeholder="Type No of Tickets Required">--}}
                                     <select name="tickets_reduced_price" id="tickets_reduced_price" class="form-control">
-                                        <option value="{{ $booking->events()->where('booking_id', $booking->id)->first()->pivot->tickets_reduced_price }}">{{ $booking->events()->where('booking_id', $booking->id)->first()->pivot->tickets_reduced_price }}</option>
+                                        <option value="" disabled selected>  Select no of tickets  </option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -112,7 +113,7 @@
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                <button type="submit" class="btn btn-success">Update</button>
+                                <button type="submit" class="btn btn-success">Submit</button>
                             </div>
                         </div>
                     </form>
