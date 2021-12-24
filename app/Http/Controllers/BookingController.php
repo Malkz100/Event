@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use App\Models\Customer;
 use App\Models\Event;
-use App\Models\Ticket;
 use Illuminate\Http\Request;
 //use App\Http\Requests\StoreBookingRequest;
 //use App\Http\Requests\UpdateBookingRequest;
@@ -77,11 +76,7 @@ class BookingController extends Controller
      */
     public function show(Booking $booking)
     {
-      //  $booking = Booking::all();
-      //  ->with('events')->get()
-     //   ddd($tickets);
         return view('booking.show',compact('booking'))
-            ->with('tickets', Ticket::all())
             ->with('events', Event::all());
     }
 
@@ -89,11 +84,13 @@ class BookingController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Booking  $booking
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function edit(Booking $booking)
     {
-        //
+        return view('booking.edit', compact('booking'))
+            ->with('events', Event::all())
+            ->with('customers', Customer::all());
     }
 
     /**
@@ -101,11 +98,31 @@ class BookingController extends Controller
      *
      * @param  \App\Http\Requests\UpdateBookingRequest  $request
      * @param  \App\Models\Booking  $booking
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function update(Request $request, Booking $booking)
     {
-        //
+        $request->validate([
+            'event_id' => 'required',
+            'customer_id' => 'required',
+            'booked_at' => 'required',
+            'tickets_full_price',
+            'tickets_reduced_price'
+        ]);
+
+        //Update booking from booking.edit.blade form
+        $booking->update($request->all());
+
+        //Update 'tickets_full/reduced_price' into tickets pivot table
+        $tickets_full_price = $request->get('tickets_full_price');
+        $tickets_reduced_price = $request->get('tickets_reduced_price');
+        $booking->events()->attach($booking->event->id,
+            ['tickets_full_price' =>$tickets_full_price, 'tickets_reduced_price' =>$tickets_reduced_price]);
+
+//ddd($booking);
+
+        return redirect()->route('booking.index', compact('booking'))
+            ->with('success','Booking updated successfully.');
     }
 
     /**

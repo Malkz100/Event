@@ -27,12 +27,6 @@ class Booking extends Model
         return $this->belongsTo('App\Models\Customer','customer_id');
     }
 
-//    public function ticket()
-//    {
-//        return $this->belongsTo('App\Models\Ticket','ticket_id');
-//    }
-
-//
 
     public function event()
     {
@@ -41,22 +35,9 @@ class Booking extends Model
 
     public function events()
     {
-        return $this->belongsToMany(Event::class, 'booking_event', 'booking_id', 'event_id')
-            //->using(Ticket::class)
-            // ->as('tickets')
+        return $this->belongsToMany(Event::class, 'tickets', 'booking_id', 'event_id')
             ->withPivot( 'tickets_full_price', 'tickets_reduced_price')
-            //->withPivot('tickets_full_price')
             ->withTimestamps();
-    }
-
-    public function getTicketsFull()
-    {
-        return $this->pivot->tickets_full_price;
-    }
-
-    public function foo()
-    {
-        return $this->pivot->tickets_full_price;
     }
 
 }

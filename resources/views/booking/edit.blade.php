@@ -3,7 +3,7 @@
 @section('content')
     <div class="card mt-5">
         <div class="card-header">
-            <h2>Add Booking</h2>
+            <h2>Edit Booking</h2>
         </div>
         <div class="card-body">
             <div class="row">
@@ -33,8 +33,9 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('booking.store') }}" method="POST">
+                    <form action="{{ route('booking.update', $booking->id) }}" method="POST">
                         @csrf
+                        @method('PUT')
 
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -42,7 +43,7 @@
                                     <label for="event_id" class="inline-flex items-center">
                                         <strong>Event:</strong></label>
                                     <select id="event_id" name="event_id" class="form-control">
-                                        <option value="" disabled selected>  Select Event  </option>
+                                        <option value="{{ $booking->event->id }}" >{{ $booking->event->title }}</option>
                                         @foreach($events as $event)
                                             <option value="{{ $event->id }}">{{ $event->title }}</option>
                                         @endforeach
@@ -54,7 +55,7 @@
                                 <div class="form-group">
                                     <label for="artist_id"><strong>Select Customer: </strong></label>
                                     <select name="customer_id" class="form-control">
-                                        <option value="" disabled selected>  Select Customer  </option>
+                                        <option value="{{ $booking->customer->id }}">{{ $booking->customer->title }} {{ $booking->customer->firstname }} {{ $booking->customer->lastname }}</option>
                                     @foreach($customers as $customer)
                                             <option value="{{ $customer->id }}">{{ $customer->title }} {{ $customer->firstname }} {{ $customer->lastname }}</option>
                                     @endforeach
@@ -75,7 +76,7 @@
                                 <div class="form-group">
                                     <label for="tickets_full_price"><strong>No of Tickets Full Price:</strong></label>
                                     <select id="tickets_full_price"  name="tickets_full_price" class="form-control">
-                                        <option value="" disabled selected>  Select no of tickets  </option>
+                                        <option value="{{ $booking->events()->where('event_id', $booking->event->id)->first()->pivot->tickets_full_price }}">{{ $booking->events()->where('event_id', $booking->event->id)->first()->pivot->tickets_full_price }}</option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -95,7 +96,7 @@
                                     <label for="tickets_reduced_price"><strong>No of Tickets Discount Price:</strong></label>
 {{--                                    <input type="text" size="4" name="tickets_reduced_price" class="form-control" placeholder="Type No of Tickets Required">--}}
                                     <select name="tickets_reduced_price" id="tickets_reduced_price" class="form-control">
-                                        <option value="" disabled selected>  Select no of tickets  </option>
+                                        <option value="{{ $booking->events()->where('event_id', $booking->event->id)->first()->pivot->tickets_reduced_price }}">{{ $booking->events()->where('event_id', $booking->event->id)->first()->pivot->tickets_reduced_price }}</option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -111,7 +112,7 @@
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                <button type="submit" class="btn btn-success">Submit</button>
+                                <button type="submit" class="btn btn-success">Update</button>
                             </div>
                         </div>
                     </form>

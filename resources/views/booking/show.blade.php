@@ -4,7 +4,7 @@
     <div class="card mt-5">
         <div class="card-header">
             <div class="float-left">
-                <span class="inline-flex"><h2>{{ $booking->event->title }} -Booking for Event Details</h2></span>
+                <span class="inline-flex"><h2>{{ $booking->event->title }}</h2><h6>Booking Details</h6></span>
             </div>
             <div class="float-right">
                 <a class="btn btn-primary" href="{{ route('booking.index') }}"> Back</a>
@@ -46,7 +46,6 @@
                                 <ul>
                                 @foreach($booking->event->artists as $artist)
 
-{{--                                    <br/> {{ $artist->name }}--}}
                                     <li><a href="{{ route('artist.show',$artist->id) }}">{{ $artist->name }}</a></li>
 
                                 @endforeach
@@ -83,6 +82,15 @@
                             <div class="form-group">
                                 <strong>Tickets Discount Price: </strong>
                                 {{ $booking->events()->where('event_id', $booking->event->id)->first()->pivot->tickets_reduced_price }} @ £{{ $booking->event->reduced_price }}
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Total Price: </strong>
+                                <?php
+                                (($booking->events()->where('event_id', $booking->event->id)->first()->pivot->tickets_full_price) * ($booking->event->price)
+                                +( $booking->events()->where('event_id', $booking->event->id)->first()->pivot->tickets_reduced_price ) * ( $booking->event->reduced_price ))
+                                ?>
                             </div>
                         </div>
                     </div>

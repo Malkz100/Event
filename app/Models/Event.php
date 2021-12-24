@@ -33,22 +33,12 @@ class Event extends Model
         return $this->belongsToMany(Artist::class)->withTimestamps();
     }
 
-//    public function ticket()
-//    {
-//        return $this->hasMany(Ticket::class);
-//    }
 
     public function bookings()
     {
-        return $this->belongsToMany(Booking::class, 'booking_event', 'event_id', 'booking_id')
-           // ->using(Ticket::class)
-           // ->as('tickets')
+        return $this->belongsToMany(Booking::class, 'tickets', 'event_id', 'booking_id')
             ->withPivot('tickets_full_price', 'tickets_reduced_price')
             ->withTimestamps();
     }
 
-    public function getTicketsFull()
-    {
-        return $this->pivot->tickets_full_price;
-    }
 }
