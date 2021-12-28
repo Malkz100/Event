@@ -47,12 +47,12 @@ class Booking extends Model
      * @param  \App\Models\Booking  $booking
      * @return mixed
      */
-    public function getTotalCostAttribute(Request $request, Booking $booking)
+    public function getTotalCost(Booking $booking)
     {
-        $booking = Booking::all();
+        $tickets_full_price = $this->events()->value('tickets_full_price');
+        $tickets_reduced_price = $this->events()->value('tickets_reduced_price');
 
-        $tickets_full_price = $request->get('tickets_full_price');
-        $tickets_reduced_price = $request->get('tickets_reduced_price');
+        return ($tickets_full_price * $booking->event->price) + ($tickets_reduced_price * $booking->event->reduced_price);
     }
 
 }

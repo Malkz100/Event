@@ -2,11 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
 
+/**
+ * Event
+ *
+ * @mixin Builder
+ */
 class Event extends Model
 {
     use HasFactory;
@@ -24,17 +30,26 @@ class Event extends Model
     ];
 
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function venue()
     {
         return $this->belongsTo('App\Models\Venue','venue_id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function artists()
     {
         return $this->belongsToMany(Artist::class)->withTimestamps();
     }
 
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function bookings()
     {
         return $this->belongsToMany(Booking::class, 'tickets', 'event_id', 'booking_id')
@@ -45,10 +60,11 @@ class Event extends Model
     /**
      * Calculate no of tickets available.
      *
-     * @param  \App\Models\Event  $event
-     * @return mixed
+     * @param \App\Models\Event $event
+     * @return int|mixed
+     * @mixin Builder
      */
-    public function ticketsAvailable($event)
+    public function ticketsAvailable(Event $event)
     {
           $capacity = Venue::find($event->venue->id)->capacity;
 

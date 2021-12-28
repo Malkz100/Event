@@ -87,10 +87,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Total Price: </strong>
-<!--                                --><?php
-//                                (($booking->events()->where('event_id', $booking->event->id)->first()->pivot->tickets_full_price) * ($booking->event->price)
-//                                +( $booking->events()->where('event_id', $booking->event->id)->first()->pivot->tickets_reduced_price ) * ( $booking->event->reduced_price ))
-//                                ?>
+                                £{{ number_format($booking->getTotalCost($booking),2) }}
                             </div>
                         </div>
                     </div>
