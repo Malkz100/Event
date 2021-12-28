@@ -42,6 +42,12 @@ class Event extends Model
             ->withTimestamps();
     }
 
+    /**
+     * Calculate no of tickets available.
+     *
+     * @param  \App\Models\Event  $event
+     * @return mixed
+     */
     public function ticketsAvailable($event)
     {
           $capacity = Venue::find($event->venue->id)->capacity;
