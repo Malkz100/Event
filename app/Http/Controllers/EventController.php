@@ -47,8 +47,8 @@ class EventController extends Controller
             'description' => 'required',
             'venue_id' => 'required',
             'datetime' => 'required',
-            'price' => 'required',
-            'reduced_price'
+            'price' => 'numeric|min:0',
+            'reduced_price'  => 'numeric|min:0'
         ]);
 
         //Create event from blade form
@@ -101,8 +101,8 @@ class EventController extends Controller
             'description' => 'required',
             'venue_id' => 'required',
             'datetime' => 'required',
-            'price' => 'required',
-            'reduced_price'
+            'price' => 'numeric|min:0',
+            'reduced_price' => 'numeric|min:0',
         ]);
 
         $event->update($request->all());
@@ -128,4 +128,22 @@ class EventController extends Controller
         return redirect()->route('event.index')
                          ->with('success','Event deleted successfully');
     }
+
+
+    /**
+     * Calculate no of tickets available.
+     *
+     * @param  \App\Models\Event  $event
+     * @return mixed
+     */
+//    public function ticketsAvailable()
+//    {
+//        $venueCapacity = Venue::all()->capacity->where('event_id', $event->id)->first();
+//
+//        $ticketsSold = ($booking->events()->where('event_id', $event->id)->first()->pivot->tickets_full_price)
+//        + ($booking->events()->where('event_id', $event->id)->first()->pivot->tickets_reduced_price);
+//        return ($venueCapacity - $ticketsSold);
+//        return ($venueCapacity);
+//        return 'foo';
+//    }
 }

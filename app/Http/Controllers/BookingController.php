@@ -47,8 +47,8 @@ class BookingController extends Controller
             'event_id' => 'required',
             'customer_id' => 'required',
             'booked_at' => 'required',
-            'tickets_full_price',
-            'tickets_reduced_price'
+            'tickets_full_price' =>'numeric|min:0',
+            'tickets_reduced_price' =>'numeric|min:0'
         ]);
 
         //Create booking from booking.create.blade form
@@ -106,8 +106,8 @@ class BookingController extends Controller
             'event_id' => 'required',
             'customer_id' => 'required',
             'booked_at' => 'required',
-            'tickets_full_price',
-            'tickets_reduced_price'
+            'tickets_full_price' =>'numeric|min:0',
+            'tickets_reduced_price' =>'numeric|min:0'
         ]);
 
         //Update booking from booking.edit.blade form
@@ -138,4 +138,5 @@ class BookingController extends Controller
         return redirect()->route('booking.index')
             ->with('success','Booking deleted successfully');
     }
+
 }

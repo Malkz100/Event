@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\Pivot;
+use Illuminate\Database\Eloquent\Model;
 
 class Ticket extends Pivot
 {
@@ -29,6 +31,20 @@ class Ticket extends Pivot
 
     public function booking() {
         return $this->belongsTo('booking');
+    }
+
+    /**
+     * TODO Calculate tickets available
+     * @mixin Builder
+    */
+    public function getTicketsAvailable($event_id)
+    {
+        $venueCapacity = Venue::all()->capacity->where('event_id', $event_id)->first();
+
+//        $ticketsSold = ($booking->events()->where('event_id', $event->id)->first()->pivot->tickets_full_price)
+//        + ($booking->events()->where('event_id', $event->id)->first()->pivot->tickets_reduced_price);
+//        return ($venueCapacity - $ticketsSold);
+        return ($venueCapacity);
     }
 
 

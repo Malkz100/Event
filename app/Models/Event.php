@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 
 class Event extends Model
@@ -39,6 +40,15 @@ class Event extends Model
         return $this->belongsToMany(Booking::class, 'tickets', 'event_id', 'booking_id')
             ->withPivot('tickets_full_price', 'tickets_reduced_price')
             ->withTimestamps();
+    }
+
+    public function ticketsAvailable($event)
+    {
+          $capacity = Venue::find($event->venue->id)->capacity;
+
+          $fullTicketsSold = DB::table('tickets')->where('event_id','=', $event->id)->sum('tickets_full_price');
+          $reducedTicketsSold = DB::table('tickets')->where('event_id','=', $event->id)->sum('tickets_reduced_price');
+        return ($capacity - ($fullTicketsSold + $reducedTicketsSold));
     }
 
 }
