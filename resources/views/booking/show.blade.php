@@ -7,7 +7,7 @@
                 <span class="inline-flex"><h2>{{ $booking->event->title }}</h2><h6>Booking Details</h6></span>
             </div>
             <div class="float-right">
-                <a class="btn btn-primary" href="{{ route('booking.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ url()->previous() }}"> Back</a>
             </div>
         </div>
 

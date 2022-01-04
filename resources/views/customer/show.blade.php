@@ -5,7 +5,7 @@
         <div class="card-header">
             <div class="col-lg-12 mt-1 mr-1">
                 <div class="float-right">
-                    <a class="btn btn-primary" href="{{ route('customer.index') }}"> Back</a>
+                    <a class="btn btn-primary" href="{{ url()->previous() }}"> Back</a>
                 </div>
             </div>
             <h2>Customer Details</h2>

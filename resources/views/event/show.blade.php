@@ -7,7 +7,7 @@
                 <span class="inline-flex"><h2>{{ $event->title }} -Event Details</h2></span>
             </div>
             <div class="float-right">
-                <a class="btn btn-primary" href="{{ route('event.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ url()->previous() }}"> Back</a>
             </div>
         </div>
 

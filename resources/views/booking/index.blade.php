@@ -51,7 +51,7 @@
                         <td>{{ Carbon\Carbon::parse($booking->booked_at)->format('D jS \of M Y') }}</td>
                         <td>{{$booking->customer->title}} {{ $booking->customer->firstname }} {{ $booking->customer->lastname }}</td>
                         <td>{{ $booking->customer->postcode }}</td>
-                        <td>{{$booking->event->title}}</td>
+                        <td><a href="{{ route('event.show',$booking->event->id) }}">{{$booking->event->title}}</a></td>
 
                         <td>
                             <form action="{{ route('booking.destroy',$booking->id) }}" method="POST">

@@ -15,11 +15,9 @@
                     <p class="card-text">Events {{ $artist->name }} is performing at:
                     <ul class="list-inline">
                     @foreach($artist->events as $event)
-                        <li class="list-inline-item"><a href="{{ route('home.showevent',$event->id) }}">{{ $event->title }}</a></li>
+                        <li class="list-inline-item"><a href="{{ route('home.showevent',$event->id) }}">{{$event->title}}</a> |</li>
                     @endforeach
                     </ul>
-{{--                    <p class="card-text">{{ $event->datetime }}</p>--}}
-{{--                    <a href="#" class="btn btn-primary">Book Ticket</a>--}}
                 </div>
             </div>
 {{--            <a href="{{ route('home.showartist',$artist->id) }}"> <li> {{ $artist->name }}</li></a>--}}

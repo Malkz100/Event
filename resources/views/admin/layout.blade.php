@@ -116,6 +116,13 @@ Artists
                 </a>
               </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('artistimage.index') }}">
+                        <span data-feather="camera"></span>
+Artist Pic
+                    </a>
+                </li>
+
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('genre.index') }}">
                   <span data-feather="music"></span>
@@ -123,12 +130,7 @@ Genres
                 </a>
               </li>
 
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('artistimage.index') }}">
-                  <span data-feather="camera"></span>
-Artist Pic
-                </a>
-              </li>
+
 
                 <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                     <span>Bookings</span>

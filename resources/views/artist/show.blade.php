@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-12 mt-1 mr-1">
                     <div class="float-right">
-                        <a class="btn btn-primary" href="{{ route('artist.index') }}"> Back</a>
+                        <a class="btn btn-primary" href="{{ url()->previous() }}"> Back</a>
                     </div>
                 </div>
             </div>

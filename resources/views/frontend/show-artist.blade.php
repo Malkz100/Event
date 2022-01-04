@@ -75,7 +75,7 @@
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div>
-                                <strong>Events {{$artist->name}} is performing at: </strong>
+                                <strong>{{$artist->name}} is performing at these events: </strong>
                                 <ul>
                                     @foreach($artist->events as $event)
                                         <li><a href="{{ route('home.showevent',$event->id) }}">{{ $event->title }}</a></li>

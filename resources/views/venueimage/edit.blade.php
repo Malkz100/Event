@@ -40,7 +40,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <label for="venue_id" class="inline-flex items-center">
-                                    <strong>venue:</strong></label>
+                                    <strong>Venue:</strong></label>
                                 <label>
                                     <select name="venue_id" class="form-control">
                                         <option value="{{ $venueimage->venue->id }}">{{ $venueimage->venue->name }}</option>
