@@ -46,7 +46,6 @@
                                 <ul>
                                 @foreach($event->artists as $artist)
 
-{{--                                    <br/> {{ $artist->name }}--}}
                                     <li><a href="{{ route('artist.show',$artist->id) }}">{{ $artist->name }}</a></li>
 
                                 @endforeach
@@ -56,15 +55,15 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Date:</strong>
-                                {{ Carbon\Carbon::parse($event->datetime)->format('l jS \of F Y') }}
+                                {{ Carbon\Carbon::parse($event->datetime)->format('l jS \of F Y') }} <strong>  Time:</strong>{{ Carbon\Carbon::parse($event->datetime)->format('g:i a') }}
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>Time:</strong>
-                                {{ Carbon\Carbon::parse($event->datetime)->format('g:i a') }}
-                            </div>
-                        </div>
+{{--                        <div class="col-xs-12 col-sm-12 col-md-12">--}}
+{{--                            <div class="form-group">--}}
+{{--                                <strong>Time:</strong>--}}
+{{--                                {{ Carbon\Carbon::parse($event->datetime)->format('g:i a') }}--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Price: </strong>

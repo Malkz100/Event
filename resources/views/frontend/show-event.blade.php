@@ -27,6 +27,14 @@
         </div>
 
         <div class="card-body">
+            @foreach ($event->venue->venueimages as $venueimage)
+                <div class="float-right">
+                    <img src="{{ asset('storage/images/venues/'.$venueimage->file_path) }}" class="img-rounded" alt="Venue Image" height="150px">
+                    <div class="caption">
+                        <p>{{ $venueimage->name }}</p>
+                    </div>
+                </div>
+            @endforeach
             <div class="row mt-2">
                 <div class="col-lg-12">
                     @if ($message = Session::get('success'))

@@ -55,15 +55,15 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Date:</strong>
-                                {{ Carbon\Carbon::parse($booking->event->datetime)->format('l jS \of F Y') }}
+                                {{ Carbon\Carbon::parse($booking->event->datetime)->format('l jS \of F Y') }} <strong>  Time:</strong> {{ Carbon\Carbon::parse($booking->event->datetime)->format('g:i a') }}
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>Time:</strong>
-                                {{ Carbon\Carbon::parse($booking->event->datetime)->format('g:i a') }}
-                            </div>
-                        </div>
+{{--                        <div class="col-xs-12 col-sm-12 col-md-12">--}}
+{{--                            <div class="form-group">--}}
+{{--                                <strong>Time:</strong>--}}
+{{--                                {{ Carbon\Carbon::parse($booking->event->datetime)->format('g:i a') }}--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
@@ -72,19 +72,19 @@
                             </div>
                         </div>
 
-                        <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="col-xs-4 col-sm-4 col-md-4">
                             <div class="form-group">
                                 <strong>Tickets Full Price: </strong>
                                 {{ $booking->events()->where('booking_id', $booking->id)->first()->pivot->tickets_full_price }} @ £{{ $booking->event->price }}
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="col-xs-4 col-sm-4 col-md-4">
                             <div class="form-group">
                                 <strong>Tickets Discount Price: </strong>
                                 {{ $booking->events()->where('booking_id', $booking->id)->first()->pivot->tickets_reduced_price }} @ £{{ $booking->event->reduced_price }}
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="col-xs-4 col-sm-4 col-md-4">
                             <div class="form-group">
                                 <strong>Total Price: </strong>
                                 £{{ number_format($booking->getTotalCost($booking),2) }}

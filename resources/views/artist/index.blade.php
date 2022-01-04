@@ -7,7 +7,7 @@
         <h3>Artist Admin Panel</h3>
         </div>
 
-        <div class="float-right ml-4 text-xl leading-7 font-semibold ">
+        <div class="float-right ml-4 text-xl leading-7 font-semi-bold ">
             <a class="h4" href="{{ url('artist-search') }}">Search for Artist</a>
         </div>
 {{--        <div class="float-right">--}}
@@ -41,7 +41,7 @@
                     </tr>
                     @foreach ($artists as $artist)
                     <tr>
-                        <td>{{ ++$i }}</td>
+                        <td>{{ $artist->id }}</td>
                         <td>{{ $artist->name }}</td>
                         <td>{{ Str::limit($artist->bio, 50) }}</td>
                         <td>

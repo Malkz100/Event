@@ -36,7 +36,7 @@
                     </tr>
                     @foreach ($images as $image)
                     <tr>
-                        <td>{{ ++$i }}</td>
+                        <td>{{ $image->id }}</td>
                         <td><p><strong>{{ $image->artist->name }}</strong></p><p>{{ $image->name }}</p></td>
 
 {{--                        <td><img src="{{ $image->file_path }}" alt="Artist Image" height="40px"></td>--}}

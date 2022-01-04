@@ -36,7 +36,7 @@
                     </tr>
                     @foreach ($venues as $venue)
                     <tr>
-                        <td>{{ ++$i }}</td>
+                        <td>{{ $venue->id }}</td>
                         <td>{{ $venue->name }}</td>
                         <td>{{ Str::limit($venue->description, 50) }}</td>
                         <td>

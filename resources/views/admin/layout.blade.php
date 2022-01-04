@@ -102,6 +102,13 @@ Venues
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('venueimage.index') }}">
+                        <span data-feather="camera"></span>
+Venue Pic
+                    </a>
+                </li>
+
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('artist.index') }}">
                   <span data-feather="users"></span>

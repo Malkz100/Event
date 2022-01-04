@@ -4,7 +4,7 @@
 <div class="card mt-5">
     <div class="card-header">
         <div class="float-left">
-            <h3>Genre Admin Panel</h3>
+            <h3>Venue Image</h3>
         </div>
 {{--        <div class="float-right">--}}
 {{--            <a class="btn btn-primary" href="{{ route('dashboard') }}"> Back</a>--}}
@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-lg-12 mt-1 mr-1">
                 <div class="float-right">
-                    <a class="btn btn-success" href="{{ route('genre.create') }}"> Add New Genre</a>
+                    <a class="btn btn-success" href="{{ route('venueimage.create') }}"> Add New Image</a>
                 </div>
             </div>
         </div>
@@ -30,21 +30,26 @@
                 <table class="table table-bordered">
                     <tr>
                         <th>No</th>
-                        <th>Genre</th>
-                        <th>Description</th>
+                        <th>Name</th>
+                        <th>Image</th>
                         <th width="280px">Action</th>
                     </tr>
-                    @foreach ($genres as $genre)
+                    @foreach ($images as $image)
                     <tr>
-                        <td>{{ $genre->id }}</td>
-                        <td>{{ $genre->name }}</td>
-                        <td>{{ Str::limit($genre->description, 50) }}</td>
+                        <td>{{ $image->id }}</td>
+                        <td><p><strong>{{ $image->venue->name }}</strong></p><p>{{ $image->name }}</p></td>
+
+{{--                        <td><img src="{{ $image->file_path }}" alt="venue Image" height="40px"></td>--}}
+                        <td><img src="{{ asset('storage/images/venues/'.$image->file_path) }}" alt="venue Image" height="40px"></td>
+{{--                        <td><img src="/public/image/.'{{Storage::url($image->file_path)}}'" alt="venue Image" height="40px"></td>--}}
+
+{{--                        {{Storage::url($dato->icono)}}--}}
                         <td>
-                            <form action="{{ route('genre.destroy',$genre->id) }}" method="POST">
+                            <form action="{{ route('venueimage.destroy',$image->id) }}" method="POST">
 
-                                <a class="btn btn-info" href="{{ route('genre.show',$genre->id) }}">Show</a>
+                                <a class="btn btn-info" href="{{ route('venueimage.show',$image->id) }}">Show</a>
 
-                                <a class="btn btn-primary" href="{{ route('genre.edit',$genre->id) }}">Edit</a>
+                                <a class="btn btn-primary" href="{{ route('venueimage.edit',$image->id) }}">Edit</a>
 
                                 @csrf
                                 @method('DELETE')
@@ -55,7 +60,7 @@
                     </tr>
                     @endforeach
                 </table>
-                {!! $genres->links() !!}
+                {!! $images->links() !!}
             </div>
         </div>
     </div>
