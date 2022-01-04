@@ -42,13 +42,9 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Genres: </strong>
-
                                 @foreach($artist->genres as $genre)
-
                                     {{ $genre->name }}
-
                                 @endforeach
-
                             </div>
                         </div>
 
@@ -104,7 +100,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Website:</strong>
-                                <a href="http://{{ $artist->website }}">{{ $artist->website }}</a>
+                                <a href="https://{{ $artist->website }}">{{ $artist->website }}</a>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -118,6 +114,4 @@
             </div>
         </div>
     </div>
-
-
 @endsection
