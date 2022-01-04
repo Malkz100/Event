@@ -42,7 +42,7 @@
                     </tr>
                     @foreach ($events as $event)
                     <tr>
-                        <td>{{ ++$i }}</td>
+                        <td>{{ $event->id }}</td>
                         <td>{{ $event->title }}</td>
                         <td>{{ $event->venue->name }}</td>
                         <td>{{ Carbon\Carbon::parse($event->datetime)->format('jS F Y') }}</td>
