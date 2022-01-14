@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVenueimagesTable extends Migration
+class CreateVenueImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateVenueimagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('venueImages', function (Blueprint $table) {
+        Schema::create('venueimages', function (Blueprint $table) {
             $table->id();
             $table->foreignId('venue_id')->constrained()
                 ->onUpdate('cascade')
