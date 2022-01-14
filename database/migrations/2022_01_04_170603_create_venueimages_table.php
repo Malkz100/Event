@@ -13,7 +13,7 @@ class CreateVenueimagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('venueimages', function (Blueprint $table) {
+        Schema::create('venueImages', function (Blueprint $table) {
             $table->id();
             $table->foreignId('venue_id')->constrained()
                 ->onUpdate('cascade')
