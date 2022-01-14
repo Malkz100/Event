@@ -1,14 +1,18 @@
-@extends('artist.layout')
+@extends('admin.layout')
 
 @section('content')
 <div class="card mt-5">
     <div class="card-header">
         <div class="float-left">
-        <h2>Artist Admin Panel</h2>
+        <h3>Artist Admin Panel</h3>
         </div>
-        <div class="float-right">
-            <a class="btn btn-primary" href="{{ route('dashboard') }}"> Back</a>
+
+        <div class="float-right ml-4 text-xl leading-7 font-semi-bold ">
+            <a class="h4" href="{{ url('artist-search') }}">Search for Artist</a>
         </div>
+{{--        <div class="float-right">--}}
+{{--            <a class="btn btn-primary" href="{{ route('dashboard') }}"> Back</a>--}}
+{{--        </div>--}}
     </div>
 
     <div class="card-body">
@@ -37,7 +41,7 @@
                     </tr>
                     @foreach ($artists as $artist)
                     <tr>
-                        <td>{{ ++$i }}</td>
+                        <td>{{ $artist->id }}</td>
                         <td>{{ $artist->name }}</td>
                         <td>{{ Str::limit($artist->bio, 50) }}</td>
                         <td>

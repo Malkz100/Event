@@ -1,4 +1,4 @@
-@extends('artistimage.layout')
+@extends('admin.layout')
 
 @section('content')
     <div class="card mt-5">
@@ -56,7 +56,7 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Image Name:</strong>
+                                    <strong>Caption:</strong>
                                     <input type="text" name="name" value="{{ $artistimage->name }}" class="form-control" placeholder="image Name">
                                 </div>
                             </div>

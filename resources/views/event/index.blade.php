@@ -1,14 +1,18 @@
-@extends('event.layout')
+@extends('admin.layout')
 
 @section('content')
 <div class="card mt-5">
     <div class="card-header">
         <div class="float-left">
-            <h2>Event Admin Panel</h2>
+            <h3>Event Admin Panel</h3>
         </div>
-        <div class="float-right">
-            <a class="btn btn-primary" href="{{ route('dashboard') }}"> Back</a>
+
+        <div class="float-right ml-4 text-lg leading-7 font-semibold">
+            <a class="h4"  href="{{ url('event-search') }}">Search for Event</a>
         </div>
+{{--        <div class="float-right">--}}
+{{--            <a class="btn btn-primary" href="{{ route('dashboard') }}"> Back</a>--}}
+{{--        </div>--}}
     </div>
     <div class="card-body">
         <div class="row">
@@ -38,7 +42,7 @@
                     </tr>
                     @foreach ($events as $event)
                     <tr>
-                        <td>{{ ++$i }}</td>
+                        <td>{{ $event->id }}</td>
                         <td>{{ $event->title }}</td>
                         <td>{{ $event->venue->name }}</td>
                         <td>{{ Carbon\Carbon::parse($event->datetime)->format('jS F Y') }}</td>

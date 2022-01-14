@@ -1,4 +1,4 @@
-@extends('artistimage.layout')
+@extends('admin.layout')
 
 @section('content')
     <div class="card mt-5">
@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-lg-12 mt-1 mr-1">
                     <div class="float-right">
-                        <a class="btn btn-primary" href="{{ route('artistimage.index') }}"> Back</a>
+                        <a class="btn btn-primary" href="{{ url()->previous() }}"> Back</a>
                     </div>
                 </div>
             </div>
@@ -25,34 +25,36 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <label><strong>Image Name:</strong></label>
+                                <label><strong>Artist:</strong></label>
+                                {{ $artistimage->artist->name }}
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label><strong>Caption:</strong></label>
                                 {{ $artistimage->name }}
                             </div>
                         </div>
+
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <table>
                                     <label><th>Image</th></label>
 
-{{--                                @foreach ($images as $image)--}}
+{{--                                @foreach ($artistimage as $image)--}}
                                 <tr>
-                                    <td><img src="{{ asset('storage/images/artists/'.$artistimage->file_path) }}" alt="Artist Image" height="500px"></td>
+                                    <td><img src="{{ asset('storage/images/artists/'.$artistimage->file_path) }}" alt="Artist Image" height="200px"></td>
 
                                 </tr>
 {{--                                @endforeach--}}
                                 </table>
                             </div>
                         </div>
-
-
-
-
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 
 @endsection

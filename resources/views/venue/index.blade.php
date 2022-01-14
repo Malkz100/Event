@@ -1,14 +1,14 @@
-@extends('venue.layout')
+@extends('admin.layout')
 
 @section('content')
 <div class="card mt-5">
     <div class="card-header">
         <div class="float-left">
-            <h2>Venue Admin Panel</h2>
+            <h3>Venue Admin Panel</h3>
         </div>
-        <div class="float-right">
-            <a class="btn btn-primary" href="{{ route('dashboard') }}"> Back</a>
-        </div>
+{{--        <div class="float-right">--}}
+{{--            <a class="btn btn-primary" href="{{ route('dashboard') }}"> Back</a>--}}
+{{--        </div>--}}
     </div>
     <div class="card-body">
         <div class="row">
@@ -36,7 +36,7 @@
                     </tr>
                     @foreach ($venues as $venue)
                     <tr>
-                        <td>{{ ++$i }}</td>
+                        <td>{{ $venue->id }}</td>
                         <td>{{ $venue->name }}</td>
                         <td>{{ Str::limit($venue->description, 50) }}</td>
                         <td>

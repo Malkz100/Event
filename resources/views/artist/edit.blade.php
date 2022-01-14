@@ -1,4 +1,4 @@
-@extends('artist.layout')
+@extends('admin.layout')
 
 @section('content')
     <div class="card mt-5">
@@ -7,7 +7,12 @@
             <h2>{{ $artist->name }} -Update Details</h2>
             </div>
             <div class="float-right">
-                <a class="btn btn-primary" href="{{ route('artist.index') }}"> Back</a>
+                <a class="btn btn-primary mt-1" href="{{ route('artist.index') }}"> Back</a>
+            </div>
+            <div class="col-lg-12 mt-1 mr-1">
+                <div class="float-right">
+                    <a class="btn btn-success" href="{{ route('artistimage.edit',[$artist->id]) }}"> Add New Image</a>
+                </div>
             </div>
         </div>
         <div class="card-body">
@@ -61,7 +66,7 @@
                                                     {{ $genre->artists->contains($artist->id) ? 'checked' : '' }}
                                                     @if(in_array($genre->id,old('genre',[]))) checked  @endif>
                                         <label for="{{ $genre->name }}">{{ $genre->name }}</label></li>
-                                        
+
                                     @endforeach
                                     </ul>
                                 </div>

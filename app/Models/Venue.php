@@ -16,12 +16,17 @@ class Venue extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'description', 'address1', 'address2', 'county', 'city', 'postcode', 'venue_phone', 'email', 'website', 'contact_name'
+        'name', 'description', 'address1', 'address2', 'county', 'city', 'postcode', 'venue_phone', 'email', 'website', 'contact_name', 'capacity'
     ];
 
 
     public function event()
     {
         return $this->hasMany(Event::class);
+    }
+
+    public function venueimages()
+    {
+        return $this->hasMany(VenueImage::class, 'venue_id');
     }
 }

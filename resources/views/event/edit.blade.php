@@ -1,4 +1,4 @@
-@extends('event.layout')
+@extends('admin.layout')
 
 @section('content')
     <div class="card mt-5">
@@ -67,7 +67,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group" >
                                     <label ><strong>Date-Time:</strong></label>
-                                    <x-datepicker wire:model="datetime" name="datetime" placeholder="{{ Carbon\Carbon::parse($event->datetime)->format('l jS \of F Y') }}" class="form-control bg-white" />
+                                    <x-datepicker wire:model="datetime"  value="{{$event->datetime}}" name="datetime" placeholder="{{ Carbon\Carbon::parse($event->datetime)->format('l jS \of F Y') }}" class="form-control bg-white" />
                                 </div>
                             </div>
 

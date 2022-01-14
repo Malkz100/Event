@@ -11,17 +11,32 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
         @livewireStyles
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous" />
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+        <link rel="stylesheet" href="{{ asset('css/event.css') }}">
+
+
+
     </head>
     <body>
-        <div class="font-sans text-gray-900 antialiased">
-            {{ $slot }}
-            @livewireScripts
+        <div class="container">
+{{--        <div class="font-sans text-gray-900 antialiased">--}}
+
+            <!-- Page Content -->
+            <main>
+                @yield('content')
+
+                @if( isset($slot) )
+                    {{ $slot }}
+                @endif
+
+            </main>
         </div>
+        <!-- Scripts -->
         @livewireScripts
+        <script src="{{ asset('js/app.js') }}" defer></script>
     </body>
+
 </html>

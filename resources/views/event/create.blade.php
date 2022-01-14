@@ -1,4 +1,4 @@
-@extends('event.layout')
+@extends('admin.layout')
 
 @section('content')
     <div class="card mt-5">
@@ -39,13 +39,13 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Event Title:</strong>
+                                    <label for="title"><strong>Event Title:</strong></label>
                                     <input type="text" name="title" class="form-control" placeholder="Event Title">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Description:</strong>
+                                    <label for="description"><strong>Description:</strong></label>
                                     <textarea class="form-control" rows="3" name="description" placeholder="Description"></textarea>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <label><strong>Select Artists: </strong></label>
+                                    <label for="artist_id"><strong>Select Artists: </strong></label>
                                     <ul class="checkbox-grid">
                                     @foreach($artists as $artist)
 
@@ -81,7 +81,7 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <label><strong>Date-Time:</strong></label>
+                                    <label for="datetime"><strong>Date-Time:</strong></label>
                                     <x-datepicker wire:model="datetime" name="datetime" class="form-control bg-white" />
                                 </div>
                             </div>
@@ -100,14 +100,14 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <label><strong>Price:</strong></label>
-                                    <label><input type="text" name="price" class="form-control" placeholder="Price"></label>
+                                    <label for="price"><strong>Price:</strong></label>
+                                    <input type="text" name="price" class="form-control" placeholder="Price">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <label><strong>Discount Price:</strong></label>
-                                    <label><input type="text" name="reduced_price" class="form-control" placeholder="Discount Price"></label>
+                                    <label for="reduced_price"><strong>Discount Price:</strong></label>
+                                    <input type="text" name="reduced_price" class="form-control" placeholder="Discount Price">
                                 </div>
                             </div>
 

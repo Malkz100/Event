@@ -1,14 +1,14 @@
-@extends('genre.layout')
+@extends('admin.layout')
 
 @section('content')
 <div class="card mt-5">
     <div class="card-header">
         <div class="float-left">
-            <h2>Genre Admin Panel</h2>
+            <h3>Genre Admin Panel</h3>
         </div>
-        <div class="float-right">
-            <a class="btn btn-primary" href="{{ route('dashboard') }}"> Back</a>
-        </div>
+{{--        <div class="float-right">--}}
+{{--            <a class="btn btn-primary" href="{{ route('dashboard') }}"> Back</a>--}}
+{{--        </div>--}}
     </div>
     <div class="card-body">
         <div class="row">
@@ -36,7 +36,7 @@
                     </tr>
                     @foreach ($genres as $genre)
                     <tr>
-                        <td>{{ ++$i }}</td>
+                        <td>{{ $genre->id }}</td>
                         <td>{{ $genre->name }}</td>
                         <td>{{ Str::limit($genre->description, 50) }}</td>
                         <td>

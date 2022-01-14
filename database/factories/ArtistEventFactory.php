@@ -26,7 +26,7 @@ class ArtistEventFactory extends Factory
     {
         return [
             'event_id'  =>Event::all()->random()->id,
-            'artist_id'  =>Artist::all()->random()->id,
+            'artist_id'  =>Artist::all()->unique()->random()->id,
         ];
     }
 }

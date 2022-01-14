@@ -1,4 +1,4 @@
-@extends('venue.layout')
+@extends('admin.layout')
 
 @section('content')
     <div class="card mt-5">
@@ -87,6 +87,12 @@
                             <div class="form-group">
                                 <strong>Contact Name:</strong>
                                 {{ $venue->contact_name }}
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Venue Capacity:</strong>
+                                {{ $venue->capacity }}
                             </div>
                         </div>
                     </div>

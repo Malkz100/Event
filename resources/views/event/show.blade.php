@@ -1,13 +1,13 @@
-@extends('event.layout')
+@extends('admin.layout')
 
 @section('content')
     <div class="card mt-5">
         <div class="card-header">
             <div class="float-left">
-            <h2>{{ $event->title }} -Event Details</h2>
+                <span class="inline-flex"><h2>{{ $event->title }} -Event Details</h2></span>
             </div>
             <div class="float-right">
-                <a class="btn btn-primary" href="{{ route('event.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ url()->previous() }}"> Back</a>
             </div>
         </div>
 
@@ -43,66 +43,56 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Artists: </strong>
+                                <ul>
                                 @foreach($event->artists as $artist)
 
-                                    <br/> {{ $artist->name }}
+                                    <li><a href="{{ route('artist.show',$artist->id) }}">{{ $artist->name }}</a></li>
 
                                 @endforeach
+                                </ul>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Date:</strong>
-                                {{ Carbon\Carbon::parse($event->datetime)->format('l jS \of F Y') }}
+                                {{ Carbon\Carbon::parse($event->datetime)->format('l jS \of F Y') }} <strong>  Time:</strong>{{ Carbon\Carbon::parse($event->datetime)->format('g:i a') }}
+                            </div>
+                        </div>
+{{--                        <div class="col-xs-12 col-sm-12 col-md-12">--}}
+{{--                            <div class="form-group">--}}
+{{--                                <strong>Time:</strong>--}}
+{{--                                {{ Carbon\Carbon::parse($event->datetime)->format('g:i a') }}--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Price: </strong>
+                                £{{ $event->price }}
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Time:</strong>
-                                {{ Carbon\Carbon::parse($event->datetime)->format('g:i a') }}
+                                <strong>Discount Price: </strong>
+                                £{{ $event->reduced_price }}
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Price: </strong>£
-                                {{ $event->price }}
+                                <strong>Venue Capacity:</strong>
+                                {{ $event->venue->capacity }}
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Discount Price: </strong>£
-                                {{ $event->reduced_price }}
+                                <strong>No of Tickets Available:</strong>
+                                {{ $event->ticketsAvailable($event) }}
                             </div>
                         </div>
-{{--                        <div class="col-xs-12 col-sm-12 col-md-12">--}}
-{{--                            <div class="form-group">--}}
-{{--                                <strong>event Phone:</strong>--}}
-{{--                                {{ $event->event_phone }}--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-xs-12 col-sm-12 col-md-12">--}}
-{{--                            <div class="form-group">--}}
-{{--                                <strong>Email:</strong>--}}
-{{--                                {{ $event->email }}--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-xs-12 col-sm-12 col-md-12">--}}
-{{--                            <div class="form-group">--}}
-{{--                                <strong>Website:</strong>--}}
-{{--                                <a href="{{ $event->website }}">{{ $event->website }}</a>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-xs-12 col-sm-12 col-md-12">--}}
-{{--                            <div class="form-group">--}}
-{{--                                <strong>Contact Name:</strong>--}}
-{{--                                {{ $event->contact_name }}--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 
 @endsection

@@ -47,8 +47,8 @@ class EventController extends Controller
             'description' => 'required',
             'venue_id' => 'required',
             'datetime' => 'required',
-            'price' => 'required',
-            'reduced_price'
+            'price' => 'numeric|min:0',
+            'reduced_price'  => 'numeric|min:0'
         ]);
 
         //Create event from blade form
@@ -72,18 +72,6 @@ class EventController extends Controller
     {
        return view('event.show',compact('event'));
     }
-
-    public function showevent($id)
-    {
-        return view('frontend.show-event', [
-            'event' => Event::findOrFail($id)
-        ]);
-    }
-
-//    public function showevent(Event $event)
-//    {
-//        return view('event.show',compact('event'));
-//    }
 
 
     /**
@@ -113,8 +101,8 @@ class EventController extends Controller
             'description' => 'required',
             'venue_id' => 'required',
             'datetime' => 'required',
-            'price' => 'required',
-            'reduced_price'
+            'price' => 'numeric|min:0',
+            'reduced_price' => 'numeric|min:0',
         ]);
 
         $event->update($request->all());
@@ -140,4 +128,5 @@ class EventController extends Controller
         return redirect()->route('event.index')
                          ->with('success','Event deleted successfully');
     }
+
 }

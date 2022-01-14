@@ -1,4 +1,4 @@
-@extends('venue.layout')
+@extends('admin.layout')
 
 @section('content')
     <div class="card mt-5">
@@ -66,7 +66,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>City / Town:</strong>
-                                    <input type="text" name="city-town" value="{{ $venue->city }}" class="form-control" placeholder="City / Town">
+                                    <input type="text" name="city" value="{{ $venue->city }}" class="form-control" placeholder="City / Town">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -103,6 +103,12 @@
                                 <div class="form-group">
                                     <strong>Contact Name:</strong>
                                     <input type="text" name="contact_name" value="{{ $venue->contact_name }}" class="form-control" placeholder="Contact Name">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>Venue Capacity:</strong>
+                                    <input type="text" name="capacity" value="{{ $venue->capacity }}" class="form-control" placeholder="Venue Capacity">
                                 </div>
                             </div>
 

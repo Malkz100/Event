@@ -33,6 +33,7 @@ class VenueFactory extends Factory
             'email' =>$this->faker->email,
             'website' =>$this->faker->domainName,
             'contact_name'=>$this->faker->name,
+            'capacity' =>$this->faker->numberBetween(75, 600),
 
         ];
     }
