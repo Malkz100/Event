@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
-    <div class="card mt-5">
+    <div class="card">
         <div class="card-header">
             <h2>{{ $event->title }} -Update Details</h2>
         </div>
@@ -40,22 +40,22 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Event Name:</strong>
-                                    <input type="text" name="title" value="{{ $event->title }}" class="form-control" placeholder="event Title">
+                                    <label for="title"><strong>Event Name:</strong></label>
+                                    <input id="title" type="text" name="title" value="{{ $event->title }}" class="form-control" placeholder="event Title">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Description:</strong>
-                                    <textarea class="form-control" style="height:70px" name="description" placeholder="Description">{{ $event->description }}</textarea>
+                                    <label for="description"><strong>Description:</strong></label>
+                                    <textarea id="description" class="form-control" style="height:70px" name="description" placeholder="Description">{{ $event->description }}</textarea>
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
 {{--                                    <label for="venue_id" class="inline-flex items-center">--}}
-                                        <label><strong>Venue:</strong></label>
-                                        <select name="venue_id" class="form-control">
+                                        <label for="venue"><strong>Venue:</strong></label>
+                                        <select id="venue" name="venue_id" class="form-control">
                                             <option value="{{ $event->venue->id }}">{{ $event->venue->name }}</option>
                                             @foreach($venues as $venue)
                                                 <option value="{{ $venue->id }}">{{ $venue->name }}</option>
@@ -85,10 +85,10 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Artists: </strong>
+                                    <label for="artists"><strong>Artists: </strong></label>
                                     @foreach($artists as $artist)
 
-                                        <br/><input type="checkbox" name="artists[]" value="{{ $artist->id }}"
+                                        <br/><input id="artists" type="checkbox" name="artists[]" value="{{ $artist->id }}"
                                                     {{ $artist->events->contains($event->id) ? 'checked' : '' }}
                                                     @if(in_array($artist->id,old('artist',[]))) checked  @endif>
                                         <label for="{{ $artist->name }}">{{ $artist->name }}</label>
@@ -99,15 +99,15 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Price:</strong>
-                                    <input type="text" name="price" value="{{ $event->price }}" class="form-control" placeholder="Price">
+                                    <label for="price"><strong>Price:</strong></label>
+                                    <input id="price" type="text" name="price" value="{{ $event->price }}" class="form-control" placeholder="Price">
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Discount Price:</strong>
-                                    <input type="text" name="reduced_price" value="{{ $event->reduced_price }}" class="form-control" placeholder="Discount Price">
+                                    <label for="discount"><strong>Discount Price:</strong></label>
+                                    <input id="discount" type="text" name="reduced_price" value="{{ $event->reduced_price }}" class="form-control" placeholder="Discount Price">
                                 </div>
                             </div>
 

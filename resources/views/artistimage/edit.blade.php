@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
-    <div class="card mt-5">
+    <div class="card">
         <div class="card-header">
             <h2>{{ $artistimage->name }} -Update Details</h2>
         </div>
@@ -56,8 +56,8 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Caption:</strong>
-                                    <input type="text" name="name" value="{{ $artistimage->name }}" class="form-control" placeholder="image Name">
+                                    <label for="caption"><strong>Caption:</strong></label>
+                                    <input type="text" id="caption" name="name" value="{{ $artistimage->name }}" class="form-control" placeholder="image Name">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -89,8 +89,6 @@
                                     <button type="submit" class="btn btn-success">Update Image</button>
                                 </div >
                             </div>
-
-                        </div>
                     </form>
                 </div>
             </div>

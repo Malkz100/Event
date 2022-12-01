@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
-    <div class="card mt-5">
+    <div class="card">
         <div class="card-header">
             <h2>{{ $genre->name }} -Update Details</h2>
         </div>
@@ -41,14 +41,14 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                         <label for="name"><strong> Name:</strong></label>
-                                    <input type="text" name="name" value="{{ $genre->name }}" class="form-control" placeholder="Name">
+                                    <input id="name" type="text" name="name" value="{{ $genre->name }}" class="form-control" placeholder="Name">
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="description"><strong>Description:</strong></label>
-                                    <textarea class="form-control" style="height:70px" name="description" placeholder="Description">{{ $genre->description }}</textarea>
+                                    <textarea id="description" class="form-control" style="height:70px" name="description" placeholder="Description">{{ $genre->description }}</textarea>
                                 </div>
                             </div>
 

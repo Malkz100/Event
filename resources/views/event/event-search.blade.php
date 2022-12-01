@@ -10,15 +10,15 @@
 @extends('admin.layout')
 
 @section('content')
-<div class="container mt-4">
+<div class="container">
     <div class="row">
-        <div class="col-md-8 offset-2">
+        <div class="col-md-10 offset-0">
             <div class="card">
                 <div class="card-header text-black ">
                     <div class="float-right">
-                        <a href="{{ route('event.index') }}">Back</a>
+                        <a class="h4" href="{{ route('event.index') }}">Back</a>
                     </div>
-                    <p><strong>Search events</strong></p>
+                    <h4>Search events</h4>
                 </div>
                 <div class="card-body">
                     @livewire('admin-event-search')

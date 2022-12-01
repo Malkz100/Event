@@ -1,7 +1,8 @@
 @extends('admin.layout')
 
 @section('content')
-    <div class="card mt-5">
+
+    <div class="card">
         <div class="card-header">
             <h2>Add Event</h2>
         </div>
@@ -40,13 +41,13 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="title"><strong>Event Title:</strong></label>
-                                    <input type="text" name="title" class="form-control" placeholder="Event Title">
+                                    <input type="text" id="title" name="title" class="form-control" placeholder="Event Title">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="description"><strong>Description:</strong></label>
-                                    <textarea class="form-control" rows="3" name="description" placeholder="Description"></textarea>
+                                    <textarea class="form-control" rows="3" id="description" name="description" placeholder="Description"></textarea>
                                 </div>
                             </div>
 
@@ -54,13 +55,12 @@
                                 <div class="form-group">
                                     <label for="venue_id" class="inline-flex items-center">
                                         <strong>Venue:</strong></label>
-                                    <select name="venue_id" class="form-control">
+                                    <select id="venue_id" name="venue_id" class="form-control">
                                         <option value="" disabled selected>  Select Venue  </option>
                                         @foreach($venues as $venue)
                                             <option value="{{ $venue->id }}">{{ $venue->name }}</option>
                                         @endforeach
                                     </select>
-                                    </label>
                                 </div>
                             </div>
 
@@ -69,10 +69,9 @@
                                     <label for="artist_id"><strong>Select Artists: </strong></label>
                                     <ul class="checkbox-grid">
                                     @foreach($artists as $artist)
-
-                                        <li><input type="checkbox" name="artists[]" value="{{ $artist->id }}">
-                                            <label for="{{ $artist->name }}">{{ $artist->name }}</label></li>
-
+                                        <li><input id="artist_id" type="checkbox" name="artists[]" value="{{ $artist->id }}">
+                                            <label for="{{ $artist->name }}">{{ $artist->name }}</label>
+                                        </li>
                                     @endforeach
                                     </ul>
                                 </div>
@@ -85,6 +84,30 @@
                                     <x-datepicker wire:model="datetime" name="datetime" class="form-control bg-white" />
                                 </div>
                             </div>
+
+
+{{--                            <div class="col-xs-12 col-sm-12 col-md-12">--}}
+{{--                                <div class="form-group">--}}
+{{--                                    <label for="datetime"><strong>Date-Time:</strong></label>--}}
+{{--                                    <x-datetime-picker--}}
+{{--                                        wire:model.defer="datetime"--}}
+{{--                                        label="datetime"--}}
+{{--                                        placeholder="Event Date-Time"--}}
+{{--                                        display-format="DD-MM-YYYY HH:mm"--}}
+{{--                                        parse-format="YYYY-MM-DD HH:mm"--}}
+
+{{--    --}}{{--                                        interval="10"--}}
+{{--    --}}{{--                                        time-format="24"--}}
+{{--    --}}{{--                                        readonly=false--}}
+{{--    --}}{{--                                        disabled=false--}}
+{{--    --}}{{--                                        min=null--}}
+{{--    --}}{{--                                        max=null--}}
+{{--    --}}{{--                                        display-format="localeFormat" 	--}}
+{{--                                        name="datetime" class="form-control bg-white"--}}
+{{--                                    />--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+
 
 {{--                            <div class="col-xs-12 col-sm-12 col-md-12">--}}
 {{--                                <div class="form-group">--}}
@@ -101,13 +124,13 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="price"><strong>Price:</strong></label>
-                                    <input type="text" name="price" class="form-control" placeholder="Price">
+                                    <input type="text" id="price" name="price" class="form-control" placeholder="Price">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="reduced_price"><strong>Discount Price:</strong></label>
-                                    <input type="text" name="reduced_price" class="form-control" placeholder="Discount Price">
+                                    <input type="text" id="reduced_price" name="reduced_price" class="form-control" placeholder="Discount Price">
                                 </div>
                             </div>
 

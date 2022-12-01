@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
-    <div class="card mt-5">
+    <div class="card">
         <div class="card-header">
             <h2>Add Genre</h2>
         </div>
@@ -40,13 +40,13 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="name"><strong>Genre Name:</strong></label>
-                                    <input type="text" name="name" class="form-control" placeholder="Genre Name">
+                                    <input id="name" type="text" name="name" class="form-control" placeholder="Genre Name">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="description"><strong>Description:</strong></label>
-                                    <textarea class="form-control" rows="3" name="description" placeholder="Description"></textarea>
+                                    <textarea id="description" class="form-control" rows="3" name="description" placeholder="Description"></textarea>
                                 </div>
                             </div>
 

@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
-    <div class="card mt-5">
+    <div class="card">
         <div class="card-header">
             <div class="float-left">
                 <span class="inline-flex"><h2>{{ $booking->event->title }}</h2><h6>Booking Details</h6></span>
@@ -54,7 +54,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Date:</strong>
+                                <strong>Booked on:</strong>
                                 {{ Carbon\Carbon::parse($booking->event->datetime)->format('l jS \of F Y') }} <strong>  Time:</strong> {{ Carbon\Carbon::parse($booking->event->datetime)->format('g:i a') }}
                             </div>
                         </div>

@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
-<div class="card mt-5">
+<div class="card">
     <div class="card-header">
         <div class="float-left">
         <h3>Artist Admin Panel</h3>
