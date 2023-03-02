@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\Event;
 use App\Models\Venue;
 use App\Models\Artist;
@@ -16,9 +17,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::latest()->paginate(5);
-        return view('event.index',compact('events'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $events = Event::all();
+        return response()->json($events);
     }
 
     /**
@@ -37,7 +37,7 @@ class EventController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return mixed
      */
     public function store(Request $request)
@@ -65,19 +65,21 @@ class EventController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Event $event
+     * @param  \App\Models\Event  $event
      * @return mixed
      */
     public function show(Event $event)
     {
-       return view('event.show',compact('event'));
+        return response()->json([
+            'event'=>$event
+        ]);
     }
 
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Event $event
+     * @param  \App\Models\Event  $event
      * @return mixed
      */
     public function edit(Event $event)
@@ -90,8 +92,8 @@ class EventController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param Event $event
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Event  $event
      * @return mixed
      */
     public function update(Request $request, Event $event)
@@ -118,7 +120,7 @@ class EventController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Event $event
+     * @param  \App\Models\Event  $event
      * @return mixed
      */
     public function destroy(Event $event)
