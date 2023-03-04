@@ -18,7 +18,7 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::all();
-        return response()->json($events);
+        return response()->json($events->load('venue'));
     }
 
     /**
@@ -71,7 +71,7 @@ class EventController extends Controller
     public function show(Event $event)
     {
         return response()->json([
-            'event'=>$event
+            'event'=>$event->load('venue')
         ]);
     }
 

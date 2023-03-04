@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Http\Controllers\Api\ArtistController;
 use App\Http\Controllers\Api\EventController;
+use App\Http\Controllers\Api\BookingController;
 
-Route::resource('artists',ArtistController::class);
-Route::resource('events',EventController::class);
+Route::resource('artist',ArtistController::class);
+Route::resource('event',EventController::class);
+Route::resource('booking',BookingController::class);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
