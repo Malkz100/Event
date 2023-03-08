@@ -21,7 +21,7 @@ class BookingController extends Controller
     public function index()
     {
         $booking = Booking::all();
-        return response()->json($booking->load('event'));
+        return response()->json($booking->load('event', 'customer'));
     }
 
     /**
@@ -78,7 +78,10 @@ class BookingController extends Controller
     public function show(Booking $booking)
     {
         return response()->json([
-            'booking'=>$booking->load('event')
+            'booking'=>$booking->load('event', 'customer'),
+            'venue' =>$booking->event->venue,
+//            'tickets' =>$booking->event->ticket->tickets_full_price
+            'cost' =>$booking->getTotalCost($booking)
         ]);
     }
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Event;
 use App\Models\Venue;
 use App\Models\Artist;
+use App\Models\VenueImage;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
