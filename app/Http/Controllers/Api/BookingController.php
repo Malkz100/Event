@@ -80,8 +80,10 @@ class BookingController extends Controller
         return response()->json([
             'booking'=>$booking->load('event', 'customer'),
             'venue' =>$booking->event->venue,
-//            'tickets' =>$booking->event->ticket->tickets_full_price
-            'cost' =>$booking->getTotalCost($booking)
+            'tickets_full_price' =>$booking->events()->value('tickets_full_price'),
+            'tickets_reduced_price' =>$booking->events()->value('tickets_reduced_price'),
+            'total_cost' =>$booking->getTotalCost($booking),
+            'image'=>$booking->event->venue->venueimages()->value('file_path')
         ]);
     }
 
