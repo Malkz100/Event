@@ -16,10 +16,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ArtistController;
 use App\Http\Controllers\Api\EventController;
 use App\Http\Controllers\Api\BookingController;
+use App\Http\Controllers\Api\CustomerController;
 
 Route::resource('artist',ArtistController::class);
 Route::resource('event',EventController::class);
 Route::resource('booking',BookingController::class);
+Route::resource('customer',CustomerController::class);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
