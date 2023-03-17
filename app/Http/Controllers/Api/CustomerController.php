@@ -11,16 +11,8 @@ class CustomerController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return mixed
+     * @return
      */
-//    public function index()
-//    {
-//        $customers = Customer::latest()->paginate(5);
-//        return view('customer.index',compact('customers'))
-//            ->with('i', (request()->input('page', 1) - 1) * 5);
-//    }
-
-
     public function index()
     {
         $customer = Customer::all();
@@ -33,7 +25,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return view('customer.create');
+//        return view('customer.create');
     }
 
     /**
@@ -63,12 +55,12 @@ class CustomerController extends Controller
             Customer::create($request->all());
 
             return response()->json([
-                'message' => 'Product Created Successfully!!'
+                'message' => 'Customer Added Successfully!!'
             ]);
         } catch (\Exception $e) {
             \Log::error($e->getMessage());
             return response()->json([
-                'message' => 'Something went wrong while creating a product!!'
+                'message' => 'Something went wrong while adding a customer!!'
             ], 500);
         }
     }
@@ -81,7 +73,9 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
-        return view('customer.show',compact('customer'));
+        return response()->json([
+            'customer'=>$customer
+        ]);
     }
 
     /**
@@ -92,7 +86,7 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        return view('customer.edit',compact('customer'));
+//        return view('customer.edit',compact('customer'));
     }
 
     /**
@@ -119,11 +113,11 @@ class CustomerController extends Controller
             'email' => 'required',
         ]);
 
-//        $customer->update($request->all());
-        $customer = Customer::create($request->all());
+        $customer->update($request->all());
 
-        return redirect()->route('customer.index')
-            ->with('success','Customer updated successfully');
+        return response()->json([
+            'customer'=>$customer
+        ]);
     }
 
     /**
@@ -134,9 +128,17 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        $customer->delete();
+        try {
+            $customer->delete();
 
-        return redirect()->route('customer.index')
-            ->with('success','Customer deleted successfully');
+            return response()->json([
+                'message' => 'Customer Deleted Successfully!!'
+            ]);
+        } catch (\Exception $e) {
+            \Log::error($e->getMessage());
+            return response()->json([
+                'message'=>'Something went wrong while deleting a customer!!'
+            ]);
+        }
     }
 }
