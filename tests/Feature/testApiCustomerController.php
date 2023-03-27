@@ -20,7 +20,7 @@ class testApiCustomerController extends TestCase
      */
     public function test_create_customer()
     {
-        $response = $this->post('/api/customer/store',[
+        $response = $this->post('/api/customer',[
         'name' => 'Test User',
         'username' => 'MyUser',
         'title' => 'Mx',
@@ -32,9 +32,9 @@ class testApiCustomerController extends TestCase
         'towncity' => 'Mytown',
         'postcode' => 'TN377BB',
         'phone' => '01424123456',
-        'email' => 'test@test.co.uk'
+        'email' => 'test2@test.co.uk'
         ]);
-
+        //$this->assertTrue($response['created']);
         $response->assertStatus(201);
     }
 }
