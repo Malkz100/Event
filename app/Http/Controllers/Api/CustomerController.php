@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 
@@ -11,7 +12,7 @@ class CustomerController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return
+     * @return JsonResponse
      */
     public function index()
     {
@@ -32,7 +33,7 @@ class CustomerController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return mixed
+     * @return JsonResponse
      */
     public function store(Request $request)
     {
@@ -48,7 +49,7 @@ class CustomerController extends Controller
             'towncity' => 'required',
             'postcode' => 'required',
             'phone' => 'required',
-            'email' => 'required',
+            'email' => 'required|unique:App\Models\Customer,email',
         ]);
         try {
             //Create customer from react Jason
@@ -56,7 +57,7 @@ class CustomerController extends Controller
 
             return response()->json([
                 'message' => 'Customer Added Successfully!!'
-            ]);
+            ], 201);
         } catch (\Exception $e) {
             \Log::error($e->getMessage());
             return response()->json([
@@ -68,8 +69,8 @@ class CustomerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return mixed
+     * @param  Customer  $customer
+     * @return JsonResponse
      */
     public function show(Customer $customer)
     {
@@ -93,8 +94,8 @@ class CustomerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return
+     * @param  Customer  $customer
+     * @return JsonResponse
      */
     public function update(Request $request, Customer $customer)
     {
@@ -123,8 +124,8 @@ class CustomerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return mixed
+     * @param  Customer  $customer
+     * @return JsonResponse
      */
     public function destroy(Customer $customer)
     {

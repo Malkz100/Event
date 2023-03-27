@@ -28,7 +28,7 @@ class EventFactory extends Factory
             'description' =>$this->faker->paragraph,
             'venue_id' =>Venue::all()->random()->id,
             'datetime' =>$this->faker->dateTime,
-            'price' =>$this->faker->numberBetween($min = 5, $max = 120),
+            'price' =>$this->faker->numberBetween($min = 15, $max = 120),
             'reduced_price' =>$this->faker->numberBetween($min = 5, $max = 50)
         ];
     }
