@@ -75,7 +75,7 @@
                                 <div class="form-group">
                                     <label for="tickets_full_price"><strong>No of Tickets Full Price:</strong></label>
                                     <select id="tickets_full_price"  name="tickets_full_price" class="form-control">
-                                        <option value="" disabled selected>  Select no of tickets  </option>
+                                        <option value="" disable selected>  Select no of tickets  </option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -95,7 +95,7 @@
                                     <label for="tickets_reduced_price"><strong>No of Tickets Discount Price:</strong></label>
 {{--                                    <input type="text" size="4" name="tickets_reduced_price" class="form-control" placeholder="Type No of Tickets Required">--}}
                                     <select name="tickets_reduced_price" id="tickets_reduced_price" class="form-control">
-                                        <option value="" disabled selected>  Select no of tickets  </option>
+                                        <option value="" disable selected>  Select no of tickets  </option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>

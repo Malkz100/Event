@@ -7,6 +7,7 @@ use App\Models\ArtistImage;
 use App\Models\Genre;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\Types\Mixed_;
+use App\Http\Requests\StoreArtistRequest;
 
 class ArtistController extends Controller
 {
@@ -39,20 +40,20 @@ class ArtistController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return Mixed
      */
-    public function store(Request $request, Artist $artist)
+    public function store(StoreArtistRequest $request, Artist $artist)
     {
-        $request->validate([
-            'name' => 'required',
-            'bio' => 'required',
-            'address1' => 'required',
-            'address2',
-            'county' => 'required',
-            'city' => 'required',
-            'postcode' => 'required',
-            'phone' => 'required',
-            'email',
-            'contact_name' => 'required'
-        ]);
+//        $request->validate([
+//            'name' => 'required',
+//            'bio' => 'required',
+//            'address1' => 'required',
+//            'address2',
+//            'county' => 'required',
+//            'city' => 'required',
+//            'postcode' => 'required',
+//            'phone' => 'required',
+//            'email',
+//            'contact_name' => 'required'
+//        ]);
 
         //Create artist from blade form
         $artist = Artist::create($request->all());

@@ -22,6 +22,7 @@
     </head>
     <body>
         <div class="container">
+{{--            @livewire('navigation-menu')--}}
 {{--        <div class="font-sans text-gray-900 antialiased">--}}
 
             <!-- Page Content -->
