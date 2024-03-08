@@ -52,7 +52,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="artist_name"><strong>Artist Name:</strong></label>
-                                    <input id="artist_name" type="text" name="name" class="form-control" placeholder="Artist Name">
+                                    <input id="artist_name" type="text" name="name" value="{{ old('name') }}" class="form-control" placeholder="Artist Name">
                                 </div>
                             </div>
 
@@ -73,61 +73,61 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="biography"><strong>Biography:</strong></label>
-                                    <textarea id="biography" class="form-control" rows="3" name="bio" placeholder="Biography"></textarea>
+                                    <textarea id="biography" class="form-control" rows="3" name="bio" placeholder="Biography">{{ old('bio') }}</textarea>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="address1"><strong>Address Line 1:</strong></label>
-                                    <input id="address1" type="text" name="address1" class="form-control" placeholder="Address Line 1">
+                                    <input id="address1" type="text" name="address1" value="{{ old('address1') }}" class="form-control" placeholder="Address Line 1">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="address2"><strong>Address Line 2:</strong></label>
-                                    <input id="address2" type="text" name="address2" class="form-control" placeholder="Address Line 2">
+                                    <input id="address2" type="text" name="address2" value="{{ old('address2') }}" class="form-control" placeholder="Address Line 2">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="city"><strong>City / Town:</strong></label>
-                                    <input id="city" type="text" name="city" class="form-control" placeholder="City / Town">
+                                    <input id="city" type="text" name="city" value="{{ old('city') }}" class="form-control" placeholder="City / Town">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="county"><strong>County:</strong></label>
-                                    <input id="county" type="text" name="county" class="form-control" placeholder="County">
+                                    <input id="county" type="text" name="county" value="{{ old('county') }}" class="form-control" placeholder="County">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="postcode"><strong>Postcode:</strong></label>
-                                    <input id="postcode" type="text" name="postcode" class="form-control" placeholder="Postcode">
+                                    <input id="postcode" type="text" name="postcode" value="{{ old('postcode') }}" class="form-control" placeholder="Postcode">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="phone"><strong>Artist Phone:</strong></label>
-                                    <input id="phone" type="text" name="phone" class="form-control" placeholder="Artist Phone">
+                                    <input id="phone" type="text" name="phone" value="{{ old('phone') }}" class="form-control" placeholder="Artist Phone">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="email"><strong>Email:</strong></label>
-                                    <input id="email" type="text" name="email" class="form-control" placeholder="Email">
+                                    <input id="email" type="text" name="email" value="{{ old('email') }}" class="form-control" placeholder="Email">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="website"><strong>Website:</strong></label>
-                                    <input id="website" type="text" name="website" class="form-control" placeholder="Website">
+                                    <input id="website" type="text" name="website" value="{{ old('website') }}" class="form-control" placeholder="Website">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="contact"><strong>Contact Name:</strong></label>
-                                    <input id="contact" type="text" name="contact_name" class="form-control" placeholder="Contact Name">
+                                    <input id="contact" type="text" name="contact_name" value="{{ old('contact_name') }}" class="form-control" placeholder="Contact Name">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

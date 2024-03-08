@@ -116,11 +116,16 @@ class BookingController extends Controller
         //Update 'tickets_full/reduced_price' into tickets pivot table
         $tickets_full_price = $request->get('tickets_full_price');
         $tickets_reduced_price = $request->get('tickets_reduced_price');
+
+        //check that there are tickets selected to book
+        if (($tickets_full_price + $tickets_reduced_price) === 0)
+            return redirect()->route('booking.index', compact('booking'))
+                ->with('success','No tickets have been selected');
+        else
         $booking->events()->update(
             ['tickets_full_price' =>$tickets_full_price, 'tickets_reduced_price' =>$tickets_reduced_price]);
 
 //ddd($booking);
-
         return redirect()->route('booking.index', compact('booking'))
             ->with('success','Booking updated successfully.');
     }

@@ -43,7 +43,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
 //Route::get('/', [HomeController::class, 'index']);
 
 //Frontend
-Route::resource('/',HomeController::class);
+Route::resource('/',HomeController::class)->name('home.index','home');
 Route::resource('home',HomeController::class);
 Route::get('home/showevent/{id}', [HomeController::class, 'showevent'])->name('home.showevent');
 Route::get('home/showartist/{id}', [HomeController::class, 'showartist'])->name('home.showartist');

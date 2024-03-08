@@ -4,11 +4,11 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('admin') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
-                    </a>
-                </div>
+{{--                <div class="flex-shrink-0 flex items-center">--}}
+{{--                    <a href="{{ route('admin') }}">--}}
+{{--                        <x-jet-application-mark class="block h-9 w-auto" />--}}
+{{--                    </a>--}}
+{{--                </div>--}}
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
@@ -18,9 +18,16 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('home') }}" >
+                    <x-jet-nav-link href="{{ route('home.index') }}" >
 {{--                    <x-jet-nav-link href="home" >--}}
-                        {{ __('Home') }}
+                        {{ __('About') }}
+                    </x-jet-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('home.index') }}" >
+                        {{--                    <x-jet-nav-link href="home" >--}}
+                        {{ __('Contact') }}
                     </x-jet-nav-link>
                 </div>
 
@@ -140,8 +147,10 @@
                     </svg>
                 </button>
             </div>
+
         </div>
     </div>
+
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
@@ -168,6 +177,7 @@
 
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
+
                 <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                     {{ __('Profile') }}
                 </x-jet-responsive-nav-link>

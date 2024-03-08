@@ -27,24 +27,26 @@
 </head>
 
 <body>
-{{--  @livewire('navigation-menu')--}}
+
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+
 {{--        <nav class="navbar navbar-brand bg-dark relative flex justify-between items-center sticky-top">--}}
+
 {{--        <div class="d-flex">--}}
 <!-- Logo -->
-{{--            <div class="flex-shrink-0 flex items-center">--}}
+            <div class="flex-shrink-0 flex items-center">
 
 
 <!-- Navigation Links -->
-    {{--            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">--}}
-    {{--                <x-jet-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">--}}
-    {{--                    {{ __('Admin') }}--}}
-    {{--                </x-jet-nav-link>--}}
-    {{--            </div>--}}
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
+                        {{ __('Admin') }}
+                    </x-jet-nav-link>
+                </div>
 
     <div class="hidden  px-3 sm:-my-px sm:ml-10 sm:flex">
         <x-jet-nav-link href="{{ route('home.index') }}" >
-            {{--                    <x-jet-nav-link href="home" >--}}
+{{--                                <x-jet-nav-link href="home" >--}}
             {{ __('Home') }}
         </x-jet-nav-link>
     </div>
@@ -57,12 +59,12 @@
         </li>
     </ul>
 
-    {{--        </div>--}}
-    {{--      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Event Admin</a>--}}
-    {{--      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">--}}
+            </div>
+          <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Event Admin</a>
+          <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-        {{--          <a class="nav-link" href="#">Sign out</a>--}}
+                  <a class="nav-link" href="#">Sign out</a>
 
         <!-- Authentication -->
             <form method="POST" action="{{ route('logout') }}">
