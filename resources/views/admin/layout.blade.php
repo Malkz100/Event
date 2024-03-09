@@ -38,18 +38,18 @@
 
 
 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
-                        {{ __('Admin') }}
-                    </x-jet-nav-link>
-                </div>
+{{--                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">--}}
+{{--                    <x-jet-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">--}}
+{{--                        {{ __('Admin') }}--}}
+{{--                    </x-jet-nav-link>--}}
+{{--                </div>--}}
 
-    <div class="hidden  px-3 sm:-my-px sm:ml-10 sm:flex">
-        <x-jet-nav-link href="{{ route('home.index') }}" >
+{{--    <div class="hidden  px-3 sm:-my-px sm:ml-10 sm:flex">--}}
+{{--        <x-jet-nav-link href="{{ route('home.index') }}" >--}}
 {{--                                <x-jet-nav-link href="home" >--}}
-            {{ __('Home') }}
-        </x-jet-nav-link>
-    </div>
+{{--            {{ __('Home') }}--}}
+{{--        </x-jet-nav-link>--}}
+{{--    </div>--}}
 
     <ul class="navbar-nav px-3">
         <li class="sm:-my-px sm:flex">
@@ -60,22 +60,22 @@
     </ul>
 
             </div>
-          <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Event Admin</a>
-          <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+{{--          <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Event Admin</a>--}}
+{{--          <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">--}}
     <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-                  <a class="nav-link" href="#">Sign out</a>
+{{--        <li class="nav-item text-nowrap">--}}
+{{--                  <a class="nav-link" href="#">Sign out</a>--}}
 
-        <!-- Authentication -->
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <x-jet-dropdown-link href="{{ route('logout') }}"
-                                     onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                    {{ __('Log Out') }}
-                </x-jet-dropdown-link>
-            </form>
-        </li>
+{{--        <!-- Authentication -->--}}
+{{--            <form method="POST" action="{{ route('logout') }}">--}}
+{{--                @csrf--}}
+{{--                <x-jet-dropdown-link href="{{ route('logout') }}"--}}
+{{--                                     onclick="event.preventDefault();--}}
+{{--                                                this.closest('form').submit();">--}}
+{{--                    {{ __('Log Out') }}--}}
+{{--                </x-jet-dropdown-link>--}}
+{{--            </form>--}}
+{{--        </li>--}}
     </ul>
 </nav>
 
