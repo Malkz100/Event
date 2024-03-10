@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateArtistRequest;
 use App\Models\Artist;
 use App\Models\ArtistImage;
 use App\Models\Genre;
@@ -42,18 +43,6 @@ class ArtistController extends Controller
      */
     public function store(StoreArtistRequest $request, Artist $artist)
     {
-//        $request->validate([
-//            'name' => 'required',
-//            'bio' => 'required',
-//            'address1' => 'required',
-//            'address2',
-//            'county' => 'required',
-//            'city' => 'required',
-//            'postcode' => 'required',
-//            'phone' => 'required',
-//            'email',
-//            'contact_name' => 'required'
-//        ]);
 
         //Create artist from blade form
         $artist = Artist::create($request->all());
@@ -100,20 +89,8 @@ class ArtistController extends Controller
      * @param  \App\Models\Artist  $artist
      * @return mixed
      */
-    public function update(Request $request, Artist $artist)
+    public function update(UpdateArtistRequest $request, Artist $artist)
     {
-        $request->validate([
-            'name' => 'required',
-            'bio' => 'required',
-            'address1' => 'required',
-            'address2',
-            'city' => 'required',
-            'county' => 'required',
-            'postcode' => 'required',
-            'phone' => 'required',
-            'email',
-            'contact_name' => 'required'
-        ]);
 
         $artist->update($request->all());
 

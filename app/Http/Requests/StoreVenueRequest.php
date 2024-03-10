@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreArtistRequest extends FormRequest
+class StoreVenueRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,16 +24,18 @@ class StoreArtistRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:255',
-            'bio' => 'required',
-            'address1' => 'required | string',
+            'name' => 'required',
+            'description' => 'required',
+            'address1' => 'required',
             'address2' => 'nullable|string',
-            'county' => 'required',
-            'city' => 'required',
-            'postcode' => 'required',
-            'phone' => 'required',
-            'email' => 'required|email|unique:artists',
-            'contact_name' => 'required'
+            'county' =>'required',
+            'city'=>'required',
+            'postcode'=>'required',
+            'venue_phone'=>'required',
+            'email'=>'required|email|unique:venues',
+            'website',
+            'contact_name'=>'required',
+            'capacity'=> 'nullable|integer'
         ];
     }
 
@@ -43,14 +45,15 @@ class StoreArtistRequest extends FormRequest
             'name.required' => 'The name field is required.',
             'name.string' => 'The name field must be a string.',
             'name.max' => 'The name field must not exceed 255 characters.',
-            'bio.required' => 'The bio field is required.',
+            'description.required' => 'The description field is required.',
             'address1.required' => 'The address field is required.',
             'postcode.required' => 'The postcode field is required.',
-            'phone.required' => 'The phone field is required.',
+            'venue_phone.required' => 'The venue phone field is required.',
             'email.required' => 'The email field is required.',
             'email.email' => 'Please enter a valid email address.',
             'email.unique' => 'The email address is already in use.',
-            'contact_name.required' => 'The contact name field is required.'
+            'contact_name.required' => 'The contact_name field is required.',
+            'capacity.integer'=> 'The capacity must be an integer'
         ];
     }
 }

@@ -55,7 +55,7 @@ class VenueImageController extends Controller
                 'file' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
             ] );
 
-            // Save the file locally in the storage/public/artist/ folder
+            // Save the file locally in the storage/public/venues/ folder
             $request->file->store( 'images/venues', 'public' );
 
             // Store the record, using the new file hashname which will be its new filename identity.

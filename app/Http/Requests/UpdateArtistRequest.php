@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreArtistRequest extends FormRequest
+class UpdateArtistRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -32,7 +32,7 @@ class StoreArtistRequest extends FormRequest
             'city' => 'required',
             'postcode' => 'required',
             'phone' => 'required',
-            'email' => 'required|email|unique:artists',
+            'email' => 'required|email',
             'contact_name' => 'required'
         ];
     }
@@ -49,7 +49,7 @@ class StoreArtistRequest extends FormRequest
             'phone.required' => 'The phone field is required.',
             'email.required' => 'The email field is required.',
             'email.email' => 'Please enter a valid email address.',
-            'email.unique' => 'The email address is already in use.',
+            //'email.unique' => 'The email address is already in use.',
             'contact_name.required' => 'The contact name field is required.'
         ];
     }

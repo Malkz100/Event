@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreVenueRequest;
 use App\Models\Venue;
 use Illuminate\Http\Request;
 
@@ -36,23 +37,8 @@ class VenueController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return mixed
      */
-    public function store(Request $request)
+    public function store(StoreVenueRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'address1' => 'required',
-            'address2',
-            'county' =>'required',
-            'city'=>'required',
-            'postcode'=>'required',
-            'venue_phone'=>'required',
-            'email'=>'required',
-            'website',
-            'contact_name'=>'required',
-            'capacity'=>'required'
-        ]);
-
         Venue::create($request->all());
 
         return redirect()->route('venue.index')
@@ -102,7 +88,7 @@ class VenueController extends Controller
             'email'=>'required',
             'website',
             'contact_name'=>'required',
-            'capacity'=>'required'
+            'capacity'=>'nullable|integer'
         ]);
 
         $venue->update($request->all());

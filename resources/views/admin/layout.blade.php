@@ -58,7 +58,6 @@
             </a>
         </li>
     </ul>
-
             </div>
 {{--          <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Event Admin</a>--}}
 {{--          <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">--}}
