@@ -43,7 +43,6 @@ class ArtistController extends Controller
      */
     public function store(StoreArtistRequest $request, Artist $artist)
     {
-
         //Create artist from blade form
         $artist = Artist::create($request->all());
 
@@ -51,11 +50,10 @@ class ArtistController extends Controller
         $genres = $request->get('genres');
         $artist->genres()->sync($genres);
 
-
-
         return redirect()->route('artist.index')
                          ->with('success','Artist  created successfully.');
     }
+
 
     /**
      * Display the specified resource.
@@ -91,7 +89,6 @@ class ArtistController extends Controller
      */
     public function update(UpdateArtistRequest $request, Artist $artist)
     {
-
         $artist->update($request->all());
 
         //Update 'genre' checkbox array into pivot table
