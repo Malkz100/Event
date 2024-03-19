@@ -21,7 +21,7 @@ class CreateEventsTable extends Migration
                   ->onUpdate('cascade')
                  ->onDelete('cascade');
             $table->dateTime('datetime');
-            $table->decimal('price', 5, 2);
+            $table->decimal('price', 5, 2)->nullable();
             $table->decimal('reduced_price', 5, 2)->nullable();
 
             $table->timestamps();

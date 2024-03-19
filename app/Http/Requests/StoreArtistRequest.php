@@ -33,6 +33,7 @@ class StoreArtistRequest extends FormRequest
             'postcode' => 'required',
             'phone' => 'required',
             'email' => 'required|email|unique:artists',
+            'website' => 'nullable',
             'contact_name' => 'required'
         ];
     }

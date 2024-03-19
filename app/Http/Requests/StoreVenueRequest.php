@@ -33,7 +33,7 @@ class StoreVenueRequest extends FormRequest
             'postcode'=>'required',
             'venue_phone'=>'required',
             'email'=>'required|email|unique:venues',
-            'website',
+            'website'=>'nullable',
             'contact_name'=>'required',
             'capacity'=> 'nullable|integer'
         ];

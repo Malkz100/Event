@@ -33,6 +33,7 @@ class UpdateArtistRequest extends FormRequest
             'postcode' => 'required',
             'phone' => 'required',
             'email' => 'required|email',
+            'website' => 'nullable',
             'contact_name' => 'required'
         ];
     }

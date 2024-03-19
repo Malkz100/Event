@@ -47,8 +47,8 @@ class EventController extends Controller
             'description' => 'required',
             'venue_id' => 'required',
             'datetime' => 'required',
-            'price' => 'numeric|min:0',
-            'reduced_price'  => 'numeric|min:0'
+            'price' => 'nullable|numeric|min:0',
+            'reduced_price'  => 'nullable|numeric|min:0'
         ]);
 
         //Create event from blade form
@@ -101,8 +101,8 @@ class EventController extends Controller
             'description' => 'required',
             'venue_id' => 'required',
             'datetime' => 'required',
-            'price' => 'numeric|min:0',
-            'reduced_price' => 'numeric|min:0',
+            'price' => 'nullable|numeric|min:0',
+            'reduced_price' => 'nullable|numeric|min:0',
         ]);
 
         $event->update($request->all());

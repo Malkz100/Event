@@ -41,13 +41,13 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="title"><strong>Event Title:</strong></label>
-                                    <input type="text" id="title" name="title" class="form-control" placeholder="Event Title">
+                                    <input type="text" id="title" name="title" value="{{ old('title') }}"  class="form-control" placeholder="Event Title">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="description"><strong>Description:</strong></label>
-                                    <textarea class="form-control" rows="3" id="description" name="description" placeholder="Description"></textarea>
+                                    <textarea class="form-control" rows="3" id="description" name="description" placeholder="Description">{{ old('description') }}</textarea>
                                 </div>
                             </div>
 
@@ -55,8 +55,8 @@
                                 <div class="form-group">
                                     <label for="venue_id" class="inline-flex items-center">
                                         <strong>Venue:</strong></label>
-                                    <select id="venue_id" name="venue_id" class="form-control">
-                                        <option value="" disabled selected>  Select Venue  </option>
+                                    <select id="venue_id" name="venue_id" value="{{ old('venue_id') }}" class="form-control">
+                                        <option value="{{ old('venue_id') }}" disabled selected>  Select Venue  </option>
                                         @foreach($venues as $venue)
                                             <option value="{{ $venue->id }}">{{ $venue->name }}</option>
                                         @endforeach
@@ -124,13 +124,13 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="price"><strong>Price:</strong></label>
-                                    <input type="text" id="price" name="price" class="form-control" placeholder="Price">
+                                    <input type="text" id="price" name="price" value="{{ old('price') }}" class="form-control" placeholder="Price">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="reduced_price"><strong>Discount Price:</strong></label>
-                                    <input type="text" id="reduced_price" name="reduced_price" class="form-control" placeholder="Discount Price">
+                                    <input type="text" id="reduced_price" name="reduced_price" value="{{ old('reduced_price') }}"  class="form-control" placeholder="Discount Price">
                                 </div>
                             </div>
 
