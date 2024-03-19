@@ -81,18 +81,25 @@
                                 {{ Carbon\Carbon::parse($event->datetime)->format('g:i a') }}
                             </div>
                         </div>
+
+                        @if(isset($event->price))
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div>
                                 <strong>Price: </strong>£
                                 {{ $event->price }}
                             </div>
                         </div>
+                        @endif
+
+                        @if(isset($event->reduced_price))
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div>
                                 <strong>Discount Price: </strong>£
                                 {{ $event->reduced_price }}
                             </div>
                         </div>
+                        @endif
+
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <a href="{{ route('home.booktickets', $event->id) }}" class="btn btn-primary">Book Tickets</a>
                         </div>
