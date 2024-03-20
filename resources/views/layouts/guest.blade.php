@@ -21,8 +21,9 @@
 
     </head>
     <body>
+{{--    <h1>Test</h1>--}}
         <div class="container">
-{{--            @livewire('navigation-menu')--}}
+            @livewire('navigation-menu')
 {{--        <div class="font-sans text-gray-900 antialiased">--}}
 
             <!-- Page Content -->

@@ -16,7 +16,7 @@
         <div class="card-body">
             @foreach ($artist->artistimages as $artistimage)
             <div class="float-right">
-                <img src="{{ asset('storage/images/artists/'.$artistimage->file_path) }}" alt="Artist Image" height="150px">
+                <img src="{{ asset('storage/images/artists/'.$artistimage->file_path) }}" alt="Artist Image">
                 <div class="caption">
                     <p>{{ $artistimage->name }}</p>
                 </div>

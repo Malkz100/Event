@@ -3,9 +3,6 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h2>{{ $venue->name }} -Venue Details</h2>
-        </div>
-        <div class="card-body">
             <div class="row">
                 <div class="col-lg-12 mt-1 mr-1">
                     <div class="float-right">
@@ -13,6 +10,20 @@
                     </div>
                 </div>
             </div>
+            <h2>{{ $venue->name }} -Venue Details</h2>
+        </div>
+        <div class="card-body">
+
+            @foreach ($venue->venueimages as $venueimage)
+                <div class="float-right">
+                    <img src="{{ asset('storage/images/venues/'.$venueimage->file_path) }}" alt="Venue Image">
+                    <div class="caption">
+                        <p>{{ $venueimage->name }}</p>
+                    </div>
+                </div>
+            @endforeach
+
+
             <div class="row mt-2">
                 <div class="col-lg-12">
                     @if ($message = Session::get('success'))
