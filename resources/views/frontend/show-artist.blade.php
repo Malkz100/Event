@@ -69,7 +69,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Website:</strong>
-                                <a href="https://{{ $artist->website }}">{{ $artist->website }}</a>
+                                <a href="https://{{ $artist->website }}", target="_blank">{{ $artist->website }}</a>
                             </div>
                         </div>
 
