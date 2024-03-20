@@ -16,7 +16,7 @@
 
             @foreach ($venue->venueimages as $venueimage)
                 <div class="float-right">
-                    <img src="{{ asset('storage/images/venues/'.$venueimage->file_path) }}" alt="Venue Image">
+                    <img class="img-rounded" src="{{ asset('storage/images/venues/'.$venueimage->file_path) }}" alt="Venue Image">
                     <div class="caption">
                         <p>{{ $venueimage->name }}</p>
                     </div>

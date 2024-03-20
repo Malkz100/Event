@@ -16,7 +16,7 @@
         <div class="card-body">
             @foreach ($artist->artistimages as $artistimage)
             <div class="float-right">
-                <img src="{{ asset('storage/images/artists/'.$artistimage->file_path) }}" alt="Artist Image">
+                <img class="img-rounded" src="{{ asset('storage/images/artists/'.$artistimage->file_path) }}" alt="Artist Image">
                 <div class="caption">
                     <p>{{ $artistimage->name }}</p>
                 </div>
@@ -60,12 +60,14 @@
                                 {{ $artist->address1 }}
                             </div>
                         </div>
+                        @if(isset($artist->address2))
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Address Line 2:</strong>
                                 {{ $artist->address2 }}
                             </div>
                         </div>
+                        @endif
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>City / Town:</strong>
