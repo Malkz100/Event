@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use App\Models\Home;
+use App\Models\Venue;
 use Illuminate\Foundation\Mix;
 use Illuminate\Http\Request;
 use App\Models\Event;
@@ -109,6 +110,13 @@ class HomeController extends Controller
     {
         return view('frontend.show-artist', [
             'artist' => Artist::findOrFail($id)
+        ]);
+    }
+
+    public function showvenue($id)
+    {
+        return view('frontend.show-venue', [
+            'venue' => Venue::findOrFail($id)
         ]);
     }
 

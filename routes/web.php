@@ -47,9 +47,11 @@ Route::resource('/',HomeController::class)->name('home.index','home');
 Route::resource('home',HomeController::class);
 Route::get('home/showevent/{id}', [HomeController::class, 'showevent'])->name('home.showevent');
 Route::get('home/showartist/{id}', [HomeController::class, 'showartist'])->name('home.showartist');
+Route::get('home/showvenue/{id}', [HomeController::class, 'showvenue'])->name('home.showvenue');
 Route::get('home/booktickets/{id}', [HomeController::class, 'booktickets'])->name('home.booktickets');
 Route::view('/search-events', 'frontend.search-events');
 Route::view('/search-artists', 'frontend.search-artists');
+Route::view('/search-venues', 'frontend.search-venues');
 
 
 
@@ -67,6 +69,7 @@ Route::resource('artistimage', ArtistImageController::class)->middleware(['auth'
 Route::resource('venueimage', VenueImageController::class)->middleware(['auth']);
 Route::view('/event-search', 'event.event-search')->middleware(['auth']);
 Route::view('/artist-search', 'artist.artist-search')->middleware(['auth']);
+Route::view('/venue-search', 'venue.venue-search')->middleware(['auth']);
 Route::view('/customer-lastname-search', 'customer.customer-lastname-search')->middleware(['auth']);
 
 Route::resource('customer',CustomerController::class)->middleware(['auth']);
