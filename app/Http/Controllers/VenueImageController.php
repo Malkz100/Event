@@ -52,7 +52,7 @@ class VenueImageController extends Controller
         if ($request->hasFile('file')) {
 
             $request->validate( [
-                'file' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
+                'file' => 'mimes:jpeg,bmp,png,webp' // Only allow .jpg, .bmp, .png and .WebP file types.
             ] );
 
             // Save the file locally in the storage/public/venues/ folder
@@ -111,7 +111,7 @@ class VenueImageController extends Controller
         $request->validate([
             'venue_id' => 'required',
             'name' => 'required',
-            'file' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
+            'file' => 'mimes:jpeg,bmp,png,webp' // Only allow .jpg, .bmp .png and .webp file types.
         ]);
 
         if ($request->hasFile('file') && $request->file != '') {
