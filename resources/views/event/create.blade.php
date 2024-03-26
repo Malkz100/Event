@@ -81,52 +81,16 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="start_datetime"><strong>Start Date-Time:</strong></label>
-                                    <x-datepicker wire:model="datetime" name="start_datetime" class="form-control bg-white" />
+                                    <x-datepicker wire:model="datetime" name="start_datetime" value="{{ old('start_datetime') }}" class="form-control bg-white" />
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="end_datetime"><strong>End Date-Time:</strong></label>
-                                    <x-datepicker wire:model="datetime" name="end_datetime" class="form-control bg-white" />
+                                    <x-datepicker wire:model="datetime" name="end_datetime" value="{{ old('end_datetime') }}" class="form-control bg-white" />
                                 </div>
                             </div>
-
-
-{{--                            <div class="col-xs-12 col-sm-12 col-md-12">--}}
-{{--                                <div class="form-group">--}}
-{{--                                    <label for="datetime"><strong>Date-Time:</strong></label>--}}
-{{--                                    <x-datetime-picker--}}
-{{--                                        wire:model.defer="datetime"--}}
-{{--                                        label="datetime"--}}
-{{--                                        placeholder="Event Date-Time"--}}
-{{--                                        display-format="DD-MM-YYYY HH:mm"--}}
-{{--                                        parse-format="YYYY-MM-DD HH:mm"--}}
-
-{{--    --}}{{--                                        interval="10"--}}
-{{--    --}}{{--                                        time-format="24"--}}
-{{--    --}}{{--                                        readonly=false--}}
-{{--    --}}{{--                                        disabled=false--}}
-{{--    --}}{{--                                        min=null--}}
-{{--    --}}{{--                                        max=null--}}
-{{--    --}}{{--                                        display-format="localeFormat" 	--}}
-{{--                                        name="datetime" class="form-control bg-white"--}}
-{{--                                    />--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-
-
-{{--                            <div class="col-xs-12 col-sm-12 col-md-12">--}}
-{{--                                <div class="form-group">--}}
-{{--                                    <label><strong>Date-Time:</strong></label>--}}
-{{--                                    <div class='input-group date' id='datetimepicker'>--}}
-{{--                                        <input type='text' name="datetime" class="form-control" />--}}
-{{--                                        <span class="input-group-addon">--}}
-{{--                                            <span class="glyphicon glyphicon-calendar"></span>--}}
-{{--                                            </span>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
