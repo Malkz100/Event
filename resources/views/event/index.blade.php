@@ -36,7 +36,8 @@
                         <th>No</th>
                         <th>Event</th>
                         <th>Venue</th>
-                        <th>Date</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
                         <th>Description</th>
                         <th width="280px">Action</th>
                     </tr>
@@ -45,7 +46,8 @@
                         <td>{{ $event->id }}</td>
                         <td>{{ $event->title }}</td>
                         <td>{{ $event->venue->name }}</td>
-                        <td>{{ Carbon\Carbon::parse($event->datetime)->format('jS F Y') }}</td>
+                        <td>{{ Carbon\Carbon::parse($event->start_datetime)->format('jS F Y') }}</td>
+                        <td>{{ Carbon\Carbon::parse($event->end_datetime)->format('jS F Y') }}</td>
                         <td>{{ Str::limit($event->description, 50) }}</td>
                         <td>
                             <form action="{{ route('event.destroy',$event->id) }}" method="POST">

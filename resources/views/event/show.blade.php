@@ -54,16 +54,18 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Date:</strong>
-                                {{ Carbon\Carbon::parse($event->datetime)->format('l jS \of F Y') }} <strong>  Time:</strong>{{ Carbon\Carbon::parse($event->datetime)->format('g:i a') }}
+                                <strong>Start Date:</strong>
+                                {{ Carbon\Carbon::parse($event->start_datetime)->format('l jS \of F Y') }} <strong>  Time:</strong>{{ Carbon\Carbon::parse($event->start_datetime)->format('g:i a') }}
                             </div>
                         </div>
-{{--                        <div class="col-xs-12 col-sm-12 col-md-12">--}}
-{{--                            <div class="form-group">--}}
-{{--                                <strong>Time:</strong>--}}
-{{--                                {{ Carbon\Carbon::parse($event->datetime)->format('g:i a') }}--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>End Date:</strong>
+                                {{ Carbon\Carbon::parse($event->end_datetime)->format('l jS \of F Y') }} <strong>  Time:</strong>{{ Carbon\Carbon::parse($event->end_datetime)->format('g:i a') }}
+                            </div>
+                        </div>
+
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Price: </strong>

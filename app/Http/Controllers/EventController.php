@@ -46,7 +46,8 @@ class EventController extends Controller
             'title' => 'required',
             'description' => 'required',
             'venue_id' => 'required',
-            'datetime' => 'required',
+            'start_datetime' => 'required',
+            'end_datetime' => 'nullable',
             'price' => 'nullable|numeric|min:0',
             'reduced_price'  => 'nullable|numeric|min:0'
         ]);
@@ -100,7 +101,8 @@ class EventController extends Controller
             'title' => 'required',
             'description' => 'required',
             'venue_id' => 'required',
-            'datetime' => 'required',
+            'start_datetime' => 'required',
+            'end_datetime' => 'nullable',
             'price' => 'nullable|numeric|min:0',
             'reduced_price' => 'nullable|numeric|min:0',
         ]);

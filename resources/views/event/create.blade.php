@@ -80,8 +80,15 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <label for="datetime"><strong>Date-Time:</strong></label>
-                                    <x-datepicker wire:model="datetime" name="datetime" class="form-control bg-white" />
+                                    <label for="start_datetime"><strong>Start Date-Time:</strong></label>
+                                    <x-datepicker wire:model="datetime" name="start_datetime" class="form-control bg-white" />
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label for="end_datetime"><strong>End Date-Time:</strong></label>
+                                    <x-datepicker wire:model="datetime" name="end_datetime" class="form-control bg-white" />
                                 </div>
                             </div>
 

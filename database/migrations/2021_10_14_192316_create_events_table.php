@@ -20,7 +20,8 @@ class CreateEventsTable extends Migration
             $table->foreignId('venue_id')->constrained()
                   ->onUpdate('cascade')
                  ->onDelete('cascade');
-            $table->dateTime('datetime');
+            $table->dateTime('start_datetime');
+            $table->dateTime('end_datetime')->nullable();
             $table->decimal('price', 5, 2)->nullable();
             $table->decimal('reduced_price', 5, 2)->nullable();
 
