@@ -27,11 +27,11 @@
         </div>
 
         <div class="card-body">
-            @foreach ($event->venue->venueimages as $venueimage)
+            @foreach ($event->eventimages as $eventimage)
                 <div class="float-right">
-                    <img src="{{ asset('storage/images/venues/'.$venueimage->file_path) }}" class="img-rounded" alt="Venue Image" height="150px">
+                    <img src="{{ asset('storage/images/events/'.$eventimage->file_path) }}" class="img-rounded" alt="Event Image" height="150px">
                     <div class="caption">
-                        <p>{{ $venueimage->name }}</p>
+                        <p>{{ $eventimage->name }}</p>
                     </div>
                 </div>
             @endforeach
@@ -85,6 +85,7 @@
                         @if(isset($event->end_datetime))
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div>
+                                <p>to</p>
                                 <strong>End Date:</strong>
                                 {{ Carbon\Carbon::parse($event->end_datetime)->format('l jS \of F Y') }}
                             </div>

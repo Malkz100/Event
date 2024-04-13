@@ -29,6 +29,10 @@ class Event extends Model
         'title', 'description', 'venue_id', 'start_datetime', 'end_datetime', 'price', 'reduced_price'
     ];
 
+    public function eventimages()
+    {
+        return $this->hasMany(EventImage::class, 'event_id');
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

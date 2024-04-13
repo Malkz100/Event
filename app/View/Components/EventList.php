@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use Carbon\Carbon;
 use Illuminate\View\Component;
 use App\Models\Event;
 
@@ -26,6 +27,10 @@ class EventList extends Component
      */
     public function render()
     {
-        return view('components.event-list')->with('events', Event::all());
+        return view('components.event-list')
+            ->with('events', Event::where('start_datetime','>=' ,Carbon::now()->format('Y-m-d'))
+                ->orderBy('start_datetime')
+                ->get());
+
     }
 }

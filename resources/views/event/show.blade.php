@@ -12,6 +12,14 @@
         </div>
 
         <div class="card-body">
+            @foreach ($event->eventimages as $eventimage)
+                <div class="float-right">
+                    <img class="img-rounded" src="{{ asset('storage/images/events/'.$eventimage->file_path) }}" alt="Event Image">
+                    <div class="caption">
+                        <p>{{ $eventimage->name }}</p>
+                    </div>
+                </div>
+            @endforeach
             <div class="row mt-2">
                 <div class="col-lg-12">
                     @if ($message = Session::get('success'))

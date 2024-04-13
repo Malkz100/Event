@@ -78,7 +78,7 @@
                                 <strong>{{$artist->name}} is performing at these events: </strong>
                                 <ul>
                                     @foreach($artist->events as $event)
-                                        <li>{{ Carbon\Carbon::parse($event->datetime)->format('l jS \of F Y') }} <a href="{{ route('home.showevent',$event->id) }}">{{ $event->title }}</a></li>
+                                        <li>{{ Carbon\Carbon::parse($event->start_datetime)->format('l jS \of F Y') }} <a href="{{ route('home.showevent',$event->id) }}">{{ $event->title }}</a></li>
                                     @endforeach
                                 </ul>
                             </div>

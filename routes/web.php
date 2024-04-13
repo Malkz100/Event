@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventimageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VenueController;
 use App\Http\Controllers\VenueImageController;
@@ -67,6 +68,7 @@ Route::resource('event',EventController::class)->middleware(['auth']);
 Route::resource('genre',GenreController::class)->middleware(['auth']);
 Route::resource('artistimage', ArtistImageController::class)->middleware(['auth']);
 Route::resource('venueimage', VenueImageController::class)->middleware(['auth']);
+Route::resource('eventimage', EventImageController::class)->middleware(['auth']);
 Route::view('/event-search', 'event.event-search')->middleware(['auth']);
 Route::view('/artist-search', 'artist.artist-search')->middleware(['auth']);
 Route::view('/venue-search', 'venue.venue-search')->middleware(['auth']);
