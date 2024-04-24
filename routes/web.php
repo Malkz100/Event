@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\EventimageController;
+use App\Http\Controllers\EventImageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VenueController;
 use App\Http\Controllers\VenueImageController;

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreEventRequest;
 use App\Models\Event;
 use App\Models\Venue;
 use App\Models\Artist;
@@ -40,17 +41,17 @@ class EventController extends Controller
      * @param Request $request
      * @return mixed
      */
-    public function store(Request $request)
+    public function store(StoreEventRequest $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'venue_id' => 'required',
-            'start_datetime' => 'required',
-            'end_datetime' => 'nullable',
-            'price' => 'nullable|numeric|min:0',
-            'reduced_price'  => 'nullable|numeric|min:0'
-        ]);
+//        $request->validate([
+//            'title' => 'required',
+//            'description' => 'required',
+//            'venue_id' => 'required',
+//            'start_datetime' => 'required',
+//            'end_datetime' => 'nullable',
+//            'price' => 'nullable|numeric|min:0',
+//            'reduced_price'  => 'nullable|numeric|min:0'
+//        ]);
 
         //Create event from blade form
         $event = Event::create($request->all());
@@ -95,18 +96,8 @@ class EventController extends Controller
      * @param Event $event
      * @return mixed
      */
-    public function update(Request $request, Event $event)
+    public function update(StoreEventRequest $request, Event $event)
     {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'venue_id' => 'required',
-            'start_datetime' => 'required',
-            'end_datetime' => 'nullable',
-            'price' => 'nullable|numeric|min:0',
-            'reduced_price' => 'nullable|numeric|min:0',
-        ]);
-
         $event->update($request->all());
 
         //Update 'artist' checkbox array into pivot table

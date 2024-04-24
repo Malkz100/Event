@@ -8,6 +8,7 @@
                 <tr>
                     <th>Title</th>
                     <th>Venue</th>
+                    <th>Date</th>
                 </tr>
                 @foreach($events as $event)
                     <tr>
@@ -16,6 +17,9 @@
                         </td>
                         <td>
                             {{ $event->venue->name }}
+                        </td>
+                        <td>
+                            {{ Carbon\Carbon::parse($event->start_datetime)->format('d-m-Y') }}
                         </td>
                     </tr>
                 @endforeach

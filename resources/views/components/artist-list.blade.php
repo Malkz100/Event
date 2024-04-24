@@ -10,7 +10,7 @@
                 @endforeach
 
                 <div class="card-body">
-                    <h5 class="card-title"><a href="{{ route('home.showartist',$artist->id) }}"> <li> {{ $artist->name }}</li></a></h5>
+                    <h2 class="card-title"><a href="{{ route('home.showartist',$artist->id) }}"> <li> {{ $artist->name }}</li></a></h2>
                     <p class="card-text">{{ $artist->bio }}</p>
                     <p class="card-text">Events {{ $artist->name }} is performing at:
                     <ul class="list-inline">
